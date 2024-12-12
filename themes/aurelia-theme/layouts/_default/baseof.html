@@ -9,7 +9,7 @@
     {{ $aureliaFiles := readDir "static/aurelia2" }}
     {{ range $aureliaFiles }}
       {{ if findRE "main-.*\\.js$" .Name }}
-        <script type="module" src="/aurelia2/{{ .Name }}"></script>
+        <script type="module" src="{{ (printf "aurelia2/%s" .Name) | relURL }}"></script>
       {{ end }}
     {{ end }}
   </head>
@@ -26,6 +26,6 @@
 
     {{ partial "search-panel.html" . }}
 
-    <script src="/js/search.js"></script>
+    <script src="{{ "js/search.js" | relURL }}"></script>
   </body>
 </html>

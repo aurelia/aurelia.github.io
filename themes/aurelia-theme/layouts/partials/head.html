@@ -17,11 +17,11 @@
 <meta name="description" content="Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity."/>
 <meta name="robots" content="index,follow"/>
 
-<link rel="alternate" type="application/rss+xml" title="The official Aurelia blog" href="/blog/index.xml" />
+<link rel="alternate" type="application/rss+xml" title="The official Aurelia blog" href="{{ "blog/index.xml" | relURL }}" />
 
-<link rel="search" href="/index.json" type="application/json">
+<link rel="search" href="{{ "index.json" | relURL }}" type="application/json">
 
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 
-<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="{{ "css/search.css" | relURL }}">

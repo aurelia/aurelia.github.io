@@ -68,7 +68,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "https://aurelia.github.io/website/"
+            --baseURL "${{ steps.pages.outputs.base_url }}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -78,8 +78,7 @@ jobs:
   deploy:
     environment:
       name: production
-      # url: ${{ steps.deployment.outputs.page_url }}
-      url: https://aurelia.github.io/website
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
