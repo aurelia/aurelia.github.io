@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+>
+  <head>
+    {{ partial "head.html" . }} 
+    
+    {{ $aureliaFiles := readDir "static/aurelia2" }}
+    {{ range $aureliaFiles }}
+      {{ if findRE "main-.*\\.js$" .Name }}
+        <script type="module" src="/aurelia2/{{ .Name }}"></script>
+      {{ end }}
+    {{ end }}
+  </head>
+  <body>
+    {{ partial "header.html" . }} {{ partial "sidebar.html" . }}
+
+    <main>
+      <div class="screen-activator">{{ block "main" . }}{{ end }}</div>
+
+      <footer class="content-footer" id="app-footer">
+        {{ partial "footer.html" . }}
+      </footer>
+    </main>
+
+    {{ partial "search-panel.html" . }}
+
+    <script src="/js/search.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+baseURL = 'https://aurelia.io/'
+languageCode = 'en-US'
+title = 'Aurelia'
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 1
+
+[[menus.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 2
+
+[[menu.main]]
+  name = "Support"
+  url = "/support/"
+  weight = 3
+
+[[menu.main]]
+  name = "Learn"
+  url = "/learn/"
+  weight = 4
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
+
+[permalinks]
+  blog = "/blog/:year/:date.2006-01/:day/:slug/"
+
+[params]
+  paginate = 7

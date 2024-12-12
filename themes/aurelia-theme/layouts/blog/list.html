@@ -1,0 +1,44 @@
+{{ define "main" }}
+  <section class="article-group blog">
+    <div class="carousel slide">
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item">
+          <h2>The Aurelia Blog</h2>
+          <p>The official blog of the Aurelia project and Core Team.</p>
+          {{ with .Site.RegularPages.ByDate.Reverse | first 1 }}
+            {{ range . }}
+              <a href="{{ .RelPermalink }}">Read the Latest ￫</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  
+    <section>
+      <ul class="article-list">
+        {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") 7 }}
+        {{ range $paginator.Pages }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            <h3>{{ .Title }}</h3>
+            <p class="group-item-count">
+              Posted by <span class="author">{{ .Params.author }}</span> on 
+              <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+            </p>
+            <p>{{ .Description | default .Summary }}</p>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+  
+    <div class="button-bar">
+      {{ if $paginator.HasPrev }}
+        <a class="prev" href="{{ $paginator.Prev.URL }}">Newer Posts</a>
+      {{ end }}
+      {{ if $paginator.HasNext }}
+        <a class="next" href="{{ $paginator.Next.URL }}">Older Posts</a>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

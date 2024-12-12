@@ -1,0 +1,15 @@
+:host {
+    --primary-color: #ED2B87;
+    border: 1px solid #EEE;
+    display: block;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}

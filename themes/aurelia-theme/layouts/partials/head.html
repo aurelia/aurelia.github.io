@@ -1,0 +1,28 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38441871-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:200,400,700" rel="stylesheet">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+<base href="/">
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+<meta name="description" content="Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity."/>
+<meta name="robots" content="index,follow"/>
+
+<link rel="alternate" type="application/rss+xml" title="The official Aurelia blog" href="/blog/index.xml" />
+
+<link rel="search" href="/index.json" type="application/json">
+
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
+
+<link rel="stylesheet" href="/css/search.css">

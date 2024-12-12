@@ -1,0 +1,7 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Aurelia'
+theme='aurelia-theme'
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
