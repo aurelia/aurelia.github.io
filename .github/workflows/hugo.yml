@@ -48,6 +48,21 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      
+      # New steps for Aurelia 2 build
+      - name: Clean Aurelia 2 directory
+        run: |
+          rm -rf public/aurelia2
+          rm -rf static/aurelia2
+      - name: Build Aurelia 2 website
+        run: |
+          cd aurelia2
+          npm install
+          npm run build
+          mkdir -p ../static/aurelia2
+          cp -r dist/* ../static/aurelia2/
+          
+      # Continue with Hugo build
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
