@@ -57,7 +57,7 @@ jobs:
       - name: Build Aurelia 2 website
         run: |
           cd aurelia-apps
-          npm ci
+          npm install
           npm run build
           
       # Continue with Hugo build
