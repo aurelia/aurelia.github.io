@@ -18,9 +18,15 @@
           {{ end }}
         {{ end }}
         <li class="{{ .icon }}{{ if $isActive }} active{{ end }}">
-          <a href="{{ .link }}" target="{{ .target | default "_self" }}">
-            {{ partial "menu-item.html" . }}
-          </a>
+          {{ if .target }}
+            <a href="{{ .link }}" target="{{ .target }}">
+              {{ partial "menu-item.html" . }}
+            </a>
+          {{ else }}
+            <a href="{{ .link | relURL }}">
+              {{ partial "menu-item.html" . }}
+            </a>
+          {{ end }}
         </li>
       {{ end }}
     </ul>
