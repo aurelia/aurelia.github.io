@@ -1,23 +1,29 @@
 {{ define "main" }}
   <section class="examples-content">
     <h1>{{ .Title }}</h1>
-    <div>
-      {{ .Content }}
-    </div>
+    <article>
+      <div>
+        {{ .Content }}
+      </div>
 
-    <div class="examples-grid">
-      <article>
-        <h2>Counter</h2>
-        <div data-aurelia-app="counter"></div>
-      </article>
-      <article>
-        <h2>Particle System</h2>
-        <div data-aurelia-app="particle-system"></div>
-      </article>
-      <article>
-        <h2>Real-time Clock</h2>
-        <div data-aurelia-app="real-time-clock"></div>
-      </article>
-    </div>
+      <div class="examples-grid">
+        <article>
+          <h2>Counter</h2>
+          <div data-aurelia-app="counter"></div>
+        </article>
+        <article>
+          <h2>Particle System</h2>
+          <div data-aurelia-app="particle-system"></div>
+        </article>
+        <article>
+          <h2>Real-time Clock</h2>
+          <div data-aurelia-app="real-time-clock"></div>
+        </article>
+        <article>
+          <h2>Reactive Grid</h2>
+          <div data-aurelia-app="reactive-grid"></div>
+        </article>
+      </div>
+    </article>
   </section>
 {{ end }}

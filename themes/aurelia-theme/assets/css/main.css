@@ -1629,7 +1629,7 @@ section.not-found.article {
   .contact button:active, .contact button:hover {
     background-color: #ed2b88; }
 
-section.examples-content {
+section.examples-content > article {
   margin: 32px 48px;
 }
 
@@ -1639,14 +1639,13 @@ section.examples-content h1 {
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
   font-size: 42px;
   font-weight: bold;
-  padding: 16px 48px;
-  margin: -32px -48px 32px -48px;
+  padding: 16px 0 16px 48px;
   background: linear-gradient(135deg, #6d50a2 0%, #ed2b88 100%);
 }
 
 .examples-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   margin-top: 32px;
 }
@@ -1684,10 +1683,10 @@ section.examples-content h1 {
   
   section.examples-content h1 {
     padding: 16px 24px;
-    margin: -32px -24px 32px -24px;
   }
   
   .examples-grid {
     grid-template-columns: 1fr;
   }
 }
+
