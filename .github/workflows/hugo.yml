@@ -56,11 +56,9 @@ jobs:
           rm -rf static/aurelia2
       - name: Build Aurelia 2 website
         run: |
-          cd aurelia2
-          npm install
+          cd aurelia-apps
+          npm ci
           npm run build
-          mkdir -p ../static/aurelia2
-          cp -r dist/* ../static/aurelia2/
           
       # Continue with Hugo build
       - name: Build with Hugo
