@@ -55,12 +55,18 @@ sponsors:
     - name: "Hogia"
       url: "https://www.hogia.com/"
       logo: "sponsors/hogia.svg"
+      alt: "Hogia"
+      width: 517
+      height: 128
       
   silver:
     - name: "Movavi - Screen Recorder"
       url: "https://www.movavi.com/screen-recorder"
       logo: "sponsors/movavi-screen-recorder.svg"
-      
+      alt: "Movavi - Screen Recorder"
+      width: 553
+      height: 128
+
   bronze_iframe: "https://opencollective.com/aurelia/tiers/bronze.svg?avatarHeight=64&button=false&width=1024"
   wood_iframe: "https://opencollective.com/aurelia/tiers/wood.svg?avatarHeight=32&button=false&width=512"
   
