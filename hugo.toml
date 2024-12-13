@@ -1,4 +1,4 @@
-baseURL = 'https:/aurelia.io/website'
+baseURL = 'https://aurelia.io/website/'
 languageCode = 'en-us'
 title = 'Aurelia'
 theme='aurelia-theme'
