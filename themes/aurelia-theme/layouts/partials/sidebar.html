@@ -1,6 +1,7 @@
 <nav>
     <ul>
       {{ $currentPage := . }}
+      {{ $prefix := "/website" }}
       {{ range .Site.Data.sidebar.menu }}
         {{ $menuItem := . }}
         {{ $isActive := false }}
@@ -12,9 +13,9 @@
           {{ else if eq .icon "blog" }}
             {{ $isActive = eq $currentPage.Section "blog" }}
           {{ else if eq .icon "help" }}
-            {{ $isActive = eq $currentPage.RelPermalink "/support/" }}
+            {{ $isActive = eq $currentPage.RelPermalink (printf "%s/support/" $prefix) }}
           {{ else if eq .icon "learn" }}
-            {{ $isActive = eq $currentPage.RelPermalink "/learn/" }}
+            {{ $isActive = eq $currentPage.RelPermalink (printf "%s/learn/" $prefix) }}
           {{ end }}
         {{ end }}
         <li class="{{ .icon }}{{ if $isActive }} active{{ end }}">
@@ -23,7 +24,11 @@
               {{ partial "menu-item.html" . }}
             </a>
           {{ else }}
-            <a href="{{ .link | relURL }}">
+            {{ $link := .link }}
+            {{ if not (hasPrefix .link "http") }}
+              {{ $link = printf "%s%s" $prefix .link }}
+            {{ end }}
+            <a href="{{ $link }}">
               {{ partial "menu-item.html" . }}
             </a>
           {{ end }}
