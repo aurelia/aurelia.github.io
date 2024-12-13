@@ -1,29 +1,51 @@
 {{ define "main" }}
-  <section class="examples-content">
-    <h1>{{ .Title }}</h1>
-    <article>
-      <div>
-        {{ .Content }}
-      </div>
+<!-- Examples Header -->
+<section class="relative py-24 bg-gradient-to-b from-white to-gray-50">
+  <!-- Decorative Background -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia-light/5 to-purple-500/5 rounded-full blur-3xl"></div>
+  </div>
 
-      <div class="examples-grid">
-        <article>
-          <h2>Counter</h2>
-          <div data-aurelia-app="counter"></div>
-        </article>
-        <article>
-          <h2>Particle System</h2>
-          <div data-aurelia-app="particle-system"></div>
-        </article>
-        <article>
-          <h2>Real-time Clock</h2>
-          <div data-aurelia-app="real-time-clock"></div>
-        </article>
-        <article>
-          <h2>Reactive Grid</h2>
-          <div data-aurelia-app="reactive-grid"></div>
-        </article>
-      </div>
-    </article>
-  </section>
+  <!-- Header Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
+      {{ .Title }}
+    </h1>
+    <div class="prose prose-lg max-w-none text-gray-600">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+
+<!-- Examples Grid -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Counter -->
+      <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Counter</h2>
+        <div data-aurelia-app="counter" class="bg-gray-50 rounded-xl p-6"></div>
+      </article>
+
+      <!-- Particle System -->
+      <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Particle System</h2>
+        <div data-aurelia-app="particle-system" class="bg-gray-50 rounded-xl p-6"></div>
+      </article>
+
+      <!-- Real-time Clock -->
+      <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Real-time Clock</h2>
+        <div data-aurelia-app="real-time-clock" class="bg-gray-50 rounded-xl p-6"></div>
+      </article>
+
+      <!-- Reactive Grid -->
+      <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Reactive Grid</h2>
+        <div data-aurelia-app="reactive-grid" class="bg-gray-50 rounded-xl p-6"></div>
+      </article>
+    </div>
+  </div>
+</section>
 {{ end }}

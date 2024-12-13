@@ -1,6 +1,7 @@
 :host {
     --primary-color: #ED2B87;
     border: 1px solid #EEE;
+    color: #000;
     display: block;
     padding: 1rem;
     border-radius: 0.5rem;
