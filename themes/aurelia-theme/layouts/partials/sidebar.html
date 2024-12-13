@@ -1,7 +1,7 @@
 <nav>
     <ul>
       {{ $currentPage := . }}
-      {{ $prefix := "/website" }}
+      {{ $prefix := .Site.Params.pathPrefix }}
       {{ range .Site.Data.sidebar.menu }}
         {{ $menuItem := . }}
         {{ $isActive := false }}

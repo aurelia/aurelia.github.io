@@ -1,0 +1,10 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Aurelia"
+theme = "aurelia-theme"
+
+[params]
+  pathPrefix = ""
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"] 

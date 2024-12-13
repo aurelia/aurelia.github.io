@@ -1,0 +1,4 @@
+baseURL = "https://aurelia.io/website/"
+
+[params]
+  pathPrefix = "/website" 
