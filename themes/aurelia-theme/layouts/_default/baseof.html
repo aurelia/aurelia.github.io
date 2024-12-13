@@ -27,5 +27,13 @@
     {{ partial "search-panel.html" . }}
 
     <script src="{{ "js/search.js" | relURL }}"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-38441871-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
   </body>
 </html>
