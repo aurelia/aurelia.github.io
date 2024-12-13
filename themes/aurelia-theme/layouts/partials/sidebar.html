@@ -23,7 +23,7 @@
               {{ partial "menu-item.html" . }}
             </a>
           {{ else }}
-            <a href="{{ .link | relURL }}">
+            <a href="{{ .link | absURL }}">
               {{ partial "menu-item.html" . }}
             </a>
           {{ end }}
