@@ -19,8 +19,6 @@ The first thing you’ll notice is the design overhaul. We didn’t just slap on
 - **Simplified navigation:** We’ve restructured everything so you can find what you’re looking for without a scavenger hunt.
 - **Mobile-first:** Because we know you’re not always at your desk, the site now looks and works beautifully on any device.
 
-And on the backend? There is no backend. The new site is built on a static site generator, which means we can publish content faster and more easily. We've also integrated Aurelia 2 into the site, which means we can showcase the latest and greatest features of the framework right here without having to worry about embeds.
-
 ## Content is Back: Regular Blog Updates
 
 Let’s address the elephant in the room: the blog has been quiet. Too quiet. That changes now. With the new site, we’re committing to **frequent, meaningful updates**. Expect content like:
