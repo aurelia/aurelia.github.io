@@ -1,7 +1,8 @@
 {
     "pages": [
-        {{- range $index, $page := .Site.RegularPages -}}
-        {{- if $index -}}, {{- end }}
+        {{- $pages := .Site.RegularPages -}}
+        {{- $len := len $pages -}}
+        {{- range $index, $page := $pages -}}
         {
             "title": {{ $page.Title | jsonify }},
             "content": {{ $page.Plain | jsonify }},
@@ -9,7 +10,7 @@
             "summary": {{ $page.Summary | jsonify }},
             "type": {{ $page.Type | jsonify }},
             "section": {{ $page.Section | jsonify }}
-        }
+        }{{- if not (eq (add $index 1) $len) -}},{{- end -}}
         {{- end -}}
     ]
 } 
