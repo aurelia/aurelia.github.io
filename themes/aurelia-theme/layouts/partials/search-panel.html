@@ -1,18 +1,62 @@
-<div id="search-panel" class="search-panel" style="display: none;">
-    <div class="search-box">
-        <header>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-                <path d="M9,18c2.131,0,4.089-0.749,5.633-1.992l7.658,7.697c0.389,0.392,1.021,0.393,1.414,0.003
-                c0.392-0.39,0.393-1.023,0.004-1.414l-7.668-7.706C17.264,13.052,18,11.111,18,9c0-4.963-4.037-9-9-9S0,4.037,0,9
-                C0,13.962,4.037,18,9,18z M9,2c3.859,0,7,3.14,7,7c0,3.859-3.141,7-7,7c-3.86,0-7-3.141-7-7C2,5.14,5.14,2,9,2z"></path>
-            </svg>
-            <input type="text" id="search-input" placeholder="Search the site">
-            <a href="#" id="search-close" class="close">×</a>
-        </header>
-    </div>
-    <div id="search-results" class="search-results">
-        <div class="search-empty">
-            <p>Quickly search through articles and guides.</p>
+<div id="search-panel" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" style="display: none;">
+    <div class="min-h-screen px-4 text-center">
+        <!-- This element is to trick the browser into centering the modal contents. -->
+        <span class="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
+
+        <div class="inline-block w-full max-w-2xl p-6 my-8 text-left align-middle transition-all transform bg-white shadow-2xl rounded-2xl">
+            <!-- Search Header -->
+            <div class="relative mb-6">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+                <input type="text" 
+                    id="search-input" 
+                    class="w-full pl-12 pr-12 py-3 text-gray-900 bg-gray-50 rounded-lg border border-gray-200 focus:border-aurelia focus:ring-2 focus:ring-aurelia/20 focus:outline-none transition-colors" 
+                    placeholder="Search articles and guides...">
+                <button id="search-close" 
+                    class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Search Results -->
+            <div id="search-results" class="overflow-y-auto max-h-[60vh] text-black">
+                <!-- Empty State -->
+                <div class="search-empty text-center py-12">
+                    <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+                    </svg>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Start Searching</h3>
+                    <p class="text-gray-600">Type to search through articles and guides</p>
+                </div>
+
+                <!-- Results will be dynamically inserted here -->
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <div class="mt-6 pt-6 border-t border-gray-100">
+                <div class="flex items-center justify-center gap-4 text-sm text-gray-500">
+                    <span class="flex items-center gap-1">
+                        <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg">↑</kbd>
+                        <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg">↓</kbd>
+                        to navigate
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg">Enter</kbd>
+                        to select
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg">Esc</kbd>
+                        to close
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

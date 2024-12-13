@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./themes/aurelia-theme/layouts/**/*.html",
     "./themes/aurelia-theme/assets/js/**/*.js",
+    "./themes/aurelia-theme/static/**/*.js",
     "./content/**/*.md",
     "./content/**/*.html"
   ],
