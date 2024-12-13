@@ -1,136 +1,195 @@
 {{ define "main" }}
 
-<section class="home-screen">
-  <div class="hero">
-    <div class="left">
-      <img class="logo-icon" src="{{ "aurelia-icon.svg" | relURL }}" alt="Aurelia" width="150" height="150" fetchpriority="high" loading="lazy" />
-    </div>
-
-    <div class="right">
-      <h2 class="aurelia">{{ .Title }}</h2>
-      <h1>
-        {{ range $index, $line := .Params.tagline }}
-          {{ $line }}<br />
-        {{ end }}
-      </h1>
-      <p>
-        <a class="start" href="{{ .Params.hero_cta_link }}">{{ .Params.hero_cta }}</a>
-        <a class="github" href="{{ .Params.github_link }}" target="_blank" style="background: #1e1e1e; color: white">
-          <svg aria-labelledby="simpleicons-github-dark-icon" lang="" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <title id="simpleicons-github-icon" lang="en">GitHub Dark icon</title>
-            <path fill="white" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
-          </svg>
-          GITHUB
-        </a>
-      </p>
-    </div>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- Gradient Orb -->
+    <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/30 to-aurelia-light/30 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia-light/20 to-purple-500/20 rounded-full blur-3xl animate-float-delayed"></div>
+    
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(237,43,136,0.07)_1px,transparent_1px),linear-gradient(to_right,rgba(237,43,136,0.07)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
   </div>
 
-  <section class="feature-zone" content-visibility="auto">
-    <div class="feature-header">
-      <h1>{{ .Params.why_aurelia_title }}</h1>
-      <h2>{{ .Params.why_aurelia_subtitle }}</h2>
+  <!-- Hero Content -->
+  <div class="relative z-10 flex items-center justify-center gap-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Logo with Glow -->
+    <div class="flex-shrink-0 hidden md:block relative group">
+      <div class="absolute inset-0 bg-aurelia/20 rounded-full blur-xl scale-150 group-hover:bg-aurelia/30 transition-all duration-300"></div>
+      <img class="relative w-40 h-40 transform group-hover:scale-105 transition-transform duration-300" 
+           src="{{ "aurelia-icon.svg" | relURL }}" 
+           alt="Aurelia" 
+           width="160" 
+           height="160" 
+           fetchpriority="high" />
     </div>
 
-    <div class="features">
-      {{ range .Params.features }}
-      <div class="feature">
-        <div class="feature-icon"></div>
-        <div class="feature-detail">
-          <h3 class="feature-name">{{ .name }}</h3>
-          <p class="feature-description">{{ .description }}</p>
-        </div>
+    <div class="text-center md:text-left max-w-2xl">
+      <!-- Tagline with enhanced typography -->
+      <h1 class="text-4xl sm:text-6xl font-bold mb-6">
+        {{ range $index, $line := .Params.tagline }}
+          <span class="block bg-gradient-to-r from-aurelia via-aurelia-light to-purple-500 bg-clip-text text-transparent
+                     animate-gradient-x hover:animate-gradient-x-fast transition-all duration-300">
+            {{ $line }}
+          </span>
+        {{ end }}
+      </h1>
+
+      <!-- CTA Buttons with enhanced design -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <a href="{{ .Params.hero_cta_link }}" 
+           class="group inline-flex items-center justify-center px-8 py-3 rounded-full text-white bg-gradient-to-r from-aurelia to-aurelia-light hover:opacity-90 transform hover:-translate-y-0.5 transition-all shadow-lg shadow-aurelia/20 hover:shadow-aurelia/30">
+          <span class="relative">
+            {{ .Params.hero_cta }}
+            <span class="absolute bottom-0 left-0 w-full h-[2px] bg-white/40 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+          </span>
+        </a>
+        
+        <a href="{{ .Params.github_link }}" 
+           target="_blank"
+           class="group inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold border-2 border-aurelia text-aurelia hover:bg-aurelia/5 transform hover:-translate-y-0.5 transition-all gap-2">
+          <svg class="w-5 h-5 transform group-hover:rotate-12 transition-transform" aria-labelledby="simpleicons-github-dark-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <title id="simpleicons-github-icon">GitHub Dark icon</title>
+            <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+          </svg>
+          <span class="relative">
+            GITHUB
+            <span class="absolute bottom-0 left-0 w-full h-[2px] bg-aurelia/40 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+          </span>
+        </a>
       </div>
-      {{ end }}
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="feature-zone article-group-root sandbox-zone">
-    <div class="feature-header">
-      <h1>See It in Action</h1>
-      <h2>The simplicity, power, and unobtrusiveness of Aurelia on display.</h2>
+<!-- Features Section -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1 rounded-full bg-aurelia/10 text-aurelia text-sm font-medium mb-4">
+        Why Choose Aurelia
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
+        {{ .Params.why_aurelia_title }}
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">{{ .Params.why_aurelia_subtitle }}</p>
     </div>
 
-    <div class="groups">
-      {{ range .Params.examples }}
-      <div class="group">
-        <div class="group-summary">
-          <div class="group-header">
-            <h2 class="group-name">{{ .name }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range $index, $feature := .Params.features }}
+      <div class="group relative p-8 rounded-2xl bg-gradient-to-b from-white to-gray-50 border border-gray-200 hover:border-aurelia/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-aurelia/5">
+        <!-- Decorative corner accent -->
+        <div class="absolute top-0 right-0 w-20 h-20 overflow-hidden">
+          <div class="absolute transform rotate-45 bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 w-[141%] h-8 -top-10 -right-10"></div>
+        </div>
+        
+        <!-- Feature content -->
+        <div class="relative">
+          <div class="text-4xl mb-6 text-aurelia">
+            <div class="p-3 inline-flex rounded-xl bg-aurelia/10 group-hover:bg-aurelia/20 transition-colors duration-300">
+              <div class="feature-icon"></div>
+            </div>
           </div>
-          <p class="group-description">{{ .description }}</p>
-          {{ if .tutorial_link }}
-          <a class="group-learn" href="{{ .tutorial_link }}">Read the Todo App Tutorial ￫</a>
-          {{ end }}
-        </div>
-        <div class="group-details">
-          <iframe
-            src="{{ .sandbox_url }}?autoresize=1&hidenavigation=1&module=/src/app.js,/src/app.html&editorsize=60&codemirror=1"
-            style="width:100%;height:500px;border:0;border-radius:4px;border:2px solid rgb(36, 40, 42);overflow:hidden;"
-            title="{{ .name }}"
-            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
-          </iframe>
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 group-hover:text-aurelia transition-colors duration-300">
+            {{ .name }}
+          </h3>
+          <p class="text-gray-600 leading-relaxed">{{ .description }}</p>
+          
+          <!-- Hover arrow -->
+          <div class="mt-6 flex items-center text-aurelia font-medium opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-2 transition-all duration-300">
+            Learn more
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
         </div>
       </div>
       {{ end }}
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="feature-zone">
-    <div class="feature-header">
-      <h1>{{ .Params.sponsors.title }}</h1>
-      <h2>{{ .Params.sponsors.subtitle }}</h2>
+<!-- Sponsors Section -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
+        {{ .Params.sponsors.title }}
+      </h2>
+      <p class="text-xl text-gray-400">{{ .Params.sponsors.subtitle }}</p>
     </div>
 
-    <div class="feature-header" style="border-bottom: none; margin-bottom: 0; margin-top: 48px">
-      <h2>Gold Sponsors</h2>
+    <!-- Gold Sponsors -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold text-center mb-8 text-orange-300">Gold Sponsors</h3>
+      <div class="flex flex-wrap justify-center gap-8">
+        {{ range .Params.sponsors.gold }}
+        <a href="{{ .url }}" 
+           title="{{ .name }}"
+           class="transition-transform hover:-translate-y-1">
+          <img src="{{ .logo | relURL }}" 
+               alt="{{ .alt }}" 
+               style="height: 128px"
+               width="{{ .width }}" 
+               height="{{ .height }}" 
+               loading="lazy" />
+        </a>
+        {{ end }}
+      </div>
     </div>
 
-    <div class="features" style="justify-content: center">
-      {{ range .Params.sponsors.gold }}
-      <a href="{{ .url }}" title="{{ .name }}" style="margin: 12px">
-        <img src="{{ .logo | relURL }}" alt="{{ .alt }}" style="height: 128px" width="{{ .width }}" height="{{ .height }}" loading="lazy" />
+    <!-- Silver Sponsors -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold text-center mb-8 text-gray-400">Silver Sponsors</h3>
+      <div class="flex flex-wrap justify-center gap-8">
+        {{ range .Params.sponsors.silver }}
+        <a href="{{ .url }}" 
+           title="{{ .name }}"
+           class="transition-transform hover:-translate-y-1">
+          <img src="{{ .logo | relURL }}" 
+               alt="{{ .alt }}" 
+               style="height: 128px"
+               width="{{ .width }}" 
+               height="{{ .height }}" 
+               loading="lazy" />
+        </a>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Bronze Sponsors -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold text-center mb-8 text-orange-700">Bronze Sponsors</h3>
+      <div class="flex justify-center">
+        <iframe
+          class="w-full max-w-[1024px] h-64 border-0"
+          src="{{ .Params.sponsors.bronze_iframe }}"
+          title="Bronze Sponsors">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Wood Sponsors -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold text-center mb-8 text-amber-800">Wood Sponsors</h3>
+      <div class="flex justify-center">
+        <img 
+          src="{{ .Params.sponsors.wood_iframe }}" 
+          loading="lazy" 
+          title="Wood Sponsors"
+          class="max-w-full" />
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="flex justify-center mt-12">
+      <a href="{{ .Params.sponsors.cta.url }}" 
+         class="inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold bg-gradient-to-r from-aurelia to-aurelia-light text-white hover:opacity-90 transform hover:-translate-y-0.5 transition-all">
+        {{ .Params.sponsors.cta.text }}
       </a>
-      {{ end }}
     </div>
-
-    <div class="feature-header" style="border-bottom: none; margin-bottom: 0; margin-top: 48px">
-      <h2>Silver Sponsors</h2>
-    </div>
-
-    <div class="features" style="justify-content: center">
-      {{ range .Params.sponsors.silver }}
-      <a href="{{ .url }}" title="{{ .name }}" style="margin: 12px">
-        <img src="{{ .logo | relURL }}" alt="{{ .alt }}" style="height: 128px" width="{{ .width }}" height="{{ .height }}" loading="lazy" />
-      </a>
-      {{ end }}
-    </div>
-
-    <div class="feature-header" style="border-bottom: none; margin-bottom: 0; margin-top: 48px">
-      <h2>Bronze Sponsors</h2>
-    </div>
-
-    <div class="features" style="justify-content: center">
-      <iframe
-        frameborder="0"
-        style="margin: 0; padding: 0; border: none; width: 1024px; height: 256px;"
-        src="{{ .Params.sponsors.bronze_iframe }}"
-        title="Bronze Sponsors"
-      ></iframe>
-    </div>
-
-    <div class="feature-header" style="border-bottom: none; margin-bottom: 0; margin-top: 48px">
-      <h2>Wood Sponsors</h2>
-    </div>
-
-    <div class="features" style="justify-content: center">
-      <img src="{{ .Params.sponsors.wood_iframe }}" loading="lazy" title="Wood Sponsors" />
-    </div>
-
-    <div class="features" style="justify-content: center">
-      <a class="become-a-sponsor" href="{{ .Params.sponsors.cta.url }}">{{ .Params.sponsors.cta.text }}</a>
-    </div>
-  </section>
+  </div>
 </section>
 
 {{ end }}

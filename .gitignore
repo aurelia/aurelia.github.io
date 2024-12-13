@@ -133,3 +133,5 @@ dist
 
 public/
 static/aurelia2/
+
+themes/aurelia-theme/static/css/style.css

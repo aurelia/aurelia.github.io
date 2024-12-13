@@ -19,4 +19,4 @@ menu:
   - name: "Learn"
     link: "/learn"
     icon: "learn"
-    active: "eq .RelPermalink '/learn/'" 
+    active: "eq .RelPermalink '/learn/'"

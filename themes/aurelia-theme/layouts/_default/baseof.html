@@ -6,6 +6,8 @@
   <head>
     {{ partial "head.html" . }} 
     
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    
     {{ $aureliaFiles := readDir "static/aurelia2" }}
     {{ range $aureliaFiles }}
       {{ if findRE "main-.*\\.js$" .Name }}
@@ -13,16 +15,14 @@
       {{ end }}
     {{ end }}
   </head>
-  <body>
-    {{ partial "header.html" . }} {{ partial "sidebar.html" . }}
+  <body class="bg-gray-950 text-white">
+    {{ partial "header.html" . }}
 
-    <main>
-      <div class="screen-activator">{{ block "main" . }}{{ end }}</div>
+    {{ block "main" . }}{{ end }}
 
-      <footer class="content-footer" id="app-footer">
-        {{ partial "footer.html" . }}
-      </footer>
-    </main>
+    <footer class="content-footer" id="app-footer">
+      {{ partial "footer.html" . }}
+    </footer>
 
     {{ partial "search-panel.html" . }}
 

@@ -1,44 +1,122 @@
 {{ define "main" }}
-  <section class="article-group blog">
-    <div class="carousel slide">
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item">
-          <h2>The Aurelia Blog</h2>
-          <p>The official blog of the Aurelia project and Core Team.</p>
-          {{ with .Site.RegularPages.ByDate.Reverse | first 1 }}
-            {{ range . }}
-              <a href="{{ .RelPermalink }}">Read the Latest ￫</a>
-            {{ end }}
-          {{ end }}
+<!-- Blog Header Section -->
+<section class="relative py-24 bg-gradient-to-b from-white to-gray-50">
+  <!-- Decorative Background -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia-light/5 to-purple-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Header Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="inline-block px-4 py-1 rounded-full bg-aurelia/10 text-aurelia text-sm font-medium mb-4">
+      Blog
+    </span>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
+      The Aurelia Blog
+    </h1>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+      The official blog of the Aurelia project and Core Team
+    </p>
+    {{ with .Site.RegularPages.ByDate.Reverse | first 1 }}
+      {{ range . }}
+        <a href="{{ .RelPermalink }}" 
+           class="inline-flex items-center justify-center px-8 py-3 rounded-full text-white bg-gradient-to-r from-aurelia to-aurelia-light hover:opacity-90 transform hover:-translate-y-0.5 transition-all shadow-lg shadow-aurelia/20 hover:shadow-aurelia/30">
+          Read the Latest
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>
+
+<!-- Blog Posts List -->
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Featured Post -->
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") 7 }}
+    {{ with index $paginator.Pages 0 }}
+    <article class="mb-16">
+      <a href="{{ .RelPermalink }}" class="group block relative p-8 rounded-2xl bg-gradient-to-b from-gray-50 to-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+        <!-- Decorative Elements -->
+        <div class="absolute inset-0 overflow-hidden rounded-2xl">
+          <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-aurelia/5 to-aurelia-light/5 rounded-full blur-2xl transform -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-gradient-to-tr from-purple-500/5 to-aurelia/5 rounded-full blur-2xl transform translate-y-1/2 -translate-x-1/2"></div>
         </div>
-      </div>
+        
+        <div class="relative">
+          <div class="flex items-center gap-4 text-sm mb-4">
+            <span class="px-3 py-1 rounded-full bg-aurelia/10 text-aurelia font-medium">Featured Post</span>
+            <span class="text-gray-600">{{ .Date.Format "January 2, 2006" }}</span>
+          </div>
+          <h2 class="text-3xl font-bold mb-4 text-gray-900 group-hover:text-aurelia transition-colors duration-300">
+            {{ .Title }}
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-6 line-clamp-3">{{ .Description | default .Summary }}</p>
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center text-aurelia font-medium group-hover:translate-x-2 transition-transform duration-300">
+              Read post
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- Post Grid -->
+    <div class="grid gap-8">
+      {{ range after 1 $paginator.Pages }}
+      <article>
+        <a href="{{ .RelPermalink }}" class="group block p-6 rounded-xl hover:bg-gray-50 transition-colors duration-300">
+          <div class="flex justify-between items-start gap-6">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-3 text-sm text-gray-600 mb-2">
+                <span>{{ .Date.Format "January 2, 2006" }}</span>
+              </div>
+              <h2 class="text-xl font-bold text-gray-900 group-hover:text-aurelia transition-colors duration-300 mb-2">
+                {{ .Title }}
+              </h2>
+              <p class="text-gray-600 text-sm leading-relaxed line-clamp-2">
+                {{ .Description | default .Summary }}
+              </p>
+            </div>
+            <div class="text-aurelia transform group-hover:translate-x-2 transition-transform duration-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </article>
+      {{ end }}
     </div>
-  
-    <section>
-      <ul class="article-list">
-        {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") 7 }}
-        {{ range $paginator.Pages }}
-        <li>
-          <a href="{{ .RelPermalink }}">
-            <h3>{{ .Title }}</h3>
-            <p class="group-item-count">
-              Posted by <span class="author">{{ .Params.author }}</span> on 
-              <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
-            </p>
-            <p>{{ .Description | default .Summary }}</p>
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </section>
-  
-    <div class="button-bar">
+    {{ end }}
+
+    <!-- Pagination -->
+    {{ if or $paginator.HasPrev $paginator.HasNext }}
+    <div class="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
       {{ if $paginator.HasPrev }}
-        <a class="prev" href="{{ $paginator.Prev.URL }}">Newer Posts</a>
+      <a href="{{ $paginator.Prev.URL }}" class="inline-flex items-center px-6 py-2 rounded-full border-2 border-aurelia text-aurelia hover:bg-aurelia/5 transition-colors">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Newer Posts
+      </a>
       {{ end }}
       {{ if $paginator.HasNext }}
-        <a class="next" href="{{ $paginator.Next.URL }}">Older Posts</a>
+      <a href="{{ $paginator.Next.URL }}" class="inline-flex items-center px-6 py-2 rounded-full border-2 border-aurelia text-aurelia hover:bg-aurelia/5 transition-colors ml-auto">
+        Older Posts
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
       {{ end }}
     </div>
-  </section>
+    {{ end }}
+  </div>
+</section>
 {{ end }}

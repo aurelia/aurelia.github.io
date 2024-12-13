@@ -1,16 +1,31 @@
-<div class="links">
-    {{ range .Site.Data.footer.columns }}
-    <div class="link-column">
-        <h4>{{ .title }}</h4>
-        <ul>
-            {{ range .links }}
-            <li><a href="{{ .link }}" target="{{ .target | default "_self" }}">{{ .name }}</a></li>
+<footer class="bg-gray-950 border-t border-gray-800 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Links Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            {{ range .Site.Data.footer.columns }}
+            <div class="link-column">
+                <h4 class="text-aurelia font-semibold mb-4">{{ .title }}</h4>
+                <ul class="space-y-2">
+                    {{ range .links }}
+                    <li>
+                        <a href="{{ .link }}" 
+                           target="{{ .target | default "_self" }}" 
+                           class="text-gray-400 hover:text-aurelia transition-colors">
+                            {{ .name }}
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
             {{ end }}
-        </ul>
-    </div>
-    {{ end }}
-</div>
+        </div>
 
-<p class="copyright">
-    Copyright © {{ now.Year }} <a href="https://aurelia.io">Aurelia.</a> Code licensed under the MIT License. Content licensed under CC0.
-</p>
+        <!-- Copyright -->
+        <div class="pt-8 border-t border-gray-800">
+            <p class="text-center text-gray-400 text-sm">
+                Copyright © {{ now.Year }} <a href="https://aurelia.io" class="text-aurelia hover:text-aurelia-light transition-colors">Aurelia.</a> 
+                <span class="block sm:inline">Code licensed under the MIT License. Content licensed under CC0.</span>
+            </p>
+        </div>
+    </div>
+</footer>
