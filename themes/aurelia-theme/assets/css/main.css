@@ -1690,3 +1690,8 @@ section.examples-content h1 {
   }
 }
 
+/* Add container height hints for content-visibility sections */
+.feature-zone {
+  contain: content;
+  contain-intrinsic-size: 1020px;
+} 
