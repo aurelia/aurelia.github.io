@@ -27,3 +27,7 @@ menu:
     link: "/contact"
     icon: "contact"
     active: "eq .RelPermalink '/contact/'"
+  - name: "Aurelia 1 Docs"
+    link: "https://aurelia-1.gitbook.io/v1-docs"
+    target: "_blank"
+    icon: "article"
