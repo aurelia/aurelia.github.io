@@ -1,13 +1,12 @@
 import { Aurelia, StyleConfiguration } from "aurelia";
 import { appMap } from "./app-map";
 
+// @ts-expect-error - This is a CSS file
 import sharedStyles from "./shared.css?inline";
 
 // Convert the CSS string to CSSStyleSheet
 const sheet = new CSSStyleSheet();
 sheet.replaceSync(sharedStyles);
-
-console.log(sheet);
 
 document
   .querySelectorAll("[data-aurelia-app]")
