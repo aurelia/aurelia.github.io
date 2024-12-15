@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="{{ "css/search.css" | relURL }}">
 
-{{ $css := resources.Get "css/main.css" | resources.PostCSS }}
+{{ $css := resources.Get "css/main.css" | css.TailwindCSS }}
 {{ if hugo.IsProduction }}
   {{ $css = $css | minify | fingerprint | resources.PostProcess }}
 {{ end }}
