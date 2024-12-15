@@ -8,24 +8,56 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
                 {{ range .Site.Data.header.menu }}
-                    {{ $link := .link }}
-                    {{ if not (hasPrefix .link "http") }}
-                        {{ $link = printf "%s%s" $.Site.Params.pathPrefix .link }}
-                    {{ end }}
-                    
-                    {{ $isActive := false }}
-                    {{ with .active }}
-                        {{ $isActive = eq ($.Page.RelPermalink | strings.TrimRight "/") ($link | strings.TrimRight "/") }}
-                        {{ if eq . "eq .Section 'blog'" }}
-                            {{ $isActive = eq $.Page.Section "blog" }}
+                    {{ if .dropdown }}
+                        <div class="relative group">
+                            <button class="text-gray-600 hover:text-aurelia transition-colors font-medium inline-flex items-center">
+                                {{ .name }}
+                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
+                                <div class="py-1">
+                                    {{ range .items }}
+                                        {{ $link := .link }}
+                                        {{ if not (hasPrefix .link "http") }}
+                                            {{ $link = printf "%s%s" $.Site.Params.pathPrefix .link }}
+                                        {{ end }}
+                                        
+                                        {{ $isActive := false }}
+                                        {{ with .active }}
+                                            {{ $isActive = eq ($.Page.RelPermalink | strings.TrimRight "/") ($link | strings.TrimRight "/") }}
+                                        {{ end }}
+                                        
+                                        <a href="{{ $link }}"
+                                           {{ if .target }}target="{{ .target }}"{{ end }}
+                                           class="block px-4 py-2 text-sm {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
+                                            {{ .name }}
+                                        </a>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    {{ else }}
+                        {{ $link := .link }}
+                        {{ if not (hasPrefix .link "http") }}
+                            {{ $link = printf "%s%s" $.Site.Params.pathPrefix .link }}
                         {{ end }}
+                        
+                        {{ $isActive := false }}
+                        {{ with .active }}
+                            {{ $isActive = eq ($.Page.RelPermalink | strings.TrimRight "/") ($link | strings.TrimRight "/") }}
+                            {{ if eq . "eq .Section 'blog'" }}
+                                {{ $isActive = eq $.Page.Section "blog" }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        <a href="{{ $link }}" 
+                           {{ if .target }}target="{{ .target }}"{{ end }}
+                           class="{{ if $isActive }}text-aurelia font-semibold{{ else }}text-gray-600 hover:text-aurelia{{ end }} transition-colors font-medium">
+                            {{ .name }}
+                        </a>
                     {{ end }}
-                    
-                    <a href="{{ $link }}" 
-                       {{ if .target }}target="{{ .target }}"{{ end }}
-                       class="{{ if $isActive }}text-aurelia font-semibold{{ else }}text-gray-600 hover:text-aurelia{{ end }} transition-colors font-medium">
-                        {{ .name }}
-                    </a>
                 {{ end }}
             </div>
 
@@ -62,24 +94,49 @@
         <div class="hidden md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 {{ range .Site.Data.header.menu }}
-                    {{ $link := .link }}
-                    {{ if not (hasPrefix .link "http") }}
-                        {{ $link = printf "%s%s" $.Site.Params.pathPrefix .link }}
-                    {{ end }}
-                    
-                    {{ $isActive := false }}
-                    {{ with .active }}
-                        {{ $isActive = eq ($.Page.RelPermalink | strings.TrimRight "/") ($link | strings.TrimRight "/") }}
-                        {{ if eq . "eq .Section 'blog'" }}
-                            {{ $isActive = eq $.Page.Section "blog" }}
+                    {{ if .dropdown }}
+                        <div class="space-y-1">
+                            <div class="px-3 py-2 text-base font-medium text-gray-600">
+                                {{ .name }}
+                            </div>
+                            {{ range .items }}
+                                {{ $link := .link }}
+                                {{ if not (hasPrefix .link "http") }}
+                                    {{ $link = printf "%s%s" $.Site.Params.pathPrefix .link }}
+                                {{ end }}
+                                
+                                {{ $isActive := false }}
+                                {{ with .active }}
+                                    {{ $isActive = eq ($.Page.RelPermalink | strings.TrimRight "/") ($link | strings.TrimRight "/") }}
+                                {{ end }}
+                                
+                                <a href="{{ $link }}"
+                                   {{ if .target }}target="{{ .target }}"{{ end }}
+                                   class="block pl-6 px-3 py-2 rounded-md text-base font-medium {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
+                                    {{ .name }}
+                                </a>
+                            {{ end }}
+                        </div>
+                    {{ else }}
+                        {{ $link := .link }}
+                        {{ if not (hasPrefix .link "http") }}
+                            {{ $link = printf "%s%s" $.Site.Params.pathPrefix .link }}
                         {{ end }}
+                        
+                        {{ $isActive := false }}
+                        {{ with .active }}
+                            {{ $isActive = eq ($.Page.RelPermalink | strings.TrimRight "/") ($link | strings.TrimRight "/") }}
+                            {{ if eq . "eq .Section 'blog'" }}
+                                {{ $isActive = eq $.Page.Section "blog" }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        <a href="{{ $link }}"
+                           {{ if .target }}target="{{ .target }}"{{ end }}
+                           class="block px-3 py-2 rounded-md text-base font-medium {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
+                            {{ .name }}
+                        </a>
                     {{ end }}
-                    
-                    <a href="{{ $link }}" 
-                       {{ if .target }}target="{{ .target }}"{{ end }}
-                       class="block px-3 py-2 rounded-md text-base font-medium {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
-                        {{ .name }}
-                    </a>
                 {{ end }}
             </div>
         </div>
