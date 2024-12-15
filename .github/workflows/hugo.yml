@@ -73,6 +73,8 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}"
+      - name: Build Tailwind CSS
+        run: npm run build:tw
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
