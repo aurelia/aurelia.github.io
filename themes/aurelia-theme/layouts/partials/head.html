@@ -19,7 +19,7 @@
 {{ partialCached "head/js.html" . }}
 
 {{ $styles := resources.Get "css/main.css" }}
-{{ $styles = $styles | css.PostCSS }}
+{{ $styles = $styles | css.TailwindCSS }}
 
 {{ if hugo.IsProduction }}
   {{ $styles = $styles | minify | fingerprint }}
