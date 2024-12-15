@@ -10,6 +10,11 @@ export default defineConfig({
   esbuild: {
     target: 'es2022'
   },
+  css: {
+    postcss: {
+      plugins: []
+    }
+  },
   build: {
     outDir: '../static/aurelia2',
     assetsDir: '',
