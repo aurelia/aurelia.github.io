@@ -18,12 +18,14 @@
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 
-{{ $css := resources.Get "css/main.css" | css.TailwindCSS }}
+{{ $styles := resources.Get "css/main.css" }}
+{{ $styles = $styles | css.TailwindCSS }}
+
 {{ if hugo.IsProduction }}
-  {{ $css = $css | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+  {{ $styles = $styles | minify | fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
 {{ else }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 {{ end }}
 
 <script src="https://kit.fontawesome.com/ba181c6190.js" crossorigin="anonymous"></script>
