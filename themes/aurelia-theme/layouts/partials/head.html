@@ -23,7 +23,7 @@
 
 {{ if hugo.IsProduction }}
   {{ $styles = $styles | minify | fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ path.Join .Site.Params.pathPrefix $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
 {{ else }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 {{ end }}

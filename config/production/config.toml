@@ -1,4 +1,5 @@
 baseURL = "https://aurelia.io/website/"
+publishDir = "public"
 
 [params]
   pathPrefix = "/website" 
