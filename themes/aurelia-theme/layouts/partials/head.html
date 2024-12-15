@@ -15,16 +15,15 @@
 
 <link rel="search" href="{{ "index.json" | relURL }}" type="application/json">
 
-<link rel="preload" href="{{ "css/search.css" | relURL }}" as="style">
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 
-<link rel="stylesheet" href="{{ "css/search.css" | relURL }}">
-
 {{ $css := resources.Get "css/main.css" | css.TailwindCSS }}
 {{ if hugo.IsProduction }}
-  {{ $css = $css | minify | fingerprint | resources.PostProcess }}
+  {{ $css = $css | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+{{ else }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{ end }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
 <script src="https://kit.fontawesome.com/ba181c6190.js" crossorigin="anonymous"></script>

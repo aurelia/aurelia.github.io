@@ -8,3 +8,15 @@ theme = "aurelia-theme"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"] 
+
+[build]
+  writeStats = true
+  
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  
+  [[module.mounts]]
+    source = "static"
+    target = "static" 
