@@ -55,9 +55,6 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
       
-      - name: Build Tailwind CSS
-        run: npm run build:tw
-      
       # New steps for Aurelia 2 build
       - name: Clean Aurelia 2 directory
         run: |
@@ -76,8 +73,7 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: |
           hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}"
+            --environment production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
