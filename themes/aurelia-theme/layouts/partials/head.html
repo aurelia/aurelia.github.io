@@ -19,10 +19,10 @@
 {{ partialCached "head/js.html" . }}
 
 {{ $styles := resources.Get "css/main.css" }}
-{{ $styles = $styles | css.TailwindCSS }}
+{{ $styles = $styles | css.PostCSS }}
 
 {{ if hugo.IsProduction }}
-  {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+  {{ $styles = $styles | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
 {{ else }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}">

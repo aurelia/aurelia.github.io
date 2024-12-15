@@ -13,6 +13,8 @@ theme = "aurelia-theme"
   writeStats = true
   
 [module]
+  [module.hugoVersion]
+    extended = true
   [[module.mounts]]
     source = "assets"
     target = "assets"
