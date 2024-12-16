@@ -26,3 +26,4 @@ title = 'Aurelia'
 
 [params]
   paginate = 7
+  pathPrefix = ''
