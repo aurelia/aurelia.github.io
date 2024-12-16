@@ -75,7 +75,7 @@
     100% {
       background-position: 0% 50%;
     }
-    50% {
+    50% { 
       background-position: 100% 50%;
     }
   }
@@ -83,6 +83,10 @@
   .pt-safe {
     padding-top: calc(var(--nav-height) + 2rem);
   }
+
+  .pb-safe {
+    padding-bottom: var(--nav-height);
+  } 
 }
 
 html {
