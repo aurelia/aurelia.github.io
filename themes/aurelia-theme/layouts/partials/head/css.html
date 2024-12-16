@@ -1,9 +1,5 @@
-{{ $styles := resources.Get "css/main.css" }}
-{{ $styles = $styles | css.TailwindCSS }}
-
 {{ if hugo.IsProduction }}
-  {{ $styles = $styles | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
 {{ else }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  <link rel="stylesheet" href="/css/style.css">
 {{ end }}
