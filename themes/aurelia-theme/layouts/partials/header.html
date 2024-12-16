@@ -10,14 +10,12 @@
                 {{ range .Site.Data.header.menu }}
                     {{ if .dropdown }}
                         <div class="relative group">
-                            <button class="text-gray-600 hover:text-aurelia transition-colors font-medium inline-flex items-center">
+                            <button class="text-gray-600 hover:text-aurelia transition-colors font-medium inline-flex items-center py-2 px-3 rounded-md hover:bg-gray-50">
                                 {{ .name }}
-                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
+                                <i class="fa-solid fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
                             </button>
-                            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
-                                <div class="py-1">
+                            <div class="absolute left-0 mt-1 w-64 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out transform origin-top-left group-hover:translate-y-0 -translate-y-2">
+                                <div class="py-2 px-1">
                                     {{ range .items }}
                                         {{ $link := .link }}
                                         {{ if not (hasPrefix .link "http") }}
@@ -31,8 +29,11 @@
                                         
                                         <a href="{{ $link }}"
                                            {{ if .target }}target="{{ .target }}"{{ end }}
-                                           class="block px-4 py-2 text-sm {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
-                                            {{ .name }}
+                                           class="flex items-center mx-2 px-4 py-3 rounded-md text-sm {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
+                                            <span class="font-medium">{{ .name }}</span>
+                                            {{ if .target }}
+                                                <i class="fa-solid fa-external-link text-xs ml-auto opacity-75"></i>
+                                            {{ end }}
                                         </a>
                                     {{ end }}
                                 </div>
@@ -54,7 +55,7 @@
                         
                         <a href="{{ $link }}" 
                            {{ if .target }}target="{{ .target }}"{{ end }}
-                           class="{{ if $isActive }}text-aurelia font-semibold{{ else }}text-gray-600 hover:text-aurelia{{ end }} transition-colors font-medium">
+                           class="py-2 px-3 rounded-md {{ if $isActive }}text-aurelia bg-pink-50 font-semibold{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors font-medium">
                             {{ .name }}
                         </a>
                     {{ end }}
@@ -95,8 +96,8 @@
             <div class="px-2 pt-2 pb-3 space-y-1">
                 {{ range .Site.Data.header.menu }}
                     {{ if .dropdown }}
-                        <div class="space-y-1">
-                            <div class="px-3 py-2 text-base font-medium text-gray-600">
+                        <div class="space-y-1 py-2">
+                            <div class="px-3 py-2 text-base font-medium text-gray-900">
                                 {{ .name }}
                             </div>
                             {{ range .items }}
@@ -112,8 +113,11 @@
                                 
                                 <a href="{{ $link }}"
                                    {{ if .target }}target="{{ .target }}"{{ end }}
-                                   class="block pl-6 px-3 py-2 rounded-md text-base font-medium {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
-                                    {{ .name }}
+                                   class="flex items-center pl-6 px-3 py-3 rounded-md text-base {{ if $isActive }}text-aurelia bg-pink-50{{ else }}text-gray-600 hover:text-aurelia hover:bg-gray-50{{ end }} transition-colors">
+                                    <span class="font-medium">{{ .name }}</span>
+                                    {{ if .target }}
+                                        <i class="fa-solid fa-external-link text-xs ml-auto opacity-75"></i>
+                                    {{ end }}
                                 </a>
                             {{ end }}
                         </div>
