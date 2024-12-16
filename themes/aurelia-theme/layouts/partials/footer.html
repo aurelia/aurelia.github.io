@@ -20,15 +20,21 @@
             {{ end }}
         </div>
 
-        <!-- Copyright -->
+        <!-- Copyright and License -->
         <div class="pt-8 border-t border-gray-800">
-            <p class="text-center text-gray-400 text-sm">
-                Copyright © {{ now.Year }} <a href="https://aurelia.io" class="text-aurelia hover:text-aurelia-light transition-colors">Aurelia.</a> 
-                <span class="block sm:inline">Code licensed under the MIT License. Content licensed under CC0.</span>
-            </p>
-            <p class="text-center text-gray-400 text-sm mt-2">
-                Designed with <span class="text-red-500">♥</span> by <a href="https://ilikekillnerds.com" class="text-aurelia hover:text-aurelia-light transition-colors" target="_blank">Dwayne</a>
-            </p>
+            <div class="text-center text-gray-400 text-sm space-y-2">
+                <p>
+                    Copyright © {{ now.Year }} <a href="https://aurelia.io" class="text-aurelia hover:text-aurelia-light transition-colors">Aurelia</a>
+                </p>
+                <p class="flex items-center justify-center gap-2">
+                    <span><i class="fas fa-code text-aurelia"></i> Code licensed under <a href="https://opensource.org/licenses/MIT" class="text-aurelia hover:text-aurelia-light transition-colors">MIT License</a></span>
+                    <span class="text-gray-600">•</span>
+                    <span><i class="fas fa-file-alt text-aurelia"></i> Content licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" class="text-aurelia hover:text-aurelia-light transition-colors">CC0</a></span>
+                </p>
+                <p>
+                    Designed with <span class="text-red-500">♥</span> by <a href="https://ilikekillnerds.com" class="text-aurelia hover:text-aurelia-light transition-colors" target="_blank">Dwayne</a>
+                </p>
+            </div>
         </div>
     </div>
 </footer>
