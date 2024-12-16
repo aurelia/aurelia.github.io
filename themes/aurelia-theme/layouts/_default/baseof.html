@@ -5,8 +5,6 @@
   <head>
     {{ partial "head.html" . }} 
     
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-    
     {{ $aureliaFiles := readDir "static/aurelia2" }}
     {{ range $aureliaFiles }}
       {{ if findRE "main-.*\\.js$" .Name }}
