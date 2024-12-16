@@ -1,21 +1,6 @@
 {{ define "main" }}
-<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50">
-  <!-- Decorative Background -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-0 -right-1/4 w-[400px] h-[400px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-2xl"></div>
-    <div class="absolute bottom-0 -left-1/4 w-[400px] h-[400px] bg-gradient-to-r from-aurelia-light/5 to-purple-500/5 rounded-full blur-2xl"></div>
-  </div>
 
-  <!-- Header Content -->
-  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 class="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
-      {{ .Title }}
-    </h1>
-    {{ with .Description }}
-    <p class="text-base md:text-lg text-gray-600">{{ . }}</p>
-    {{ end }}
-  </div>
-</section>
+{{ partial "page-header" . }}
 
 <section class="py-4 bg-white relative">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
