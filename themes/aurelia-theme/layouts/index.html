@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+<section class="relative pt-20 sm:pt-24 min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 overflow-hidden">
   <div class="absolute inset-0 overflow-hidden">
     <!-- Elegant flowing gradient mesh -->
     <div class="absolute inset-0 opacity-[0.08]">
@@ -27,14 +27,14 @@
   </div>
 
   <!-- Hero Content -->
-  <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
     <!-- Left Column: Content -->
-    <div class="text-center lg:text-left lg:flex-1 max-w-xl">
-      <div class="mb-4">
+    <div class="text-center lg:text-left lg:flex-1 max-w-xl pt-4 sm:pt-0">
+      <!-- <div class="mb-4">
         <span class="inline-block px-4 py-1 rounded-full bg-aurelia/10 text-aurelia text-sm font-medium">
           <span class="mr-2">🚀</span> v2.0 Now Available
         </span>
-      </div>
+      </div> -->
       
       <h1 class="text-4xl sm:text-6xl font-bold mb-6">
         {{ range $index, $line := .Params.tagline }}
