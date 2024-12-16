@@ -52,7 +52,7 @@ jobs:
           
       - name: Install Node.js dependencies
         run: npm ci
-        
+      
       # New steps for Aurelia 2 build
       - name: Clean Aurelia 2 directory
         run: |
