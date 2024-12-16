@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@layer base {
+  :root {
+    --nav-height: 5rem;
+  }
+}
+
 @theme {
   --color-aurelia: #ed2b88;
   --color-aurelia-light: #ff4da1;
@@ -72,6 +78,10 @@
     50% {
       background-position: 100% 50%;
     }
+  }
+
+  .pt-safe {
+    padding-top: calc(var(--nav-height) + 2rem);
   }
 }
 
