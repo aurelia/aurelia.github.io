@@ -266,16 +266,16 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
-        {{ .Params.sponsors.title }}
+        {{ .Site.Params.sponsors.title }}
       </h2>
-      <p class="text-xl text-gray-400">{{ .Params.sponsors.subtitle }}</p>
+      <p class="text-xl text-gray-400">{{ .Site.Params.sponsors.subtitle }}</p>
     </div>
 
     <!-- Gold Sponsors -->
     <div class="mb-16">
       <h3 class="text-2xl font-bold text-center mb-8 text-orange-300">Gold Sponsors</h3>
       <div class="flex flex-wrap justify-center gap-8">
-        {{ range .Params.sponsors.gold }}
+        {{ range .Site.Params.sponsors.gold }}
         <a href="{{ .url }}" 
            title="{{ .name }}"
            class="transition-transform hover:-translate-y-1">
@@ -294,7 +294,7 @@
     <div class="mb-16">
       <h3 class="text-2xl font-bold text-center mb-8 text-gray-400">Silver Sponsors</h3>
       <div class="flex flex-wrap justify-center gap-8">
-        {{ range .Params.sponsors.silver }}
+        {{ range .Site.Params.sponsors.silver }}
         <a href="{{ .url }}" 
            title="{{ .name }}"
            class="transition-transform hover:-translate-y-1">
@@ -315,7 +315,7 @@
       <div class="flex justify-center">
         <iframe
           class="w-full max-w-[1024px] h-64 border-0"
-          src="{{ .Params.sponsors.bronze_iframe }}"
+          src="{{ .Site.Params.sponsors.bronze.iframe_url }}"
           title="Bronze Sponsors">
         </iframe>
       </div>
@@ -325,19 +325,19 @@
     <div class="mb-16">
       <h3 class="text-2xl font-bold text-center mb-8 text-amber-800">Wood Sponsors</h3>
       <div class="flex justify-center">
-        <img 
-          src="{{ .Params.sponsors.wood_iframe }}" 
-          loading="lazy" 
-          title="Wood Sponsors"
-          class="max-w-full" />
+        <iframe
+          class="w-full max-w-[512px] h-32 border-0"
+          src="{{ .Site.Params.sponsors.wood.iframe_url }}"
+          title="Wood Sponsors">
+        </iframe>
       </div>
     </div>
 
     <!-- CTA -->
     <div class="flex justify-center mt-12">
-      <a href="{{ .Params.sponsors.cta.url }}" 
+      <a href="{{ .Site.Params.sponsors.cta.url }}" 
          class="inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold bg-gradient-to-r from-aurelia to-aurelia-light text-white hover:opacity-90 transform hover:-translate-y-0.5 transition-all">
-        {{ .Params.sponsors.cta.text }}
+        {{ .Site.Params.sponsors.cta.text }}
       </a>
     </div>
   </div>

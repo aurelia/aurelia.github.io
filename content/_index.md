@@ -41,31 +41,4 @@ examples:
     description: "By using simple classes with properties and methods, we can assemble a full application. This Todo example uses a vanilla JS array to track a list of todos. It also tracks the text you enter to create new todos. Despite the fact that this is a simple app, the basic vanilla JS patterns shown here can scale to apps containing hundreds of thousands of lines of code."
     sandbox_url: "https://codesandbox.io/embed/ppmy26opw7"
     tutorial_link: "docs/tutorials/creating-a-todo-app"
-
-sponsors:
-  title: "Open Collective"
-  subtitle: "Proud financial backers of Aurelia."
-  
-  gold:
-    - name: "Hogia"
-      url: "https://www.hogia.com/"
-      logo: "sponsors/hogia.svg"
-      alt: "Hogia"
-      width: 517
-      height: 128
-      
-  silver:
-    - name: "Movavi - Screen Recorder"
-      url: "https://www.movavi.com/screen-recorder"
-      logo: "sponsors/movavi-screen-recorder.svg"
-      alt: "Movavi - Screen Recorder"
-      width: 553
-      height: 128
-
-  bronze_iframe: "https://opencollective.com/aurelia/tiers/bronze.svg?avatarHeight=64&button=false&width=1024"
-  wood_iframe: "https://opencollective.com/aurelia/tiers/wood.svg?avatarHeight=32&button=false&width=512"
-  
-  cta:
-    text: "Become a Sponsor!"
-    url: "https://opencollective.com/aurelia"
 ---
