@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind typography;
-@tailwind utilities;
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
 @layer utilities {
   .animate-float {

@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "Aurelia documentation website",
   "scripts": {
-    "dev": "concurrently npm:watch:*",
-    "build": "npm run build:tw && hugo --minify",
-    "watch:tw": "tailwindcss -i ./themes/aurelia-theme/assets/css/main.css -o ./themes/aurelia-theme/static/css/style.css --watch",
-    "watch:hugo": "hugo server",
-    "build:tw": "tailwindcss -i ./themes/aurelia-theme/assets/css/main.css -o ./themes/aurelia-theme/static/css/style.css --minify"
+    "dev": "hugo server",
+    "build": "hugo --minify",
+    "start": "hugo server"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0-beta.7",

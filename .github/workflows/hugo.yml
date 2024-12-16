@@ -52,10 +52,6 @@ jobs:
           
       - name: Install Node.js dependencies
         run: npm ci
-      
-      # Add Tailwind CSS build step
-      - name: Build Tailwind CSS
-        run: npm run build:tw
         
       # New steps for Aurelia 2 build
       - name: Clean Aurelia 2 directory

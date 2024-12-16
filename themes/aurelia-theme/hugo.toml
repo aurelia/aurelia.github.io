@@ -25,6 +25,12 @@ title = 'Aurelia'
   [module.hugoVersion]
     extended = false
     min = "0.116.0"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
 
 [permalinks]
   blog = "/blog/:year/:date.2006-01/:day/:slug/"
