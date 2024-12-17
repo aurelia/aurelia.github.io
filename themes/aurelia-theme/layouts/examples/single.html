@@ -2,56 +2,90 @@
 
 {{ partial "page-header" . }}
 
-<!-- Repository Link -->
-<section class="py-4 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="p-6 rounded-2xl bg-gradient-to-r from-aurelia/5 to-aurelia-light/5 border border-aurelia/10">
-      <div class="flex items-center justify-between gap-6">
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900">Want to explore the code?</h3>
-          <p class="mt-2 text-gray-600">Get all of the code for these examples in our repository.</p>
-        </div>
-        <a href="https://github.com/aurelia/website/tree/main/aurelia-apps/src/examples" 
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-aurelia hover:bg-aurelia-dark text-white font-medium transition-colors"
-           target="_blank"
-           rel="noopener noreferrer">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-          </svg>
-          View on GitHub
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Examples Grid -->
-<section class="pb-16 bg-white">
+<section class="pb-16 bg-white text-gray-900 pt-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Counter -->
+    <div class="grid grid-cols-1 gap-8">
+      <!-- Todo Example -->
       <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Counter</h2>
-        <div data-aurelia-app="simple-counter" class="bg-gray-50 rounded-xl p-6"></div>
+        <div class="mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900">Hello, world!</h2>
+          <p>The message "Hello, world!" is defined in the <code>src/my-app.ts</code> file and then rendered in the <code>src/my-app.html</code> file.</p>
+        </div>
+        <div class="aspect-video">
+          <iframe src="https://codesandbox.io/p/devbox/n44mj5?embed=1&file=%2Fsrc%2Fmy-app.ts"
+                  class="w-full h-full rounded-xl"
+                  title="Aurelia Hello, world! Example"
+                  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
+          </iframe>
+        </div>
       </article>
 
-      <!-- Particle System -->
+      <!-- Simple Counter Example -->
       <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Particle System</h2>
-        <div data-aurelia-app="particle-system" class="bg-gray-50 rounded-xl p-6"></div>
+        <div class="mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900">Simple Counter</h2>
+          <p>The counter is defined in the <code>src/simple-counter.ts</code> file and then rendered in the <code>src/simple-counter.html</code> file.</p>
+        </div>
+        <div class="aspect-video">
+          <iframe src="https://codesandbox.io/p/devbox/aurelia-todo-forked-pxhsxv?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Fmy-app.html"
+                  class="w-full h-full rounded-xl"
+                  title="Simple Counter Example"
+                  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
+          </iframe>
+        </div>
       </article>
 
-      <!-- Real-time Clock -->
+      <!-- Real Time Clock Example -->
       <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Real-time Clock</h2>
-        <div data-aurelia-app="real-time-clock" class="bg-gray-50 rounded-xl p-6"></div>
+        <div class="mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900">Real Time Clock</h2>
+          <p>The clock is defined in the <code>src/real-time-clock.ts</code> file and then rendered in the <code>src/real-time-clock.html</code> file. Styles for the clock are defined in the <code>src/real-time-clock.css</code> file. This example demonstrates Aurelia's ability to update the UI in real time.</p>
+        </div>
+        <div class="aspect-video">
+          <iframe src="https://codesandbox.io/p/devbox/aurelia-simple-counter-forked-2v7xvw?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Freal-time-clock.ts"
+                  class="w-full h-full rounded-xl"
+                  title="Real Time Clock Example"
+                  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
+          </iframe>
+        </div>
       </article>
 
-      <!-- Reactive Grid -->
+      <!-- Particle System Example -->
       <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Reactive Grid</h2>
-        <div data-aurelia-app="reactive-grid" class="bg-gray-50 rounded-xl p-6"></div>
+        <div class="mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900">Particle System</h2>
+          <p>The particle system is defined in the <code>src/particle-system.ts</code> file and then rendered in the <code>src/particle-system.html</code> file. Styles for the particle system are defined in the <code>src/particle-system.css</code> file. This example demonstrates Aurelia's ability to render complex UI elements and animate them in real time.</p>
+        </div>
+        <div class="aspect-video">
+          <iframe src="https://codesandbox.io/p/devbox/aurelia-particle-system-klphhm?embed=1&file=%2Fsrc%2Fparticle-system.ts"
+                  class="w-full h-full rounded-xl"
+                  title="Real Time Clock Example"
+                  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
+          </iframe>
+        </div>
       </article>
+
+      <!-- Reactive Grid Example -->
+      <article class="p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+        <div class="mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900">Reactive Grid</h2>
+          <p>The reactive grid is defined in the <code>src/reactive-grid.ts</code> file and then rendered in the <code>src/reactive-grid.html</code> file. Styles for the reactive grid are defined in the <code>src/reactive-grid.css</code> file. This example demonstrates Aurelia's ability to render a large array of data and reactively update the UI when the data changes.</p>
+        </div>
+        <div class="aspect-video">
+          <iframe src="https://codesandbox.io/p/devbox/aurelia-reactive-grid-p2vp5f?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Freactive-grid.ts"
+                  class="w-full h-full rounded-xl"
+                  title="Real Time Clock Example"
+                  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
+          </iframe>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
