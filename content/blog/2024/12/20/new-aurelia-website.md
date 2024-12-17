@@ -2,8 +2,8 @@
 title = "New Aurelia Website: A Fresh Look for 2024"
 author = "Dwayne Charrington"
 description = "Introducing the new Aurelia website, a design refresh, a renewed commitment to content, and a more lively community."
-date = 2024-12-13T10:00:00Z
-lastmod = 2024-12-13T10:00:00Z
+date = 2024-12-20T10:00:00Z
+lastmod = 2024-20-13T10:00:00Z
 draft = true
 +++
 
@@ -18,6 +18,7 @@ The first thing you’ll notice is the design overhaul. We didn’t just slap on
 - **Modern design:** Sleek, clean, and up-to-date with today’s web standards. No fluff, no distractions—just what you need.
 - **Simplified navigation:** We’ve restructured everything so you can find what you’re looking for without a scavenger hunt.
 - **Mobile-first:** Because we know you’re not always at your desk, the site now looks and works beautifully on any device.
+- **New playground:** We've added a new playground to the website to help you learn and experiment with Aurelia. Examples showcasing the framework's capabilities are now available to help you get started.
 
 ## Content is Back: Regular Blog Updates
 
@@ -27,7 +28,7 @@ Let’s address the elephant in the room: the blog has been quiet. Too quiet. Th
 - **Deep dives:** We’ll take you under the hood of Aurelia, sharing insights into its design and upcoming features.
 - **Case studies and community spotlights:** Showcasing the amazing things developers are building with Aurelia.
 
-No more delays, no more excuses. The new site is built to get content out faster, and we plan to use it.
+No more delays, no more excuses. The new site is built to get content out faster, and we plan to use it. If you're a member of the Aurelia community, you can help us by submitting blog posts, tutorials, and other content too.
 
 ## A More Connected Aurelia Community
 
@@ -44,8 +45,9 @@ We want this to be more than just a website—it’s a home base for anyone buil
 We’re saving the details for another blog post (because trust us, there’s a lot), but here’s a quick teaser of what’s coming in the **Aurelia 2 roadmap for 2025**:
 
 - **Server-Side Rendering (SSR) and hydration improvements.**
-- **Decorators and other emerging JavaScript standards.**
+- **Partial AOT (ahead of time) compilation** to speed up build times.
 - **Performance optimizations** and **developer tooling upgrades**.
+- **Support for more tooling and libraries** to help you build your apps.
 - **Expanded documentation** and learning resources.
   
 This roadmap isn’t just a list of features; it’s our vision for making Aurelia the best choice for developers in 2025 and beyond.
@@ -58,6 +60,8 @@ Rumors of Aurelia's demise have been greatly exaggerated.
 
 ## Explore the New Aurelia
 
-The new Aurelia website is live, and we’re excited for you to see it. Visit the site, dive into the blog, and let us know what you think. This is just the beginning—2025 is going to be a big year for Aurelia.
+The new Aurelia website is live, and we’re excited for you to see it. Visit the site, dive into the blog, and let us know what you think. This is just the beginning, 2025 and beyond is going to be a big year for Aurelia.
 
 Stay tuned for the detailed **Aurelia 2 roadmap post**, coming imminently.
+
+P.S. If you notice any issues, please let us know by opening an issue on the [GitHub repository](https://github.com/aurelia/website).
