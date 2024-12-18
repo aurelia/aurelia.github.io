@@ -12,9 +12,12 @@
           <h2 class="text-2xl font-semibold text-gray-900">Hello, world!</h2>
           <p>The message "Hello, world!" is defined in the <code>src/my-app.ts</code> file and then rendered in the <code>src/my-app.html</code> file.</p>
         </div>
-        <div class="aspect-video">
-          <iframe src="https://codesandbox.io/p/devbox/n44mj5?embed=1&file=%2Fsrc%2Fmy-app.ts"
-                  class="w-full h-full rounded-xl"
+        <div class="aspect-video relative" data-iframe-container>
+          <div class="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
+            <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+          </div>
+          <iframe data-src="https://codesandbox.io/p/devbox/n44mj5?embed=1&file=%2Fsrc%2Fmy-app.ts"
+                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
                   title="Aurelia Hello, world! Example"
                   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
@@ -28,9 +31,12 @@
           <h2 class="text-2xl font-semibold text-gray-900">Character Counter</h2>
           <p>The character counter is defined in the <code>src/character-counter.ts</code> file and then rendered in the <code>src/character-counter.html</code> file. Showcasing the use of form element binding, computed getters, and UI rendering.</p>
         </div>
-        <div class="aspect-video">
-          <iframe src="https://codesandbox.io/p/devbox/62n9p2?embed=1&file=%2Fsrc%2Fcharacter-counter.ts"
-                  class="w-full h-full rounded-xl"
+        <div class="aspect-video relative" data-iframe-container>
+          <div class="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
+            <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+          </div>
+          <iframe data-src="https://codesandbox.io/p/devbox/62n9p2?embed=1&file=%2Fsrc%2Fcharacter-counter.ts"
+                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
                   title="Aurelia Hello, world! Example"
                   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
@@ -44,9 +50,12 @@
           <h2 class="text-2xl font-semibold text-gray-900">Simple Counter</h2>
           <p>The counter is defined in the <code>src/simple-counter.ts</code> file and then rendered in the <code>src/simple-counter.html</code> file.</p>
         </div>
-        <div class="aspect-video">
-          <iframe src="https://codesandbox.io/p/devbox/aurelia-todo-forked-pxhsxv?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Fmy-app.html"
-                  class="w-full h-full rounded-xl"
+        <div class="aspect-video relative" data-iframe-container>
+          <div class="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
+            <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+          </div>
+          <iframe data-src="https://codesandbox.io/p/devbox/aurelia-todo-forked-pxhsxv?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Fmy-app.html"
+                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
                   title="Simple Counter Example"
                   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
@@ -60,9 +69,12 @@
           <h2 class="text-2xl font-semibold text-gray-900">Real Time Clock</h2>
           <p>The clock is defined in the <code>src/real-time-clock.ts</code> file and then rendered in the <code>src/real-time-clock.html</code> file. Styles for the clock are defined in the <code>src/real-time-clock.css</code> file. This example demonstrates Aurelia's ability to update the UI in real time.</p>
         </div>
-        <div class="aspect-video">
-          <iframe src="https://codesandbox.io/p/devbox/aurelia-simple-counter-forked-2v7xvw?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Freal-time-clock.ts"
-                  class="w-full h-full rounded-xl"
+        <div class="aspect-video relative" data-iframe-container>
+          <div class="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
+            <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+          </div>
+          <iframe data-src="https://codesandbox.io/p/devbox/aurelia-simple-counter-forked-2v7xvw?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Freal-time-clock.ts"
+                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
                   title="Real Time Clock Example"
                   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
@@ -76,9 +88,12 @@
           <h2 class="text-2xl font-semibold text-gray-900">Particle System</h2>
           <p>The particle system is defined in the <code>src/particle-system.ts</code> file and then rendered in the <code>src/particle-system.html</code> file. Styles for the particle system are defined in the <code>src/particle-system.css</code> file. This example demonstrates Aurelia's ability to render complex UI elements and animate them in real time.</p>
         </div>
-        <div class="aspect-video">
-          <iframe src="https://codesandbox.io/p/devbox/aurelia-particle-system-klphhm?embed=1&file=%2Fsrc%2Fparticle-system.ts"
-                  class="w-full h-full rounded-xl"
+        <div class="aspect-video relative" data-iframe-container>
+          <div class="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
+            <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+          </div>
+          <iframe data-src="https://codesandbox.io/p/devbox/aurelia-particle-system-klphhm?embed=1&file=%2Fsrc%2Fparticle-system.ts"
+                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
                   title="Real Time Clock Example"
                   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
@@ -92,9 +107,12 @@
           <h2 class="text-2xl font-semibold text-gray-900">Whack a Mole Game</h2>   
           <p>The whack a mole game is defined in the <code>src/whack-a-mole.ts</code> file and then rendered in the <code>src/whack-a-mole.html</code> file. Styles for the whack a mole game are defined in the <code>src/whack-a-mole.css</code> file. This example demonstrates Aurelia's ability to build simple games.</p>
         </div>
-        <div class="aspect-video">
-          <iframe src="https://codesandbox.io/p/devbox/aurelia-whack-a-mole-n64k9m?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Fwhack-a-mole.ts"
-                  class="w-full h-full rounded-xl"
+        <div class="aspect-video relative" data-iframe-container>
+          <div class="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
+            <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+          </div>
+          <iframe data-src="https://codesandbox.io/p/devbox/aurelia-whack-a-mole-n64k9m?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Fwhack-a-mole.ts"
+                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
                   title="Real Time Clock Example"
                   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
@@ -108,9 +126,12 @@
           <h2 class="text-2xl font-semibold text-gray-900">Reactive Grid</h2>
           <p>The reactive grid is defined in the <code>src/reactive-grid.ts</code> file and then rendered in the <code>src/reactive-grid.html</code> file. Styles for the reactive grid are defined in the <code>src/reactive-grid.css</code> file. This example demonstrates Aurelia's ability to render a large array of data and reactively update the UI when the data changes.</p>
         </div>
-        <div class="aspect-video">
-          <iframe src="https://codesandbox.io/p/devbox/aurelia-reactive-grid-p2vp5f?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Freactive-grid.ts"
-                  class="w-full h-full rounded-xl"
+        <div class="aspect-video relative" data-iframe-container>
+          <div class="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
+            <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+          </div>
+          <iframe data-src="https://codesandbox.io/p/devbox/aurelia-reactive-grid-p2vp5f?workspaceId=ws_KGW693pU9j8G7rCRHwbKPH&embed=1&file=%2Fsrc%2Freactive-grid.ts"
+                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
                   title="Real Time Clock Example"
                   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
@@ -121,4 +142,39 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '50px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          const iframe = container.querySelector('iframe');
+          const placeholder = container.querySelector('[data-iframe-placeholder]');
+          
+          if (iframe && iframe.dataset.src) {
+            iframe.src = iframe.dataset.src;
+            iframe.addEventListener('load', () => {
+              iframe.classList.remove('opacity-0');
+              if (placeholder) {
+                placeholder.style.display = 'none';
+              }
+            });
+            observer.unobserve(container);
+          }
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-iframe-container]').forEach(container => {
+      observer.observe(container);
+    });
+  });
+</script>
 {{ end }}
