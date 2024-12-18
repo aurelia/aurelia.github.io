@@ -29,8 +29,12 @@ menu:
           - name: "Resources"
             link: "/learn"
             active: "eq .RelPermalink '/learn/'"
-      - title: "Community Help"
+      - title: "Community"
         items:
+          - name: "Newsletter"
+            link: "http://eepurl.com/ces50j"
+            target: "_blank"
+            icon: "fa-solid fa-envelope"
           - name: "Discord Chat"
             link: "https://discord.gg/SMaXVZMReK"
             target: "_blank"
