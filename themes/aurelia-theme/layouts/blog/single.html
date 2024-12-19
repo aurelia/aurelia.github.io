@@ -50,9 +50,11 @@
 <!-- Article Content -->
 <article class="py-4 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row gap-12">
+    {{ if .Params.toc }}
+    <div class="lg:grid lg:grid-cols-8 lg:gap-8">
       <!-- Main Content -->
-      <div class="lg:flex-1">
+      <div class="lg:col-span-6">
+    {{ end }}
         <div class="max-w-4xl">
           {{ with .Params.featured_image }}
           <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
@@ -129,13 +131,16 @@
             </div>
           </div>
         </div>
+    {{ if .Params.toc }}
       </div>
-
-      <!-- Sticky Sponsors Sidebar -->
-      <div class="lg:w-80 hidden lg:block">
-        <div class="sticky top-24">
+      <!-- Right Sidebar Navigation -->
+      <div class="lg:col-span-2">
+        {{ partial "in-page-nav.html" . }}
+        
+        <!-- Sponsors Section -->
+        <div class="mt-8">
           <!-- Gold Sponsors -->
-          <div class="mb-12">
+          <div class="mt-8 pt-8 border-t border-gray-100">
             <h3 class="text-lg font-bold text-center mb-6 text-orange-300">Gold Sponsors</h3>
             <div class="space-y-6">
               {{ range .Site.Params.sponsors.gold }}
@@ -155,7 +160,7 @@
           </div>
 
           <!-- Silver Sponsors -->
-          <div>
+          <div class="mt-8">
             <h3 class="text-lg font-bold text-center mb-6 text-gray-400">Silver Sponsors</h3>
             <div class="space-y-6">
               {{ range .Site.Params.sponsors.silver }}
@@ -175,7 +180,7 @@
           </div>
 
           <!-- Sponsor CTA -->
-          <div class="mt-8 text-center">
+          <div class="mt-8 pt-4 text-center">
             <a href="{{ .Site.Params.sponsors.cta.url }}" 
                class="inline-flex items-center justify-center px-6 py-2 text-sm rounded-full font-semibold bg-gradient-to-r from-aurelia to-aurelia-light text-white hover:opacity-90 transform hover:-translate-y-0.5 transition-all">
               {{ .Site.Params.sponsors.cta.text }}
@@ -184,6 +189,58 @@
         </div>
       </div>
     </div>
+    {{ else }}
+      <!-- Sponsors without TOC -->
+      <div class="mt-8">
+        <!-- Gold Sponsors -->
+        <div class="mt-8 pt-8 border-t border-gray-100">
+          <h3 class="text-lg font-bold text-center mb-6 text-orange-300">Gold Sponsors</h3>
+          <div class="space-y-6">
+            {{ range .Site.Params.sponsors.gold }}
+            <a href="{{ .url }}" 
+               title="{{ .name }}"
+               class="block transition-transform hover:-translate-y-1">
+              <img src="{{ .logo | relURL }}" 
+                   alt="{{ .alt }}" 
+                   class="mx-auto"
+                   style="max-height: 40px; width: auto;"
+                   width="{{ .width }}" 
+                   height="{{ .height }}" 
+                   loading="lazy" />
+            </a>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Silver Sponsors -->
+        <div class="mt-8">
+          <h3 class="text-lg font-bold text-center mb-6 text-gray-400">Silver Sponsors</h3>
+          <div class="space-y-6">
+            {{ range .Site.Params.sponsors.silver }}
+            <a href="{{ .url }}" 
+               title="{{ .name }}"
+               class="block transition-transform hover:-translate-y-1">
+              <img src="{{ .logo | relURL }}" 
+                   alt="{{ .alt }}" 
+                   class="mx-auto"
+                   style="max-height: 40px; width: auto;"
+                   width="{{ .width }}" 
+                   height="{{ .height }}" 
+                   loading="lazy" />
+            </a>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Sponsor CTA -->
+        <div class="mt-8 pt-4 text-center">
+          <a href="{{ .Site.Params.sponsors.cta.url }}" 
+             class="inline-flex items-center justify-center px-6 py-2 text-sm rounded-full font-semibold bg-gradient-to-r from-aurelia to-aurelia-light text-white hover:opacity-90 transform hover:-translate-y-0.5 transition-all">
+            {{ .Site.Params.sponsors.cta.text }}
+          </a>
+        </div>
+      </div>
+    {{ end }}
   </div>
 </article>
 

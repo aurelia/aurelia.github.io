@@ -53,12 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // FAQ Navigation functionality
-    const faqNav = document.querySelector('[aria-label="FAQ Navigation"]');
-    if (faqNav) {
-        const navToggle = document.getElementById('faq-nav-toggle');
-        const navContent = document.getElementById('faq-nav-content');
-        const navLinks = faqNav.querySelectorAll('a');
+    // Page Navigation functionality
+    const pageNavs = document.querySelectorAll('[aria-label="Page Navigation"], [aria-label="FAQ Navigation"]');
+
+    pageNavs.forEach(nav => {
+        const navToggle = nav.querySelector('button');
+        const navContent = nav.querySelector('div[id$="-nav-content"]');
+        const navLinks = nav.querySelectorAll('a');
         const headings = document.querySelectorAll('h2[id]');
         const headerOffset = 100;
 
@@ -90,18 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close navigation when clicking outside
         document.addEventListener('click', (event) => {
-            if (!faqNav.contains(event.target) && 
+            if (!nav.contains(event.target) && 
                 !navContent.classList.contains('hidden')) {
                 navToggle.click();
             }
         });
 
         // Close navigation when clicking a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.click();
-            });
-        });
+        // navLinks.forEach(link => {
+        //     link.addEventListener('click', () => {
+        //         navToggle.click();
+        //     });
+        // });
 
         // Helper function to determine if an element is in viewport
         const isInViewport = (element) => {
@@ -210,5 +211,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initial check for active section
         updateActiveSection();
-    }
+    });
 });
