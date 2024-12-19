@@ -2,12 +2,14 @@
 title = "New Aurelia Website: A Fresh Look for 2024"
 author = "Dwayne Charrington"
 description = "Introducing the new Aurelia website, a design refresh, a renewed commitment to content, and a more lively community."
-date = 2024-12-19T10:00:00Z
-lastmod = 2024-12-19T10:00:00Z
-draft = true
+date = 2024-12-18T10:00:00Z
+lastmod = 2024-12-18T10:00:00Z
+draft = false
 +++
 
-Let’s cut to the chase: **yeah, we know we haven’t published a blog post in a while**. Trust us, it hasn’t been for lack of trying. The old website had its charm, but let’s be honest—it wasn’t exactly user-friendly behind the scenes. Built on a bespoke system, even something as seemingly simple as publishing a blog post felt like jumping through hoops. If you’ve ever had to debug a release process just to share a bit of news, you’ll know the pain.
+Let’s cut to the chase: **yeah, we know we haven’t published a blog post in a while**. Trust us, it hasn’t been for lack of trying. 
+
+The old website had its charm, but let’s be honest—it wasn’t exactly user-friendly behind the scenes. Built on a bespoke system, even something as seemingly simple as publishing a blog post felt like jumping through hoops. If you’ve ever had to debug a release process just to share a bit of news, you’ll know the pain.
 
 But that’s all in the past. The new Aurelia website is here, and with it, we’re putting all that clunkiness to bed. It’s fast, modern, and most importantly, designed to make things easier for us—and for you. Let's call it an early Christmas present.
 
@@ -42,7 +44,7 @@ We want this to be more than just a website—it’s a home base for anyone buil
 
 ## What’s Next? Aurelia 2 Roadmap for 2025
 
-We’re saving the details for another blog post (because trust us, there’s a lot), but here’s a quick teaser of what’s coming in the **Aurelia 2 roadmap for 2025**:
+We know many of you are eager to see a stable release of Aurelia 2 (it's not dead, trust us). We’re saving the details for another blog post, but here’s a quick teaser of what’s coming in the **Aurelia 2 roadmap for 2025**:
 
 - **Server-Side Rendering (SSR) and hydration improvements.**
 - **Partial AOT (ahead of time) compilation** to speed up build times.
@@ -62,6 +64,6 @@ Rumors of Aurelia's demise have been greatly exaggerated.
 
 The new Aurelia website is live, and we’re excited for you to see it. Visit the site, dive into the blog, and let us know what you think. This is just the beginning, 2025 and beyond is going to be a big year for Aurelia.
 
-Stay tuned for the detailed **Aurelia 2 roadmap post**, coming soon.
+Stay tuned for the detailed **Aurelia 2 roadmap**, coming soon.
 
 P.S. If you notice any issues, please let us know by opening an issue on the [GitHub repository](https://github.com/aurelia/website).
