@@ -339,7 +339,7 @@
     </div>
 
     <!-- Bronze & Wood Sponsors -->
-    <div class="grid md:grid-cols-2 gap-12 mb-20">
+    <div class="flex flex-col gap-12 mb-20">
       <!-- Bronze Sponsors -->
       <div class="relative">
         <h3 class="text-2xl font-bold text-center mb-8">
@@ -347,12 +347,10 @@
             Bronze Sponsors
           </span>
         </h3>
-        <div class="relative rounded-xl bg-white shadow-sm border border-orange-700/10 overflow-hidden group hover:shadow-xl hover:shadow-orange-700/10 hover:border-orange-700/20 transition-all duration-300">
-          <!-- Background pattern -->
-          <div class="absolute inset-0 bg-gradient-to-br from-orange-700/5 to-transparent"></div>
-          <div class="relative p-6">
+        <div class="relative rounded-xl bg-white">
+          <div class="flex items-center justify-center relative p-6">
             <iframe
-              class="w-full border-0"
+              class="w-auto border-0"
               src="{{ .Site.Params.sponsors.bronze.iframe_url }}"
               title="Bronze Sponsors">
             </iframe>
@@ -367,13 +365,11 @@
             Wood Sponsors
           </span>
         </h3>
-        <div class="relative rounded-xl bg-white shadow-sm border border-amber-800/10 overflow-hidden group hover:shadow-xl hover:shadow-amber-800/10 hover:border-amber-800/20 transition-all duration-300">
-          <!-- Background pattern -->
-          <div class="absolute inset-0 bg-gradient-to-br from-amber-800/5 to-transparent"></div>
+        <div class="relative rounded-xl bg-white overflow-hidden group hover:shadow-xl">
           <!-- Content container with scrollbar styling -->
-          <div class="relative p-6">
+          <div class="flex items-center justify-center relative p-6">
             <iframe
-              class="w-full border-0"
+              class="w-auto border-0"
               src="{{ .Site.Params.sponsors.wood.iframe_url }}"
               title="Wood Sponsors">
             </iframe>
@@ -398,7 +394,6 @@
   </div>
 </section>
 
-<!-- Add these definitions to your existing styles or in a new style tag in head -->
 <svg class="hidden">
   <defs>
     <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
