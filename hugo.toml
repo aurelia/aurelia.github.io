@@ -10,6 +10,8 @@ theme = "aurelia-theme"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    style = "emacs"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"] 
