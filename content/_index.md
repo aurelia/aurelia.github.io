@@ -2,7 +2,7 @@
 title: "Aurelia"
 tagline: ["Simple.", "Powerful.", "Unobtrusive."]
 hero_cta: "GET STARTED"
-hero_cta_link: "https://aurelia-1.gitbook.io/v1-docs/introduction/quick-start"
+hero_cta_link: "https://docs.aurelia.io/introduction/quick-install-guide"
 github_link: "https://github.com/aurelia/aurelia"
 
 why_aurelia_title: "Why Aurelia?"
