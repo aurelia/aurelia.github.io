@@ -5,17 +5,11 @@ let searchPanel = null;
 let selectedResult = -1;
 let searchResultItems = [];
 
-function getBasePath() {
-    // Check if we're in production by looking for /website in the path
-    const isProduction = window.location.pathname.includes('/website');
-    return isProduction ? '/website' : '';
-}
-
 async function fetchSearchIndex() {
     if (searchIndex) return searchIndex;
     
     const basePath = getBasePath();
-    const response = await fetch(`${basePath}/index.json`);
+    const response = await fetch(`/index.json`);
     searchIndex = await response.json();
     return searchIndex;
 }

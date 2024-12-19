@@ -66,4 +66,4 @@ The new Aurelia website is live, and we’re excited for you to see it. Visit th
 
 Stay tuned for the detailed **Aurelia 2 roadmap**, coming soon.
 
-P.S. If you notice any issues, please let us know by opening an issue on the [GitHub repository](https://github.com/aurelia/website).
+P.S. If you notice any issues, please let us know by opening an issue on the [GitHub repository](https://github.com/aurelia/aurelia.github.io).

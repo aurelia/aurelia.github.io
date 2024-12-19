@@ -3,7 +3,7 @@ license = 'MIT'
 description = 'Aurelia is a theme built with Tailwind CSS and PostCSS for the Aurelia website.'
 
 # The home page of the theme, where the source can be found
-homepage = 'https://github.com/aurelia/website'
+homepage = 'https://github.com/aurelia/aurelia.github.io'
 
 # Taxonomy terms
 tags = ['blog', 'company']

@@ -12,8 +12,8 @@ The official website and blog for Aurelia (aurelia.io), built with Hugo.
 2. **Installation**
    ```bash
    # Clone the repository
-   git clone https://github.com/aurelia/website.git
-   cd website
+   git clone https://github.com/aurelia/aurelia.github.io.git
+   cd aurelia.github.io
 
    # Install dependencies
    npm install
@@ -29,7 +29,7 @@ The official website and blog for Aurelia (aurelia.io), built with Hugo.
 ## 📁 Project Structure
 
 ```
-website/
+aurelia.github.io/
 ├── content/          # Site content
 │   ├── blog/        # Blog posts organized by date
 │   │   └── YYYY/    # Year folders
