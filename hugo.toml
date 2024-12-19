@@ -10,6 +10,10 @@ theme = "aurelia-theme"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+    [markup.goldmark.extensions]
+      linkify = true
   [markup.highlight]
     style = "emacs"
 
