@@ -4,7 +4,8 @@
 {{ $isStackBlitz := findRE "stackblitz.com/edit/([^/?]+)" $url 1 }}
 {{ $isCodePen := findRE "codepen.io/([^/]+)/pen/([^/?]+)" $url 1 }}
 {{ $isNpmPackage := findRE "npmjs.com/package/([^/?]+)" $url 1 }}
-{{ $isGitHubRepo := findRE "github.com/([^/]+/[^/]+)(?:/|$)" $url 1 }}
+{{ $isGitHubSponsors := findRE "github.com/sponsors/" $url 1 }}
+{{ $isGitHubRepo := and (not $isGitHubSponsors) (findRE "github.com/([^/]+/[^/]+)(?:/|$)" $url 1) }}
 {{ $isDumberGist := findRE "gist.dumber.app/\\?gist=([^/?&]+)" $url 1 }}
 
 {{ if $isYoutube }}
