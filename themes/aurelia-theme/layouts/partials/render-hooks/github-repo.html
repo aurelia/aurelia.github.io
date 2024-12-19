@@ -1,0 +1,15 @@
+<div class="my-4 p-4 bg-gray-50 rounded-lg shadow-lg">
+    <div class="flex items-center gap-3">
+        <i class="fab fa-github text-2xl"></i>
+        <a href="https://github.com/{{ .Destination }}" 
+           class="text-lg font-mono hover:text-aurelia-light"
+           target="_blank" 
+           rel="noopener">
+            {{ .Destination }}
+        </a>
+    </div>
+    <div class="mt-2 flex gap-2">
+        <img src="https://img.shields.io/github/stars/{{ .Destination }}" alt="GitHub stars" />
+        <img src="https://img.shields.io/github/last-commit/{{ .Destination }}" alt="Last commit" />
+    </div>
+</div> 

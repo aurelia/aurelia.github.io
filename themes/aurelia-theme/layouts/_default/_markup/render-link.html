@@ -1,0 +1,51 @@
+{{ $url := .Destination }}
+{{ $isYoutube := findRE "(youtube:|youtu.be/|youtube.com/watch)" $url 1 }}
+{{ $isGist := findRE "^(gist:|https://gist.github.com/)" $url 1 }}
+{{ $isStackBlitz := findRE "stackblitz.com/edit/([^/?]+)" $url 1 }}
+{{ $isCodePen := findRE "codepen.io/([^/]+)/pen/([^/?]+)" $url 1 }}
+{{ $isNpmPackage := findRE "npmjs.com/package/([^/?]+)" $url 1 }}
+{{ $isGitHubRepo := findRE "github.com/([^/]+/[^/]+)(?:/|$)" $url 1 }}
+{{ $isDumberGist := findRE "gist.dumber.app/\\?gist=([^/?&]+)" $url 1 }}
+
+{{ if $isYoutube }}
+    {{ $videoID := "" }}
+    {{ if findRE "youtube.com/watch" $url 1 }}
+        {{ $videoID = (index (findRE "[?&]v=([A-Za-z0-9_-]{11})" $url 1) 0) }}
+        {{ $videoID = replaceRE "[?&]v=" "" $videoID }}
+        <!-- YouTube.com Video ID: {{ $videoID }} -->
+    {{ else if findRE "youtu.be/" $url 1 }}
+        {{ $videoID = (index (findRE "youtu.be/([A-Za-z0-9_-]{11})" $url 1) 0) }}
+        {{ $videoID = replaceRE "youtu.be/" "" $videoID }}
+        <!-- YoutuBe Video ID: {{ $videoID }} -->
+    {{ else }}
+        {{ $videoID = replaceRE "youtube:" "" $url }}
+        <!-- Direct Video ID: {{ $videoID }} -->
+    {{ end }}
+    {{ partial "render-hooks/youtube.html" (dict "Destination" $videoID) }}
+{{ else if $isGist }}
+    {{ $gistID := replaceRE "^(gist:|https://gist.github.com/)" "" $url }}
+    {{ partial "render-hooks/gist.html" (dict "Destination" $gistID) }}
+{{ else if $isStackBlitz }}
+    {{ $projectId := index (findRE "stackblitz.com/edit/([^/?]+)" $url 1) 0 }}
+    {{ $projectId = replaceRE "stackblitz.com/edit/" "" $projectId }}
+    {{ partial "render-hooks/stackblitz.html" (dict "Destination" $projectId "Height" "800px") }}
+{{ else if $isCodePen }}
+    {{ $matches := findRE "codepen.io/([^/]+)/pen/([^/?]+)" $url 1 }}
+    {{ $user := replaceRE "codepen.io/([^/]+)/pen/.*" "$1" (index $matches 0) }}
+    {{ $penId := replaceRE "codepen.io/[^/]+/pen/([^/?]+)" "$1" (index $matches 0) }}
+    {{ partial "render-hooks/codepen.html" (dict "User" $user "PenId" $penId "Height" "400") }}
+{{ else if $isNpmPackage }}
+    {{ $packageName := index (findRE "npmjs.com/package/([^/?]+)" $url 1) 0 }}
+    {{ $packageName = replaceRE "npmjs.com/package/" "" $packageName }}
+    {{ partial "render-hooks/npm-package.html" (dict "Destination" $packageName) }}
+{{ else if $isGitHubRepo }}
+    {{ $repoPath := index (findRE "github.com/([^/]+/[^/]+)(?:/|$)" $url 1) 0 }}
+    {{ $repoPath = replaceRE "github.com/" "" $repoPath }}
+    {{ partial "render-hooks/github-repo.html" (dict "Destination" $repoPath) }}
+{{ else if $isDumberGist }}
+    {{ $gistId := index (findRE "gist=([^/?&]+)" $url 1) 0 }}
+    {{ $gistId = replaceRE "gist=" "" $gistId }}
+    {{ partial "render-hooks/dumber-gist.html" (dict "Destination" $gistId "Height" "400px") }}
+{{ else }}
+    <a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+{{ end }} 

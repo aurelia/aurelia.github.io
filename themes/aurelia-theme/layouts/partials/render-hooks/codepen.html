@@ -1,0 +1,13 @@
+<div class="my-4">
+    <p class="codepen" 
+       data-height="{{ with .Height }}{{ . }}{{ else }}400{{ end }}" 
+       data-default-tab="result" 
+       data-slug-hash="{{ .PenId }}" 
+       data-user="{{ .User }}"
+       style="height: {{ with .Height }}{{ . }}{{ else }}400{{ end }}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+        <span>See the Pen <a href="https://codepen.io/{{ .User }}/pen/{{ .PenId }}">
+        CodePen Example</a> by {{ .User }} (<a href="https://codepen.io/{{ .User }}">@{{ .User }}</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</div> 

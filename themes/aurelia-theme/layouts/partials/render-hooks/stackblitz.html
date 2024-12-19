@@ -1,0 +1,9 @@
+<div class="my-4">
+    <iframe 
+        src="https://stackblitz.com/edit/{{ .Destination }}?embed=1&view=preview"
+        class="w-full rounded-lg shadow-lg"
+        style="height: {{ with .Height }}{{ . }}{{ else }}600px{{ end }};"
+        loading="lazy"
+        allowfullscreen>
+    </iframe>
+</div> 

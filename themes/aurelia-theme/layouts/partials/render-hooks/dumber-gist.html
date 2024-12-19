@@ -1,0 +1,8 @@
+<div class="my-4">
+    <iframe 
+        src="https://gist.dumber.app/?gist={{ .Destination }}"
+        class="w-full rounded-lg shadow-lg"
+        style="height: {{ with .Height }}{{ . }}{{ else }}400px{{ end }}; border: 2px solid #343a40;"
+        loading="lazy">
+    </iframe>
+</div> 
