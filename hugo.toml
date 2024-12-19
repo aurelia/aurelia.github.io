@@ -17,5 +17,9 @@ theme = "aurelia-theme"
   [markup.highlight]
     style = "emacs"
 
+[services]
+  [services.disqus]
+    shortname = 'aurelia-2'
+
 [outputs]
   home = ["HTML", "RSS", "JSON"] 
