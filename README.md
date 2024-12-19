@@ -41,7 +41,7 @@ aurelia.github.io/
 │   └── roadmap.md   # Roadmap page
 │
 ├── themes/
-│   └── aurelia-theme/# Custom Aurelia theme
+��   └── aurelia-theme/# Custom Aurelia theme
 │       ├── assets/   # Theme assets (CSS, JS)
 │       ├── data/     # Theme data files
 │       └── layouts/  # Theme templates
@@ -64,10 +64,44 @@ description = "Post description"
 date = 2024-01-01T10:00:00Z
 lastmod = 2024-01-01T10:00:00Z
 draft = false
+toc = true  # Enables in-page navigation
 +++
 
 Post content goes here...
 ```
+
+### Content Embedding
+
+The theme supports automatic embedding of various external content. Simply paste the URLs in your markdown:
+
+```markdown
+# Code Playgrounds
+https://dumber.gist.com/your-gist-id
+https://stackblitz.com/edit/your-project
+https://codepen.io/username/pen/pen-id
+
+# Videos
+https://www.youtube.com/watch?v=video-id
+
+# Package Information
+https://www.npmjs.com/package/package-name
+
+# GitHub
+https://github.com/username/repo
+```
+
+### Table of Contents
+
+Add `toc = true` to your page's frontmatter to enable an in-page navigation sidebar that automatically generates a table of contents from your page's headings.
+
+```markdown
++++
+title = "Page Title"
+toc = true
++++
+```
+
+The table of contents will appear as a floating sidebar on desktop and can be toggled on mobile devices.
 
 ### Navigation
 
