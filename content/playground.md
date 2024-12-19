@@ -18,7 +18,7 @@ examples:
     
   - title: "Real Time Clock"
     description: "The clock is defined in the `src/real-time-clock.ts` file and then rendered in the `src/real-time-clock.html` file. Styles for the clock are defined in the `src/real-time-clock.css` file. This example demonstrates Aurelia's ability to update the UI in real time."
-    url: "https://stackblitz.com/edit/au2-real-time-clock?embed=1&file=src%2Freal-time-clock.css&hideExplorer=1"
+    url: "https://stackblitz.com/edit/au2-real-time-clock?embed=1&file=src%2Freal-time-clock.ts&hideExplorer=1"
     
   - title: "Particle System"
     description: "The particle system is defined in the `src/particle-system.ts` file and then rendered in the `src/particle-system.html` file. Styles for the particle system are defined in the `src/particle-system.css` file. This example demonstrates Aurelia's ability to render complex UI elements and animate them in real time."
