@@ -22,7 +22,7 @@ sponsors:
     iframe_url: "https://opencollective.com/aurelia/tiers/bronze.svg?avatarHeight=64&button=false&width=1024"
     
   wood:
-    iframe_url: "https://opencollective.com/aurelia/tiers/wood.svg?avatarHeight=32&button=false&width=512"
+    iframe_url: "https://opencollective.com/aurelia/tiers/wood.svg?avatarHeight=32&button=false"
 
   cta:
     text: "Become a Sponsor!"

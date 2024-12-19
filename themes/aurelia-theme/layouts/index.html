@@ -258,18 +258,7 @@
 </section> -->
 
 <!-- Sponsors Section -->
-<section class="relative py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-  <!-- Background decorative elements -->
-  <div class="absolute inset-0">
-    <div class="absolute inset-0 opacity-[0.03]">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(237,43,136,0.1),transparent_50%)]"></div>
-      <div class="absolute -inset-[100%] bg-[radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.1),transparent_50%)]"></div>
-    </div>
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(237,43,136,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-    </div>
-  </div>
-
+<section class="relative py-24 bg-gradient-to-b from-gray-50 to-white">
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center mb-16">
@@ -350,7 +339,7 @@
         <div class="relative rounded-xl bg-white">
           <div class="flex items-center justify-center relative p-6">
             <iframe
-              class="w-auto border-0"
+              class="w-full border-0"
               src="{{ .Site.Params.sponsors.bronze.iframe_url }}"
               title="Bronze Sponsors">
             </iframe>
@@ -365,11 +354,10 @@
             Wood Sponsors
           </span>
         </h3>
-        <div class="relative rounded-xl bg-white overflow-hidden group hover:shadow-xl">
-          <!-- Content container with scrollbar styling -->
+        <div class="relative rounded-xl bg-white group hover:shadow-xl">
           <div class="flex items-center justify-center relative p-6">
             <iframe
-              class="w-auto border-0"
+              class="w-full border-0"
               src="{{ .Site.Params.sponsors.wood.iframe_url }}"
               title="Wood Sponsors">
             </iframe>
