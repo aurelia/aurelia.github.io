@@ -5,14 +5,54 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:200,400,700&display=swap&font-display=swap" rel="stylesheet">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
+<!-- SEO Meta Tags -->
+{{ if .IsNode }}
+  {{ if eq .Type "authors" }}
+    <!-- For author listing pages -->
+    {{ if .IsSection }}
+      <!-- Main authors page -->
+      <link rel="canonical" href="{{ .Permalink }}">
+    {{ else }}
+      <!-- Individual author page -->
+      {{ if .Paginator }}
+        <link rel="canonical" href="{{ .Paginator.First.URL }}">
+      {{ else }}
+        <link rel="canonical" href="{{ .Permalink }}">
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <!-- For single pages/posts -->
+  <link rel="canonical" href="{{ .Permalink }}">
+{{ end }}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with .Params.image }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{ end }}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
+{{ with .Params.image }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{ end }}
+
+<!-- Other Meta Tags -->
 <meta name="msapplication-tap-highlight" content="no" />
 <meta name="mobile-web-app-capable" content="yes">
-
-<meta name="description" content="Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity."/>
 <meta name="robots" content="index,follow"/>
 
+<!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="The official Aurelia blog" href="{{ "blog/index.xml" | relURL }}" />
 
+<!-- Search -->
 <link rel="search" href="{{ "index.json" | relURL }}" type="application/json">
 
 {{ partialCached "head/css.html" . }}
