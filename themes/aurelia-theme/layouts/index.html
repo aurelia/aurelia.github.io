@@ -87,45 +87,53 @@
       </div> -->
     </div>
 
-    <!-- Right Column: Interactive Demo -->
+    <!-- Right Column: Quick Start -->
     <div class="lg:flex-1 w-full max-w-xl lg:max-w-md">
       <div class="relative">
-        <!-- Code Preview Tabs -->
+        <!-- Terminal Preview -->
         <div class="rounded-xl bg-gray-900 p-4 shadow-2xl transform hover:-translate-y-1 transition-transform">
+          <!-- Terminal Header -->
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-1.5">
               <div class="w-3 h-3 rounded-full bg-red-500"></div>
               <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div class="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
-            <div class="flex gap-2 text-xs text-gray-400">
-              <span class="px-2 py-1 rounded bg-gray-800 text-aurelia">simple-counter.ts</span>
-              <span class="px-2 py-1 rounded bg-gray-800/50">simple-counter.html</span>
+            <div class="text-xs text-gray-400">
+              <span class="px-2 py-1 rounded bg-gray-800">terminal</span>
             </div>
           </div>
-          <pre class="text-sm font-mono"><code class="language-typescript text-gray-300">export class Counter {
-  count = 0;
 
-  increment() {
-    this.count++;
-  }
-}</code></pre>
-          
-          <div class="mt-4 pt-4 border-t border-gray-800">
-            <div class="flex gap-2 text-xs text-gray-400 mb-2">
-              <span class="px-2 py-1 rounded bg-gray-800/50">simple-counter.ts</span>
-              <span class="px-2 py-1 rounded bg-gray-800 text-aurelia">simple-counter.html</span>
+          <!-- Terminal Content -->
+          <div class="font-mono text-sm">
+            <div class="flex items-center text-gray-400 mb-2">
+              <span class="text-green-400">➜</span>
+              <span class="ml-2">~</span>
+              <span class="text-aurelia ml-2">$</span>
+              <span class="ml-2 text-gray-300">npx</span>
+              <span class="text-aurelia ml-2">makes aurelia</span>
             </div>
-            <pre class="text-sm font-mono"><code class="language-html text-gray-300">&lt;button click.trigger="increment()"&gt;
-  Increment: ${count}
-&lt;/button&gt;</code></pre>
+            <div class="text-gray-400 leading-relaxed">
+              <span class="text-green-400">✔</span> Creating new Aurelia project...
+              <br/>
+              <span class="text-green-400">✔</span> Installing dependencies...
+              <br/>
+              <span class="text-green-400">✔</span> Project ready!
+              <br/>
+              <br/>
+              <span class="text-gray-300">Next steps:</span>
+              <br/>
+              <span class="ml-2 text-aurelia">cd</span> <span class="text-gray-300">my-app</span>
+              <br/>
+              <span class="ml-2 text-aurelia">npm start</span>
+            </div>
           </div>
         </div>
-            
+
         <!-- Result Preview -->
-        <!-- <div class="mt-4 rounded-xl bg-white p-6 shadow-xl border border-gray-200">
-          <div data-aurelia-app="simple-counter"></div>
-        </div> -->
+        <div class="mt-6 text-center">
+          <span class="text-sm text-gray-600">That's it! No CLI or global installs needed.</span>
+        </div>
       </div>
     </div>
   </div>
