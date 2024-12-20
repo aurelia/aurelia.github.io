@@ -3,7 +3,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:200,400,700&display=swap&font-display=swap" rel="stylesheet">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<title>
+  {{- if .IsHome -}}
+    {{ site.Title }}
+  {{- else if eq .Type "authors" -}}
+    {{- if .IsSection -}}
+      Authors | {{ site.Title }}
+    {{- else -}}
+      {{ .Params.name }} | {{ site.Title }}
+    {{- end -}}
+  {{- else -}}
+    {{ printf "%s | %s" .Title site.Title }}
+  {{- end -}}
+</title>
 
 <!-- SEO Meta Tags -->
 {{ if .IsNode }}
@@ -28,7 +40,7 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
 
 <!-- Open Graph -->
-<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}">
+<meta property="og:title" content="{{- if .IsHome -}}{{ site.Title }}{{- else if eq .Type "authors" -}}{{- if .IsSection -}}Authors | {{ site.Title }}{{- else -}}{{ .Params.name }} | {{ site.Title }}{{- end -}}{{- else -}}{{ printf "%s | %s" .Title site.Title }}{{- end -}}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
@@ -38,7 +50,7 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}">
+<meta name="twitter:title" content="{{- if .IsHome -}}{{ site.Title }}{{- else if eq .Type "authors" -}}{{- if .IsSection -}}Authors | {{ site.Title }}{{- else -}}{{ .Params.name }} | {{ site.Title }}{{- end -}}{{- else -}}{{ printf "%s | %s" .Title site.Title }}{{- end -}}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
 {{ with .Params.image }}
 <meta name="twitter:image" content="{{ . | absURL }}">
