@@ -1,7 +1,6 @@
 +++
 title = "The Aurelia 2 Alpha Release Is Now Available"
-author = "Dwayne Charrington"
-author_url = "https://dwaynecharrington.com"
+authors = ["Dwayne Charrington"]
 description = "We are excited to announce that the Aurelia 2 alpha is now ready for download"
 date = 2021-03-03T09:42:13.163Z
 lastmod = 2021-03-03T09:42:13.163Z

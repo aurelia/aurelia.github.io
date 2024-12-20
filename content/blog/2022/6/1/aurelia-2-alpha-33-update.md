@@ -1,6 +1,6 @@
 +++
 title = "Aurelia 2 Update - Alpha 33"
-author = "bigopon"
+authors = ["bigopon"]
 description = "New official plugin, testing tool improvement, event handling, hmr and lifecycle hooks."
 date = 2022-06-01T01:19:15.317Z
 lastmod = 2022-06-01T01:19:15.317Z

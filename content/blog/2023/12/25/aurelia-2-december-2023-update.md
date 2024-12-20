@@ -1,6 +1,6 @@
 +++
 title = "Aurelia 2 — December 2023 Update"
-author = "Dwayne Charrington"
+authors = ["Dwayne Charrington"]
 description = "An update on Aurelia 2 - December 2023 edition"
 date = 2023-12-25T07:46:53.313Z
 lastmod = 2023-12-25T07:46:53.313Z

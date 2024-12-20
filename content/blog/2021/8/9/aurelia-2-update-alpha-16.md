@@ -1,6 +1,6 @@
 +++
 title = "Aurelia 2 Update - Alpha 16"
-author = "bigopon"
+authors = ["bigopon"]
 description = "For the last month, since alpha-12, the focus of the Aurelia team has been v1 feature parity besides various bugs fixing, refactoring, performance & documentation improvements."
 date = 2021-08-09T23:40:49.513Z
 lastmod = 2021-08-09T23:40:49.513Z

@@ -1,6 +1,6 @@
 +++
 title = "A Guide to Event Modifiers in Aurelia 2: Simplifying Event Handling"
-author = "Dwayne Charrington"
+authors = ["Dwayne Charrington"]
 description = "Learn how to use event modifiers in Aurelia 2 to simplify event handling and improve code readability."
 date = 2024-12-21T10:00:00Z
 lastmod = 2024-12-21T10:00:00Z

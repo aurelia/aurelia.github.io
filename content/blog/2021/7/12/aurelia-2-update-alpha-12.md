@@ -1,6 +1,6 @@
 +++
 title = "Aurelia 2 Update - Alpha 12"
-author = "bigopon"
+authors = ["bigopon"]
 description = "A minor update on various improvements of Aurelia 2."
 date = 2021-07-12T00:27:33.000Z
 lastmod = 2021-07-12T00:27:33.000Z

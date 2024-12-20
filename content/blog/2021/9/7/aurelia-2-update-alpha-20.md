@@ -1,6 +1,6 @@
 +++
 title = "Aurelia 2 Update - Alpha 20"
-author = "Dwayne Charrington"
+authors = ["Dwayne Charrington"]
 description = "Not wanting to spam you all every time we release a new alpha update for Aurelia 2, we have been consolidating multiple release notes (as you might have noticed the last couple of updates)."
 date = 2021-09-07T10:45:55.994Z
 lastmod = 2021-09-07T10:45:55.994Z

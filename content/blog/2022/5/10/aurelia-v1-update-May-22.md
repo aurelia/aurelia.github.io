@@ -1,6 +1,6 @@
 +++
 title = "Aurelia v1 updates for May 2022"
-author = "bigopon"
+authors = ["bigopon"]
 description = "New versions for Aurelia v1 packages, & upgrade notes"
 date = 2022-05-10T11:20:13.243Z
 lastmod = 2022-05-10T11:20:13.243Z

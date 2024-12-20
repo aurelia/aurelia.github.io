@@ -1,7 +1,6 @@
 +++
 title = "Aurelia update notes - mid April 2022"
-author = "bigopon"
-author_url = "https://github.com/bigopon"
+authors = ["bigopon"]
 description = "The original router is back to v2, along with a better tooling experience."
 date = 2022-04-19T01:41:59.594Z
 lastmod = 2022-04-19T01:41:59.594Z

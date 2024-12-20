@@ -1,6 +1,6 @@
 +++
 title = "New Aurelia Website: A Fresh Look for 2024"
-author = "Dwayne Charrington"
+authors = ["Dwayne Charrington"]
 description = "Introducing the new Aurelia website, a design refresh, a renewed commitment to content, and a more lively community."
 date = 2024-12-18T10:00:00Z
 lastmod = 2024-12-18T10:00:00Z

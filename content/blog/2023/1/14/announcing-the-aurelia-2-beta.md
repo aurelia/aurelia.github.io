@@ -1,6 +1,6 @@
 +++
 title = "Announcing The Aurelia 2 Beta"
-author = "Dwayne Charrington"
+authors = ["Dwayne Charrington"]
 description = "Announcing the beta release of Aurelia 2"
 date = 2023-01-14T10:43:55.090Z
 lastmod = 2023-01-14T10:43:55.090Z

@@ -1,6 +1,6 @@
 +++
 title = "Aurelia 2 Update - Alpha 26"
-author = "bigopon"
+authors = ["bigopon"]
 description = "Fixes for template compiler, promise controller and computed observer."
 date = 2022-03-14T11:16:50.681Z
 lastmod = 2022-03-14T11:16:50.681Z

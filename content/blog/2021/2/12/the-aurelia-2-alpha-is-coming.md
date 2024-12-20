@@ -1,7 +1,6 @@
 +++
 title = "The Aurelia 2 alpha is coming"
-author = "Dwayne Charrington"
-author_url = "https://dwaynecharrington.com"
+authors = ["Dwayne Charrington"]
 description = "As many of you know, we have been hard at work on the next version of Aurelia known as Aurelia 2 for quite some time now. Despite some obstacles (including an ongoing global pandemic), we are happy to announce we are releasing an alpha version of Aurelia 2 on March 2nd, 2021."
 date = 2021-02-12T09:42:13.163Z
 lastmod = 2021-02-12T09:42:13.163Z

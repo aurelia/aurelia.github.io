@@ -1,7 +1,6 @@
 +++
 title = "Aurelia 2 Update - Alpha 8"
-author = "Dwayne Charrington"
-author_url = "https://dwaynecharrington.com"
+authors = ["Dwayne Charrington"]
 description = "Hi everyone, we hope you have been staying healthy and safe in these uncertain times we still find ourselves in. Unfortunately, things slowed down a bit in Aurelia land over the last few months due to unforeseen circumstances. We are happy to report that we've now been able to adapt to these changes, and you're going to see more releases and development work as we focus on completing Aurelia 2. We also realize that a lot of the work that has been done can easily be missed if you're not watching the GitHub [https://github.com/aurelia/aurelia], so make sure you keep an eye on that one too."
 date = 2021-06-22T05:44:14.511Z
 lastmod = 2021-06-22T05:44:14.511Z

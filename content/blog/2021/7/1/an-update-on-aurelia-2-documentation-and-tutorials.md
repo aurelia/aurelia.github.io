@@ -1,7 +1,6 @@
 +++
 title = "An Update on Aurelia 2 Documentation and Tutorials"
-author = "Dwayne Charrington"
-author_url = "https://dwaynecharrington.com"
+authors = ["Dwayne Charrington"]
 description = "Here at Aurelia HQ, we have been busy beavers. Work on Aurelia 2 continues full steam ahead. We are doing more frequent development releases. You might have noticed we are engaging the community a little bit better after the noticeable silence."
 date = 2021-07-01T23:57:57.490Z
 lastmod = 2021-07-01T23:57:57.490Z

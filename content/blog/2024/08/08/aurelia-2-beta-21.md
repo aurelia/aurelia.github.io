@@ -1,6 +1,6 @@
 +++
 title = "What's New in Aurelia 2 Beta 21?"
-author = "Dwayne Charrington"
+authors = ["Dwayne Charrington"]
 description = "The Aurelia 2 Beta 21 release focuses on enhancing developer experience and addressing community-reported issues. Key improvements include support for increment/decrement assignment operators, fixes for the state plugin, router enhancements, and task queue refinements."
 date = 2024-08-08T12:00:00Z
 lastmod = 2024-08-08T12:00:00Z
