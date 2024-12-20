@@ -27,7 +27,6 @@
           href="https://twitter.com/{{ strings.TrimPrefix "@" . }}" 
           class="inline-flex items-center gap-2 text-gray-600 hover:text-aurelia transition-colors"
           target="_blank"
-          rel="noopener noreferrer"
         >
           <i class="fab fa-twitter text-xl"></i>
         </a>
@@ -37,9 +36,17 @@
           href="https://github.com/{{ . }}" 
           class="inline-flex items-center gap-2 text-gray-600 hover:text-aurelia transition-colors"
           target="_blank"
-          rel="noopener noreferrer"
         >
           <i class="fab fa-github text-xl"></i>
+        </a>
+      {{ end }}
+      {{ with .Params.website }}
+        <a 
+          href="{{ . }}" 
+          class="inline-flex items-center gap-2 text-gray-600 hover:text-aurelia transition-colors"
+          target="_blank"
+        >
+          <i class="fas fa-globe text-xl"></i>
         </a>
       {{ end }}
     </div>
