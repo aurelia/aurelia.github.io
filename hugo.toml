@@ -3,6 +3,11 @@ languageCode = "en-us"
 title = "Aurelia"
 theme = "aurelia-theme"
 
+[taxonomies]
+  authors = "authors"
+  tags = "tags"
+  categories = "categories"
+
 [params]
   pathPrefix = ""
 
@@ -15,7 +20,7 @@ theme = "aurelia-theme"
     [markup.goldmark.extensions]
       linkify = true
   [markup.highlight]
-    style = "emacs"
+    style = "monokai"
 
 [services]
   [services.disqus]
@@ -23,3 +28,6 @@ theme = "aurelia-theme"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"] 
+
+# Global pagination setting
+paginate = 10
