@@ -1,6 +1,6 @@
 +++
 title = "What’s New in Aurelia 2 Beta 22?"
-author = "Dwayne Charrington"
+authors = ["Dwayne Charrington"]
 description = "The Aurelia team is thrilled to announce the release of **Aurelia 2 Beta 22**, packed with significant updates, new features, breaking changes, bug fixes, and improved documentation. This release represents our ongoing commitment to providing a robust and modern JavaScript framework for developers. Let’s dive into the highlights!"
 date = 2024-09-30T10:00:00Z
 lastmod = 2024-09-30T10:00:00Z
