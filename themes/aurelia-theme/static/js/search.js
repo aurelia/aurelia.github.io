@@ -7,8 +7,7 @@ let searchResultItems = [];
 
 async function fetchSearchIndex() {
     if (searchIndex) return searchIndex;
-    
-    const basePath = getBasePath();
+
     const response = await fetch(`/index.json`);
     searchIndex = await response.json();
     return searchIndex;
