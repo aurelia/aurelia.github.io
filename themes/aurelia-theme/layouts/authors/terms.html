@@ -1,0 +1,100 @@
+{{ define "main" }}
+<!-- Authors Header Section -->
+<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50">
+  <!-- Decorative Background -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia-light/5 to-purple-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Header Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
+      Our Authors
+    </h1>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      Meet the talented writers and contributors behind our articles
+    </p>
+  </div>
+</section>
+
+<!-- Authors Grid -->
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{ $authors := .Data.Pages }}
+    {{ if $authors }}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ range .Data.Pages }}
+          <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group">
+            <!-- Card Decoration -->
+            <div class="absolute inset-0 overflow-hidden rounded-2xl">
+              <div class="absolute top-0 right-0 w-[200px] h-[200px] bg-gradient-to-br from-aurelia/5 to-aurelia-light/5 rounded-full blur-2xl transform -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            
+            <div class="relative text-center">
+              <a href="{{ .Permalink }}" class="block mb-4">
+                {{ with .Params.photo }}
+                  <img 
+                    src="{{ . }}" 
+                    alt="{{ $.Params.name }}" 
+                    class="w-28 h-28 rounded-full mx-auto object-cover shadow-md border-4 border-white group-hover:scale-105 transition-transform duration-300"
+                  />
+                {{ else }}
+                  <div class="w-28 h-28 rounded-full mx-auto bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center border-4 border-white">
+                    <i class="fas fa-user text-gray-400 text-3xl"></i>
+                  </div>
+                {{ end }}
+              
+                <h2 class="text-2xl font-bold text-gray-900 group-hover:text-aurelia transition-colors duration-300 mt-4">
+                  {{ .Params.name }}
+                </h2>
+              </a>
+              
+              <!-- Social Links -->
+              <div class="flex justify-center gap-3 mt-4">
+                {{ with .Params.twitter }}
+                  <a 
+                    href="https://twitter.com/{{ strings.TrimPrefix "@" . }}" 
+                    class="text-gray-500 hover:text-aurelia transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i class="fab fa-twitter text-lg"></i>
+                  </a>
+                {{ end }}
+                {{ with .Params.github }}
+                  <a 
+                    href="https://github.com/{{ . }}" 
+                    class="text-gray-500 hover:text-aurelia transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i class="fab fa-github text-lg"></i>
+                  </a>
+                {{ end }}
+              </div>
+
+              <!-- Article Count -->
+              <div class="mt-4 text-sm text-gray-600">
+                {{ $count := len .Pages }}
+                {{ if eq $count 0 }}
+                  No articles yet
+                {{ else }}
+                  {{ $count }} {{ if eq $count 1 }}article{{ else }}articles{{ end }}
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="text-center py-12">
+        <div class="text-gray-400 mb-4">
+          <i class="fas fa-users text-4xl"></i>
+        </div>
+        <p class="text-gray-600">No authors found.</p>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
