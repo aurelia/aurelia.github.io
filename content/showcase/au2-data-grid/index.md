@@ -2,7 +2,7 @@
 title: "Au2 Data Grid"
 description: "A flexible data grid component for Aurelia 2 that supports custom elements, pagination, sorting, and column management."
 date: 2023-01-15
-showcase_categories: ["plugins", "data"]
+showcase_categories: ["plugins"]
 github: "Sayan751/au2-data-grid"
 npm: "@sparser/au2-data-grid"
 ---
