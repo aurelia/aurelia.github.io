@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Aurelia documentation website",
   "scripts": {
-    "dev": "hugo server",
+    "dev": "hugo serve -D -F --ignoreCache",
     "build": "hugo --minify",
-    "start": "hugo server"
+    "start": "hugo serve -D -F --ignoreCache"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0-beta.7",

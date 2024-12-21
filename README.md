@@ -22,7 +22,7 @@ The official website and blog for Aurelia (aurelia.io), built with Hugo.
 3. **Development**
    ```bash
    # Start the development server
-   hugo server -D
+   hugo serve -D -F --ignoreCache
    ```
    Visit http://localhost:1313 to see the site.
 
