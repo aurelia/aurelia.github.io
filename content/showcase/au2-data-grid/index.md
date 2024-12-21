@@ -5,8 +5,6 @@ date: 2023-01-15
 showcase_categories: ["plugins", "data"]
 github: "Sayan751/au2-data-grid"
 npm: "@sparser/au2-data-grid"
-demo: "https://sparser.github.io/au2-data-grid"
-featured_image: "/images/showcase/au2-data-grid.png"
 ---
 
 ## Overview
