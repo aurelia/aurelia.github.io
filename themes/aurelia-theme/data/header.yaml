@@ -21,6 +21,9 @@ menu:
   - name: "Blog"
     link: "/blog"
     active: "eq .Section 'blog'"
+  - name: "Showcase"
+    link: "/showcase"
+    active: "eq .RelPermalink '/showcase/'"
   - name: "Ecosystem"
     dropdown: true
     sections:
