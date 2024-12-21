@@ -1,0 +1,118 @@
+{{ define "main" }}
+<!-- Showcase Header -->
+<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50">
+  <!-- Decorative Background -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia-light/5 to-purple-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Header Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <a href="/showcase" class="inline-flex items-center text-sm text-gray-600 hover:text-aurelia mb-8 group">
+      <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Back to Showcase
+    </a>
+
+    {{ with .Params.showcase_categories }}
+    <div class="flex gap-2 mb-6">
+      {{ range . }}
+      <a href="{{ "/showcase/category/" | relLangURL }}{{ . | urlize }}"
+         class="inline-block px-3 py-1 rounded-full bg-aurelia/10 text-aurelia text-sm font-medium hover:bg-aurelia/20 transition-colors">
+        {{ . }}
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
+      {{ .Title }}
+    </h1>
+
+    {{ with .Description }}
+    <p class="text-xl text-gray-600 max-w-2xl">{{ . }}</p>
+    {{ end }}
+
+    <div class="mt-8 flex flex-wrap gap-4">
+      {{ with .Params.github }}
+      <a href="https://github.com/{{ . }}" 
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+         target="_blank">
+        <i class="fab fa-github text-lg"></i>
+        View on GitHub
+      </a>
+      {{ end }}
+
+      {{ with .Params.demo }}
+      <a href="{{ . }}" 
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-aurelia text-white hover:bg-aurelia-light transition-colors"
+         target="_blank">
+        <i class="fas fa-external-link-alt"></i>
+        Live Demo
+      </a>
+      {{ end }}
+
+      {{ with .Params.npm }}
+      <a href="https://www.npmjs.com/package/{{ . }}" 
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors"
+         target="_blank">
+        <i class="fab fa-npm text-lg"></i>
+        View on npm
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Content -->
+<article class="py-12 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{ with .Params.featured_image }}
+    <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
+      <img src="{{ . }}" alt="" class="w-full h-auto">
+    </div>
+    {{ end }}
+
+    <div class="prose prose-lg max-w-none">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
+
+<!-- Related Items -->
+{{ $related := where (where .Site.RegularPages "Type" "showcase") "Permalink" "!=" .Permalink | first 3 }}
+{{ with $related }}
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold mb-8 text-center">More from Showcase</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range . }}
+      <article class="relative p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group">
+        <div class="relative">
+          {{ with .Params.showcase_categories }}
+          <div class="flex flex-wrap gap-2 mb-4">
+            {{ range . }}
+            <span class="inline-block px-3 py-1 rounded-full bg-aurelia/10 text-aurelia text-sm font-medium">
+              {{ . }}
+            </span>
+            {{ end }}
+          </div>
+          {{ end }}
+
+          <h3 class="text-xl font-bold text-gray-900 group-hover:text-aurelia transition-colors">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+          
+          {{ with .Description }}
+          <p class="mt-2 text-gray-600">{{ . }}</p>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }} 

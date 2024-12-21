@@ -7,6 +7,10 @@ theme = "aurelia-theme"
   authors = "authors"
   tags = "tags"
   categories = "categories"
+  showcase_categories = "showcase_categories"
+
+[permalinks]
+  showcase_categories = "/showcase/category/:slug"
 
 [params]
   pathPrefix = ""
