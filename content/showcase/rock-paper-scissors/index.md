@@ -3,8 +3,8 @@ title: "Rock Paper Scissors"
 description: "A classic Rock Paper Scissors game built with Aurelia 2, featuring an elegant UI and computer opponent."
 date: 2024-03-15
 showcase_categories: ["games"]
-github: "your-username/rock-paper-scissors"
-demo: "https://your-demo-url.com"
+github: "Vheissu/aurelia2-rock-paper-scissors"
+demo: "https://aurelia2-rock-paper-scissors.vercel.app/"
 ---
 
 ## Overview
