@@ -3,7 +3,7 @@ title: "Cortex Device List"
 description: "A user-friendly interface for browsing and filtering Neural DSP Quad Cortex virtual devices and amp models."
 date: 2024-02-15
 showcase_categories: ["apps"]
-github: "your-username/cortex-device-list"
+github: "Vheissu/cortex-device-list"
 demo: "https://www.quadcortex.co/"
 ---
 
