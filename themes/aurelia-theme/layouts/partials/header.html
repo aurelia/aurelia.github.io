@@ -6,7 +6,7 @@
             </a>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden xl:flex space-x-8">
                 {{ range .Site.Data.header.menu }}
                     {{ if .dropdown }}
                         <div class="relative group">
@@ -116,7 +116,7 @@
 
                 <!-- Mobile Menu Button -->
                 <button type="button"
-                        class="md:hidden p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-aurelia transition-all"
+                        class="xl:hidden p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-aurelia transition-all"
                         aria-controls="mobile-menu"
                         aria-expanded="false"
                         id="mobile-menu-button">
@@ -134,7 +134,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="hidden md:hidden fixed inset-x-0 left-0 top-16 h-[calc(100vh-4rem)] bg-white z-40 border-t border-gray-100 w-full overflow-y-auto pb-safe" id="mobile-menu">
+        <div class="hidden xl:hidden fixed inset-x-0 left-0 top-16 h-[calc(100vh-4rem)] bg-white z-40 border-t border-gray-100 w-full overflow-y-auto pb-safe" id="mobile-menu">
             <div class="h-full w-full">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="py-4 space-y-2">
