@@ -3,6 +3,7 @@ title: "Playground"
 description: "Playground is a collection of interactive examples showcasing Aurelia's capabilities. You can edit the examples and see the changes in real time."
 url: "/playground/"
 type: "playground"
+notification: "⚠️ Some browsers may only show the code editor and unable to show the live preview. This is a known issue and we are working on a fix."
 examples:
   - title: "Hello, world!"
     description: "The message \"Hello, world!\" is defined in the `src/my-app.ts` file and then rendered in the `src/my-app.html` file."
