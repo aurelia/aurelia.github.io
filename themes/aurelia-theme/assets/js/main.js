@@ -7,28 +7,39 @@ document.addEventListener('DOMContentLoaded', () => {
         const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
         mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
         
-        // Toggle menu visibility
-        mobileMenu.classList.toggle('hidden');
-        
-        // Toggle icons
-        document.getElementById('menu-closed-icon').classList.toggle('hidden');
-        document.getElementById('menu-open-icon').classList.toggle('block');
-        document.getElementById('menu-open-icon').classList.toggle('hidden');
-        document.getElementById('menu-closed-icon').classList.toggle('block');
-        
-        // Prevent body scroll but allow menu scroll
+        // Use transform for better performance
         if (!isExpanded) {
-            document.body.style.overflow = 'hidden';
-            // Enable touch scrolling on iOS
-            mobileMenu.style.webkitOverflowScrolling = 'touch';
-            // Ensure menu is scrollable
-            mobileMenu.style.overflow = 'auto';
-            mobileMenu.style.height = `calc(100vh - 4rem)`;
+            mobileMenu.classList.remove('hidden');
+            // Use RAF to ensure the display change has taken effect
+            requestAnimationFrame(() => {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+                // Enable smooth scrolling on iOS
+                mobileMenu.style.webkitOverflowScrolling = 'touch';
+            });
         } else {
-            document.body.style.overflow = '';
-            mobileMenu.style.overflow = '';
-            mobileMenu.style.webkitOverflowScrolling = '';
+            mobileMenu.classList.add('translate-x-full');
+            // Wait for transition to complete before hiding
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
         }
+        
+        // Toggle icons with transition
+        const closedIcon = document.getElementById('menu-closed-icon');
+        const openIcon = document.getElementById('menu-open-icon');
+        
+        if (!isExpanded) {
+            closedIcon.style.transform = 'scale(0)';
+            openIcon.style.transform = 'scale(1)';
+        } else {
+            closedIcon.style.transform = 'scale(1)';
+            openIcon.style.transform = 'scale(0)';
+        }
+        
+        closedIcon.classList.toggle('hidden');
+        openIcon.classList.toggle('hidden');
     }
 
     if (mobileMenuButton) {
@@ -210,4 +221,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial check for active section
         updateActiveSection();
     });
+
+    // Add touch event handling for iOS
+    let touchStartY = 0;
+    mobileMenu.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    mobileMenu.addEventListener('touchmove', (e) => {
+        const touchY = e.touches[0].clientY;
+        const scrollTop = mobileMenu.scrollTop;
+        const isAtTop = scrollTop <= 0;
+        const isAtBottom = scrollTop + mobileMenu.offsetHeight >= mobileMenu.scrollHeight;
+        
+        // Prevent overscroll only when at the boundaries
+        if ((isAtTop && touchY > touchStartY) || (isAtBottom && touchY < touchStartY)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 });
