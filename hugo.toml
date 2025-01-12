@@ -3,12 +3,6 @@ languageCode = "en-us"
 title = "Aurelia"
 theme = "aurelia-theme"
 
-[[redirects]]
-  from = "/docs"
-  to = "https://aurelia-1.gitbook.io/v1-docs"
-  status = 301
-  force = true
-
 [taxonomies]
   authors = "authors"
   tags = "tags"

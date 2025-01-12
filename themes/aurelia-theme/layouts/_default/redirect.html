@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ .Title }} - Redirecting...</title>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url={{ .Params.redirect }}">
+    <link rel="canonical" href="{{ .Params.redirect }}">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected automatically, please <a href="{{ .Params.redirect }}">click here</a>.</p>
+    <script>window.location.href = "{{ .Params.redirect }}";</script>
+</body>
+</html> 
