@@ -16,12 +16,14 @@ Welcome to **Aurelia**—a framework designed to bring sanity back to web develo
 At its core, Aurelia embraces a **"developer-first" philosophy**. Its intuitive design empowers you to focus on solving real problems, not on deciphering convoluted APIs or patterns. Here's how it makes life easier:
 
 ### HTML-Driven Development
+
 Aurelia extends native HTML in a way that feels natural and fluid. Forget arcane DSLs or complicated syntax—you can bind data, react to events, and build dynamic UIs using plain, declarative markup.
 
 **Example: Binding Made Simple**
 ```html
 <input type="text" value.bind="user.name">
 <p>Hello, ${user.name}!</p>
+```
 
 This simple binding syntax automatically synchronizes the user.name property between your JavaScript and the DOM, reducing boilerplate and making your intentions clear.
 
@@ -49,6 +51,7 @@ Let's see Aurelia in action. Here's a simple to-do app that demonstrates how cle
 
 HTML Template
 
+```html
 <template>
   <h1>To-Do List</h1>
   <form submit.trigger="addTodo()">
@@ -62,9 +65,11 @@ HTML Template
     </li>
   </ul>
 </template>
+```
 
 ViewModel (JavaScript)
 
+```javascript
 export class TodoApp {
   newTask = '';
   tasks = [];
@@ -80,6 +85,7 @@ export class TodoApp {
     this.tasks = this.tasks.filter(t => t !== task);
   }
 }
+```
 
 That's it! No external state management libraries or unnecessary scaffolding—just clean, readable code.
 
