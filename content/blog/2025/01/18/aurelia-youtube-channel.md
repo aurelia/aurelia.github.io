@@ -11,6 +11,8 @@ Your new go-to spot for all things Aurelia, with videos to help you master every
 
 We've been listening to the community, and a common request has been more video content on Aurelia—especially for advanced topics. So, we're thrilled to announce the launch of our [official Aurelia YouTube channel](https://www.youtube.com/@aureliaeffect) 🎉.
 
+All video content will also be available on this site, so you can watch them on your own time. The videos section can be found in the [Videos](https://aurelia.io/videos) section of the site.
+
 Years ago, Rob Eisenberg's Vimeo videos were a fantastic resource for learning Aurelia, and we want to bring that same spirit back—updated and better than ever. We were going to announce the channel once we had some content ready, but we wanted to let you know that we've got something coming in the next few days and then regular content will be posted after.
 
 Sure, the Aurelia docs are packed with great information, but we know not everyone wants to sift through text. Sometimes, watching someone walk through a concept or demo can make all the difference, and that's where this channel comes in.
