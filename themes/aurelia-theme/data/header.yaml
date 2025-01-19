@@ -32,6 +32,9 @@ menu:
           - name: "Resources"
             link: "/learn"
             active: "eq .RelPermalink '/learn/'"
+          - name: "Videos"
+            link: "/videos"
+            active: "eq .RelPermalink '/videos/'"
       - title: "Community"
         items:
           - name: "Newsletter"
