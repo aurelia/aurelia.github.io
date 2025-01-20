@@ -15,6 +15,56 @@
     background-color: #1a202c;
     color: #f7fafc;
   }
+
+  /* Code block styling */
+  .code-block {
+    @apply bg-gray-50 rounded-lg p-1;
+  }
+
+  .code-block .highlight {
+    @apply rounded-lg overflow-hidden;
+  }
+
+  .code-block .highlight pre {
+    @apply p-4 overflow-x-auto text-sm font-mono;
+  }
+
+  /* Syntax highlighting colors */
+  .highlight {
+    @apply bg-gray-50;
+  }
+
+  .highlight .nx {
+    @apply text-violet-700;
+  }
+
+  .highlight .s1, .highlight .s2 {
+    @apply text-green-600;
+  }
+
+  .highlight .k, .highlight .kd {
+    @apply text-purple-600;
+  }
+
+  .highlight .c1, .highlight .cm {
+    @apply text-gray-500;
+  }
+
+  .highlight .p {
+    @apply text-gray-700;
+  }
+
+  .highlight .o {
+    @apply text-gray-900;
+  }
+
+  .highlight .nt {
+    @apply text-violet-600;
+  }
+
+  .highlight .na {
+    @apply text-amber-600;
+  }
 }
 
 @theme {

@@ -35,6 +35,9 @@ menu:
           - name: "Videos"
             link: "/videos"
             active: "eq .RelPermalink '/videos/'"
+          - name: "Comparisons"
+            link: "/comparisons"
+            active: "eq .RelPermalink '/comparisons/'"
       - title: "Community"
         items:
           - name: "Newsletter"

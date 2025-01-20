@@ -1,0 +1,123 @@
+{{ define "main" }}
+
+{{ partial "page-header" . }}
+
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="space-y-16">
+      {{ range $index, $comparison := .Params.comparisons }}
+      <div class="comparison-block">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ .title }}</h2>
+        <p class="text-gray-600 text-lg mb-8">{{ .description }}</p>
+        
+        <div class="bg-gray-50 rounded-lg p-6">
+          <!-- Framework Tabs -->
+          <div class="flex space-x-1 mb-6 border-b border-gray-200">
+            <button 
+              class="px-4 py-2 text-sm font-medium rounded-t-lg bg-violet-100 text-violet-900 border-b-2 border-violet-600"
+              onclick="switchTab(this, 'aurelia-{{ $index }}')"
+            >
+              <i class="fas fa-bolt mr-2"></i>Aurelia
+            </button>
+            {{ range .others }}
+            <button 
+              class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-t-lg"
+              onclick="switchTab(this, '{{ .framework | urlize }}-{{ $index }}')"
+            >
+              {{ if eq .framework "React" }}
+              <i class="fab fa-react mr-2 text-blue-400"></i>
+              {{ else if eq .framework "Vue" }}
+              <i class="fab fa-vuejs mr-2 text-green-500"></i>
+              {{ else if eq .framework "Angular" }}
+              <i class="fab fa-angular mr-2 text-red-600"></i>
+              {{ else }}
+              <i class="fas fa-code mr-2"></i>
+              {{ end }}
+              {{ .framework }}
+            </button>
+            {{ end }}
+          </div>
+
+          <!-- Code Panels -->
+          <div>
+            <!-- Aurelia Panel -->
+            <div id="aurelia-{{ $index }}" class="tab-panel">
+              <div class="relative group">
+                <div class="code-block">
+                  {{ highlight .aurelia.code "html" }}
+                </div>
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity" 
+                        onclick="copyCode(this)" 
+                        title="Copy code">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Other Framework Panels -->
+            {{ range .others }}
+            <div id="{{ .framework | urlize }}-{{ $index }}" class="tab-panel hidden">
+              <div class="relative group">
+                <div class="code-block">
+                  {{ if eq .framework "React" }}
+                    {{ highlight .code "jsx" }}
+                  {{ else }}
+                    {{ highlight .code "html" }}
+                  {{ end }}
+                </div>
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity" 
+                        onclick="copyCode(this)" 
+                        title="Copy code">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<script>
+function copyCode(button) {
+  const pre = button.parentElement.querySelector('pre');
+  const code = pre.textContent;
+  
+  navigator.clipboard.writeText(code).then(() => {
+    const icon = button.querySelector('i');
+    icon.classList.remove('fa-copy');
+    icon.classList.add('fa-check');
+    
+    setTimeout(() => {
+      icon.classList.remove('fa-check');
+      icon.classList.add('fa-copy');
+    }, 2000);
+  });
+}
+
+function switchTab(button, panelId) {
+  // Remove active states from all tabs
+  const tabContainer = button.parentElement;
+  tabContainer.querySelectorAll('button').forEach(tab => {
+    tab.classList.remove('bg-violet-100', 'text-violet-900', 'border-b-2', 'border-violet-600');
+    tab.classList.add('text-gray-600');
+  });
+  
+  // Add active state to clicked tab
+  button.classList.remove('text-gray-600');
+  button.classList.add('bg-violet-100', 'text-violet-900', 'border-b-2', 'border-violet-600');
+  
+  // Hide all panels
+  const comparisonBlock = button.closest('.comparison-block');
+  comparisonBlock.querySelectorAll('.tab-panel').forEach(panel => {
+    panel.classList.add('hidden');
+  });
+  
+  // Show selected panel
+  document.getElementById(panelId).classList.remove('hidden');
+}
+</script>
+{{ end }} 
