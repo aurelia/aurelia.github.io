@@ -10,6 +10,9 @@ videos:
   - title: "Mastering Synthetic Views in Aurelia 2: Deep Dive & Best Practices"
     youtube_id: "vlU1tf1oKPY"
     description: "Dive deep into Synthetic Views in Aurelia 2, one of the most powerful features in the Aurelia framework. "
+  - title: "Mastering Template Controllers in Aurelia 2"
+    youtube_id: "Qm-vYyOFt5I"
+    description: "Learn how to use Template Controllers in Aurelia 2 to control parts of your DOM."
 ---
 
 Learn about the fundamentals of Aurelia and how to work with its numerous APIs through our video tutorials.
