@@ -165,6 +165,7 @@
           <!-- Sponsors Section -->
           <div>
             <!-- Gold Sponsors -->
+            {{ if gt (len (default slice .Site.Params.sponsors.gold)) 0 }}
             <div class="border-t border-gray-100 lg:border-t-0">
               <h3 class="text-lg font-bold text-center mb-6 text-orange-300">Gold Sponsors</h3>
               <div class="space-y-6">
@@ -183,8 +184,10 @@
                 {{ end }}
               </div>
             </div>
+            {{ end }}
 
             <!-- Silver Sponsors -->
+            {{ if gt (len (default slice .Site.Params.sponsors.silver)) 0 }}
             <div class="mt-8">
               <h3 class="text-lg font-bold text-center mb-6 text-gray-400">Silver Sponsors</h3>
               <div class="space-y-6">
@@ -203,6 +206,7 @@
                 {{ end }}
               </div>
             </div>
+            {{ end }}
 
             <!-- Sponsor CTA -->
             <div class="mt-8 pt-4 text-center">
