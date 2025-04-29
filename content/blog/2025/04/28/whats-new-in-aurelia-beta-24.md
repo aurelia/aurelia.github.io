@@ -19,10 +19,6 @@ Aurelia 2 Beta 24 introduces important breaking changes, but as always, we've go
 - We've changed how Aurelia handles custom element hosts: if a host is already tied to another custom element, Aurelia won't create a new one. This mostly helps you avoid surprises/magic behaviors.
 [Commit](https://github.com/aurelia/aurelia/commit/402c746)
 
-### **DOM: Toggle $au and $aurelia**
-- You can now hide the `$au` and `$aurelia` properties on DOM elements. If you want to make it harder for others to poke around or reverse engineer your app's internals, this is for you.  
-[Commit](https://github.com/aurelia/aurelia/commit/7e1057b)
-
 ### **Type-Checking: Non-Public Members**
 - Type-checking now supports non-public members, improving tooling and developer experience.  
 [Commit](https://github.com/aurelia/aurelia/commit/165c213)
