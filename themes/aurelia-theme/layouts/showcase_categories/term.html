@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Showcase Header Section -->
-<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50">
+<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
   <!-- Decorative Background -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
@@ -12,14 +12,14 @@
     <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
       {{ .Title | humanize }}
     </h1>
-    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
       Showcase items in {{ .Title | humanize }}
     </p>
   </div>
 </section>
 
 <!-- Categories Navigation -->
-<div class="border-b border-gray-200 bg-white sticky top-16 z-20">
+<div class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 sticky top-16 z-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <nav class="flex space-x-8 overflow-x-auto py-4" aria-label="Categories">
       <a href="/showcase" class="text-gray-500 hover:text-aurelia border-transparent whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">
@@ -36,13 +36,13 @@
 </div>
 
 <!-- Showcase Grid -->
-<section class="py-12 bg-white">
+<section class="py-12 bg-white dark:bg-gray-950">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {{ $paginator := .Paginate .Pages }}
     {{ if $paginator.Pages }}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {{ range $paginator.Pages }}
-          <article class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group">
+          <article class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300 group">
             <a href="{{ .RelPermalink }}" class="block">
               <!-- Card Decoration -->
               <div class="absolute inset-0 overflow-hidden rounded-2xl">
@@ -60,12 +60,12 @@
                 </div>
                 {{ end }}
 
-                <h2 class="text-2xl font-bold text-gray-900 group-hover:text-aurelia transition-colors">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-aurelia transition-colors">
                   {{ .Title }}
                 </h2>
                 
                 {{ with .Description }}
-                <p class="mt-2 text-gray-600">{{ . }}</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">{{ . }}</p>
                 {{ end }}
               </div>
             </a>
@@ -78,19 +78,19 @@
       <div class="mt-12 flex justify-center">
         <nav class="inline-flex rounded-md shadow-sm isolate" aria-label="Pagination">
           {{ if $paginator.HasPrev }}
-          <a href="{{ $paginator.Prev.URL }}" class="relative inline-flex items-center rounded-l-md px-3 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+          <a href="{{ $paginator.Prev.URL }}" class="relative inline-flex items-center rounded-l-md px-3 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 focus:z-20 focus:outline-offset-0">
             <i class="fas fa-chevron-left"></i>
           </a>
           {{ end }}
 
           {{ range $paginator.Pagers }}
-          <a href="{{ .URL }}" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold {{ if eq . $paginator }}text-white bg-aurelia hover:bg-aurelia-light{{ else }}text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50{{ end }} focus:z-20 focus:outline-offset-0">
+          <a href="{{ .URL }}" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold {{ if eq . $paginator }}text-white bg-aurelia hover:bg-aurelia-light{{ else }}text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700{{ end }} focus:z-20 focus:outline-offset-0">
             {{ .PageNumber }}
           </a>
           {{ end }}
 
           {{ if $paginator.HasNext }}
-          <a href="{{ $paginator.Next.URL }}" class="relative inline-flex items-center rounded-r-md px-3 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+          <a href="{{ $paginator.Next.URL }}" class="relative inline-flex items-center rounded-r-md px-3 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 focus:z-20 focus:outline-offset-0">
             <i class="fas fa-chevron-right"></i>
           </a>
           {{ end }}
@@ -102,7 +102,7 @@
         <div class="text-gray-400 mb-4">
           <i class="fas fa-box-open text-4xl"></i>
         </div>
-        <p class="text-gray-600">No showcase items found in this category.</p>
+        <p class="text-gray-600 dark:text-gray-400">No showcase items found in this category.</p>
       </div>
     {{ end }}
   </div>

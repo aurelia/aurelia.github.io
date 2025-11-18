@@ -1,4 +1,4 @@
-<footer class="bg-gray-950 border-t border-gray-800">
+<footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Main Footer Content -->
         <div class="py-12 lg:py-16">
@@ -12,7 +12,7 @@
                         <li>
                             <a href="{{ .link }}" 
                                target="{{ .target | default "_self" }}" 
-                               class="text-gray-400 hover:text-aurelia transition-colors duration-200 text-sm inline-flex items-center">
+                               class="text-gray-600 dark:text-gray-400 hover:text-aurelia transition-colors duration-200 text-sm inline-flex items-center">
                                 {{ if .icon }}
                                 <i class="{{ .icon }} w-5 mr-2"></i>
                                 {{ end }}
@@ -27,15 +27,15 @@
 
             <!-- Social Links -->
             <div class="flex justify-center space-x-8 mb-12">
-                <a href="https://twitter.com/aureliaeffect" class="text-gray-400 hover:text-aurelia transition-colors duration-200 p-2">
+                <a href="https://twitter.com/aureliaeffect" class="text-gray-600 dark:text-gray-400 hover:text-aurelia transition-colors duration-200 p-2">
                     <i class="fab fa-twitter text-2xl"></i>
                     <span class="sr-only">Twitter</span>
                 </a>
-                <a href="https://github.com/aurelia" class="text-gray-400 hover:text-aurelia transition-colors duration-200 p-2">
+                <a href="https://github.com/aurelia" class="text-gray-600 dark:text-gray-400 hover:text-aurelia transition-colors duration-200 p-2">
                     <i class="fab fa-github text-2xl"></i>
                     <span class="sr-only">GitHub</span>
                 </a>
-                <a href="https://discord.gg/RBtyM6u" class="text-gray-400 hover:text-aurelia transition-colors duration-200 p-2">
+                <a href="https://discord.gg/RBtyM6u" class="text-gray-600 dark:text-gray-400 hover:text-aurelia transition-colors duration-200 p-2">
                     <i class="fab fa-discord text-2xl"></i>
                     <span class="sr-only">Discord</span>
                 </a>
@@ -43,8 +43,8 @@
         </div>
 
         <!-- Copyright and License -->
-        <div class="py-8 border-t border-gray-800">
-            <div class="text-center text-gray-400 space-y-4">
+        <div class="py-8 border-t border-gray-200 dark:border-gray-800">
+            <div class="text-center text-gray-600 dark:text-gray-400 space-y-4">
                 <p class="text-sm">
                     Copyright © {{ now.Year }} 
                     <a href="https://aurelia.io" 
@@ -61,7 +61,7 @@
                             MIT License
                         </a>
                     </span>
-                    <span class="hidden sm:inline text-gray-600">•</span>
+                    <span class="hidden sm:inline text-gray-400 dark:text-gray-600">•</span>
                     <span class="flex items-center gap-2">
                         <i class="fas fa-file-alt text-aurelia"></i> 
                         Content licensed under 

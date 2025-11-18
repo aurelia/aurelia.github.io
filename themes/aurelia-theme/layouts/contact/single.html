@@ -3,17 +3,17 @@
 {{ partial "page-header" . }}
 
 <!-- Contact Content -->
-<section class="py-4 bg-white">
+<section class="py-4 bg-white dark:bg-gray-950">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Content Area -->
-    <div class="prose prose-lg max-w-none mb-12
-                prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-8 prose-h1:text-gray-900
-                prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-12 prose-h2:text-gray-900
-                prose-h3:text-2xl prose-h3:font-bold prose-h3:mb-4 prose-h3:mt-8 prose-h3:text-gray-900
-                prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:text-gray-700
+    <div class="prose prose-lg max-w-none mb-12 dark:prose-invert
+                prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-8 prose-h1:text-gray-900 dark:prose-h1:text-white
+                prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-12 prose-h2:text-gray-900 dark:prose-h2:text-white
+                prose-h3:text-2xl prose-h3:font-bold prose-h3:mb-4 prose-h3:mt-8 prose-h3:text-gray-900 dark:prose-h3:text-white
+                prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:text-gray-700 dark:prose-p:text-gray-300
                 prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-6
                 prose-ol:list-decimal prose-ol:ml-6 prose-ol:mb-6
-                prose-li:text-gray-700 prose-li:mb-2
+                prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-li:mb-2
                 prose-a:text-aurelia prose-a:no-underline hover:prose-a:text-aurelia-light">
       {{ .Content }}
     </div>

@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Header Section -->
-<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50">
+<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
   <!-- Decorative Background -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
@@ -13,7 +13,7 @@
       {{ .Title }}
     </h1>
     {{ with .Content }}
-    <div class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+    <div class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
       {{ . }}
     </div>
     {{ end }}
@@ -21,23 +21,23 @@
 </section>
 
 <!-- Content List -->
-<section class="py-4 bg-white">
+<section class="py-4 bg-white dark:bg-gray-950">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid gap-8">
       {{ range .Pages }}
       <article>
-        <a href="{{ .RelPermalink }}" class="group block p-6 rounded-xl hover:bg-gray-50 transition-colors duration-300">
+        <a href="{{ .RelPermalink }}" class="group block p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300">
           <div class="flex justify-between items-start gap-6">
             <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-3 text-sm text-gray-600 mb-2">
+              <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 mb-2">
                 {{ with .Date }}
                 <span>{{ .Format "January 2, 2006" }}</span>
                 {{ end }}
               </div>
-              <h2 class="text-xl font-bold text-gray-900 group-hover:text-aurelia transition-colors duration-300 mb-2">
+              <h2 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-aurelia transition-colors duration-300 mb-2">
                 {{ .Title }}
               </h2>
-              <p class="text-gray-600 text-sm leading-relaxed line-clamp-2">
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-2">
                 {{ .Description | default .Summary }}
               </p>
             </div>

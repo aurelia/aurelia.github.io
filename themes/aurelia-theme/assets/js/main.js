@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
     // Mobile menu functionality
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -60,6 +82,138 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
             toggleMobileMenu();
         }
+    });
+
+    // Desktop dropdown menu functionality
+    const dropdownButtons = document.querySelectorAll('.dropdown-button');
+    let currentlyOpenDropdown = null;
+
+    function closeDropdown(dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+        const button = document.querySelector(`[data-dropdown-button="${dropdownId}"]`);
+        const container = document.querySelector(`[data-dropdown-id="${dropdownId}"]`);
+
+        if (dropdown && button && container) {
+            dropdown.classList.remove('dropdown-open');
+            button.setAttribute('aria-expanded', 'false');
+            container.classList.remove('dropdown-active');
+        }
+    }
+
+    function openDropdown(dropdownId) {
+        // Close any currently open dropdown
+        if (currentlyOpenDropdown && currentlyOpenDropdown !== dropdownId) {
+            closeDropdown(currentlyOpenDropdown);
+        }
+
+        const dropdown = document.getElementById(dropdownId);
+        const button = document.querySelector(`[data-dropdown-button="${dropdownId}"]`);
+        const container = document.querySelector(`[data-dropdown-id="${dropdownId}"]`);
+
+        if (dropdown && button && container) {
+            dropdown.classList.add('dropdown-open');
+            button.setAttribute('aria-expanded', 'true');
+            container.classList.add('dropdown-active');
+            currentlyOpenDropdown = dropdownId;
+        }
+    }
+
+    function toggleDropdown(dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+        if (dropdown && dropdown.classList.contains('dropdown-open')) {
+            closeDropdown(dropdownId);
+            currentlyOpenDropdown = null;
+        } else {
+            openDropdown(dropdownId);
+        }
+    }
+
+    // Add click handlers to dropdown buttons
+    dropdownButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const dropdownId = button.getAttribute('data-dropdown-button');
+            toggleDropdown(dropdownId);
+        });
+    });
+
+    // Close dropdown when mouse leaves the container
+    document.querySelectorAll('.dropdown-container').forEach(container => {
+        container.addEventListener('mouseleave', () => {
+            const dropdownId = container.getAttribute('data-dropdown-id');
+            if (currentlyOpenDropdown === dropdownId) {
+                closeDropdown(dropdownId);
+                currentlyOpenDropdown = null;
+            }
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        if (currentlyOpenDropdown) {
+            const container = document.querySelector(`[data-dropdown-id="${currentlyOpenDropdown}"]`);
+            if (container && !container.contains(event.target)) {
+                closeDropdown(currentlyOpenDropdown);
+                currentlyOpenDropdown = null;
+            }
+        }
+    });
+
+    // Close dropdown when pressing Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && currentlyOpenDropdown) {
+            closeDropdown(currentlyOpenDropdown);
+            currentlyOpenDropdown = null;
+        }
+    });
+
+    // Keyboard navigation for dropdown menus
+    dropdownButtons.forEach(button => {
+        button.addEventListener('keydown', (event) => {
+            const dropdownId = button.getAttribute('data-dropdown-button');
+            const dropdown = document.getElementById(dropdownId);
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                openDropdown(dropdownId);
+                // Focus first link in dropdown
+                const firstLink = dropdown?.querySelector('a');
+                if (firstLink) {
+                    firstLink.focus();
+                }
+            }
+        });
+    });
+
+    // Allow arrow key navigation within dropdowns
+    document.querySelectorAll('.dropdown-menu').forEach(dropdown => {
+        const links = dropdown.querySelectorAll('a');
+        links.forEach((link, index) => {
+            link.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowDown') {
+                    event.preventDefault();
+                    const nextLink = links[index + 1];
+                    if (nextLink) {
+                        nextLink.focus();
+                    }
+                } else if (event.key === 'ArrowUp') {
+                    event.preventDefault();
+                    if (index === 0) {
+                        // Focus back on the button
+                        const dropdownId = dropdown.id;
+                        const button = document.querySelector(`[data-dropdown-button="${dropdownId}"]`);
+                        if (button) {
+                            button.focus();
+                        }
+                    } else {
+                        const prevLink = links[index - 1];
+                        if (prevLink) {
+                            prevLink.focus();
+                        }
+                    }
+                }
+            });
+        });
     });
 
     // Page Navigation functionality

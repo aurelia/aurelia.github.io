@@ -3,6 +3,15 @@
   lang="{{ site.Language.LanguageCode }}"
   dir="{{ or site.Language.LanguageDirection `ltr` }}">
   <head>
+    <script>
+      // Prevent flash of wrong theme
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     {{ partial "head.html" . }} 
     
     {{ $aureliaFiles := readDir "static/aurelia2" }}
@@ -12,7 +21,7 @@
       {{ end }}
     {{ end }}
   </head>
-  <body class="bg-gray-950 text-white">
+  <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-200">
     {{ partial "header.html" . }}
 
     {{ block "main" . }}{{ end }}

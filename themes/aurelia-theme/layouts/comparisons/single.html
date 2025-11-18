@@ -2,26 +2,26 @@
 
 {{ partial "page-header" . }}
 
-<section class="py-16 bg-white">
+<section class="py-16 bg-white dark:bg-gray-950">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="space-y-16">
       {{ range $index, $comparison := .Params.comparisons }}
       <div class="comparison-block">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ .title }}</h2>
-        <p class="text-gray-600 text-lg mb-8">{{ .description }}</p>
-        
-        <div class="bg-gray-50 rounded-lg p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{{ .title }}</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">{{ .description }}</p>
+
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
           <!-- Framework Tabs -->
-          <div class="flex space-x-1 mb-6 border-b border-gray-200">
-            <button 
-              class="px-4 py-2 text-sm font-medium rounded-t-lg bg-violet-100 text-violet-900 border-b-2 border-violet-600"
+          <div class="flex space-x-1 mb-6 border-b border-gray-200 dark:border-gray-700">
+            <button
+              class="px-4 py-2 text-sm font-medium rounded-t-lg bg-violet-100 dark:bg-violet-900 text-violet-900 dark:text-violet-100 border-b-2 border-violet-600"
               onclick="switchTab(this, 'aurelia-{{ $index }}')"
             >
               <i class="fas fa-bolt mr-2"></i>Aurelia
             </button>
             {{ range .others }}
-            <button 
-              class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-t-lg"
+            <button
+              class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-lg"
               onclick="switchTab(this, '{{ .framework | urlize }}-{{ $index }}')"
             >
               {{ if eq .framework "React" }}
@@ -46,7 +46,7 @@
                 <div class="code-block">
                   {{ highlight .aurelia.code "html" }}
                 </div>
-                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity" 
+                <button class="absolute top-4 right-4 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" 
                         onclick="copyCode(this)" 
                         title="Copy code">
                   <i class="fas fa-copy"></i>
@@ -65,7 +65,7 @@
                     {{ highlight .code "html" }}
                   {{ end }}
                 </div>
-                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity" 
+                <button class="absolute top-4 right-4 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" 
                         onclick="copyCode(this)" 
                         title="Copy code">
                   <i class="fas fa-copy"></i>
@@ -102,13 +102,13 @@ function switchTab(button, panelId) {
   // Remove active states from all tabs
   const tabContainer = button.parentElement;
   tabContainer.querySelectorAll('button').forEach(tab => {
-    tab.classList.remove('bg-violet-100', 'text-violet-900', 'border-b-2', 'border-violet-600');
-    tab.classList.add('text-gray-600');
+    tab.classList.remove('bg-violet-100', 'dark:bg-violet-900', 'text-violet-900', 'dark:text-violet-100', 'border-b-2', 'border-violet-600');
+    tab.classList.add('text-gray-600', 'dark:text-gray-400');
   });
-  
+
   // Add active state to clicked tab
-  button.classList.remove('text-gray-600');
-  button.classList.add('bg-violet-100', 'text-violet-900', 'border-b-2', 'border-violet-600');
+  button.classList.remove('text-gray-600', 'dark:text-gray-400');
+  button.classList.add('bg-violet-100', 'dark:bg-violet-900', 'text-violet-900', 'dark:text-violet-100', 'border-b-2', 'border-violet-600');
   
   // Hide all panels
   const comparisonBlock = button.closest('.comparison-block');

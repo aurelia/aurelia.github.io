@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Authors Header Section -->
-<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50">
+<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
   <!-- Decorative Background -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
@@ -12,20 +12,20 @@
     <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent">
       Our Authors
     </h1>
-    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
       Meet the talented writers and contributors behind our articles
     </p>
   </div>
 </section>
 
 <!-- Authors Grid -->
-<section class="py-12 bg-white">
+<section class="py-12 bg-white dark:bg-gray-950">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {{ $authors := .Data.Pages }}
     {{ if $authors }}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {{ range .Data.Pages }}
-          <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group">
+          <div class="relative p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300 group">
             <!-- Card Decoration -->
             <div class="absolute inset-0 overflow-hidden rounded-2xl">
               <div class="absolute top-0 right-0 w-[200px] h-[200px] bg-gradient-to-br from-aurelia/5 to-aurelia-light/5 rounded-full blur-2xl transform -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -44,8 +44,8 @@
                     <i class="fas fa-user text-gray-400 text-3xl"></i>
                   </div>
                 {{ end }}
-              
-                <h2 class="text-2xl font-bold text-gray-900 group-hover:text-aurelia transition-colors duration-300 mt-4">
+
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-aurelia transition-colors duration-300 mt-4">
                   {{ .Params.name }}
                 </h2>
               </a>
@@ -83,7 +83,7 @@
               </div>
 
               <!-- Article Count -->
-              <div class="mt-4 text-sm text-gray-600">
+              <div class="mt-4 text-sm text-gray-600 dark:text-gray-400">
                 {{ $count := len .Pages }}
                 {{ if eq $count 0 }}
                   No articles yet
@@ -100,7 +100,7 @@
         <div class="text-gray-400 mb-4">
           <i class="fas fa-users text-4xl"></i>
         </div>
-        <p class="text-gray-600">No authors found.</p>
+        <p class="text-gray-600 dark:text-gray-400">No authors found.</p>
       </div>
     {{ end }}
   </div>

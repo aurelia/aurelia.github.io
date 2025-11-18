@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Blog Header Section -->
-<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50">
+<section class="relative pt-safe pb-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
   <!-- Decorative Background -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-aurelia/10 to-aurelia-light/10 rounded-full blur-3xl"></div>
@@ -12,7 +12,7 @@
     <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-aurelia to-aurelia-light bg-clip-text text-transparent leading-normal">
       The Aurelia Blog
     </h1>
-    <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
       The official blog of the Aurelia project and Core Team
     </p>
     {{ with .Site.RegularPages.ByDate.Reverse | first 1 }}
@@ -30,13 +30,13 @@
 </section>
 
 <!-- Blog Posts List -->
-<section class="py-4 bg-white">
+<section class="py-4 bg-white dark:bg-gray-950">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Featured Post -->
     {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") 7 }}
     {{ with index $paginator.Pages 0 }}
     <article class="mb-16">
-      <a href="{{ .RelPermalink }}" class="group block relative p-8 rounded-2xl bg-gradient-to-b from-gray-50 to-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+      <a href="{{ .RelPermalink }}" class="group block relative p-8 rounded-2xl bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300">
         <!-- Decorative Elements -->
         <div class="absolute inset-0 overflow-hidden rounded-2xl">
           <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-aurelia/5 to-aurelia-light/5 rounded-full blur-2xl transform -translate-y-1/2 translate-x-1/2"></div>
@@ -46,12 +46,12 @@
         <div class="relative">
           <div class="flex items-center gap-4 text-sm mb-4">
             <span class="px-3 py-1 rounded-full bg-aurelia/10 text-aurelia font-medium">Featured Post</span>
-            <span class="text-gray-600">{{ .Date.Format "January 2, 2006" }}</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ .Date.Format "January 2, 2006" }}</span>
           </div>
-          <h2 class="text-3xl font-bold mb-4 text-gray-900 group-hover:text-aurelia transition-colors duration-300">
+          <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-aurelia transition-colors duration-300">
             {{ .Title }}
           </h2>
-          <p class="text-gray-600 leading-relaxed mb-6 line-clamp-3">{{ .Description | default .Summary }}</p>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 line-clamp-3">{{ .Description | default .Summary }}</p>
           <div class="flex items-center justify-between">
             <span class="inline-flex items-center text-aurelia font-medium group-hover:translate-x-2 transition-transform duration-300">
               Read post
@@ -68,16 +68,16 @@
     <div class="grid gap-8">
       {{ range after 1 $paginator.Pages }}
       <article>
-        <a href="{{ .RelPermalink }}" class="group block p-6 rounded-xl hover:bg-gray-50 transition-colors duration-300">
+        <a href="{{ .RelPermalink }}" class="group block p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300">
           <div class="flex justify-between items-start gap-6">
             <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-3 text-sm text-gray-600 mb-2">
+              <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 mb-2">
                 <span>{{ .Date.Format "January 2, 2006" }}</span>
               </div>
-              <h2 class="text-xl font-bold text-gray-900 group-hover:text-aurelia transition-colors duration-300 mb-2">
+              <h2 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-aurelia transition-colors duration-300 mb-2">
                 {{ .Title }}
               </h2>
-              <p class="text-gray-600 text-sm leading-relaxed line-clamp-2">
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-2">
                 {{ .Description | default .Summary }}
               </p>
             </div>
@@ -95,7 +95,7 @@
 
     <!-- Pagination -->
     {{ if or $paginator.HasPrev $paginator.HasNext }}
-    <div class="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
+    <div class="flex justify-between items-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
       {{ if $paginator.HasPrev }}
       <a href="{{ $paginator.Prev.URL }}" class="inline-flex items-center px-6 py-2 rounded-full border-2 border-aurelia text-aurelia hover:bg-aurelia/5 transition-colors">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

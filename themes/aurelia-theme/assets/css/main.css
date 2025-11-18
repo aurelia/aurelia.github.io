@@ -1,72 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@layer base {
-  :root {
-    --nav-height: 5rem;
-  }
-
-  :root[data-theme="light"] {
-    background-color: #f7fafc;
-    color: #1a202c;
-  }
-  
-  :root[data-theme="dark"] {
-    background-color: #1a202c;
-    color: #f7fafc;
-  }
-
-  /* Code block styling */
-  .code-block {
-    @apply bg-gray-50 rounded-lg p-1;
-  }
-
-  .code-block .highlight {
-    @apply rounded-lg overflow-hidden;
-  }
-
-  .code-block .highlight pre {
-    @apply p-4 overflow-x-auto text-sm font-mono;
-  }
-
-  /* Syntax highlighting colors */
-  .highlight {
-    @apply bg-gray-50;
-  }
-
-  .highlight .nx {
-    @apply text-violet-700;
-  }
-
-  .highlight .s1, .highlight .s2 {
-    @apply text-green-600;
-  }
-
-  .highlight .k, .highlight .kd {
-    @apply text-purple-600;
-  }
-
-  .highlight .c1, .highlight .cm {
-    @apply text-gray-500;
-  }
-
-  .highlight .p {
-    @apply text-gray-700;
-  }
-
-  .highlight .o {
-    @apply text-gray-900;
-  }
-
-  .highlight .nt {
-    @apply text-violet-600;
-  }
-
-  .highlight .na {
-    @apply text-amber-600;
-  }
-}
-
 @theme {
   --color-aurelia: #ed2b88;
   --color-aurelia-light: #ff4da1;
@@ -80,6 +14,64 @@
   --animation-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animation-pulse-slower: pulse 12s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animation-pulse-delayed: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s;
+}
+
+@variant dark (.dark &);
+
+@layer base {
+  :root {
+    --nav-height: 5rem;
+  }
+
+  /* Code block styling */
+  .code-block {
+    @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-1;
+  }
+
+  .code-block .highlight {
+    @apply rounded-lg overflow-hidden;
+  }
+
+  .code-block .highlight pre {
+    @apply p-4 overflow-x-auto text-sm font-mono;
+  }
+
+  /* Syntax highlighting colors */
+  .highlight {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+
+  .highlight .nx {
+    @apply text-violet-700 dark:text-violet-400;
+  }
+
+  .highlight .s1, .highlight .s2 {
+    @apply text-green-600 dark:text-green-400;
+  }
+
+  .highlight .k, .highlight .kd {
+    @apply text-purple-600 dark:text-purple-400;
+  }
+
+  .highlight .c1, .highlight .cm {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .highlight .p {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .highlight .o {
+    @apply text-gray-900 dark:text-gray-100;
+  }
+
+  .highlight .nt {
+    @apply text-violet-600 dark:text-violet-400;
+  }
+
+  .highlight .na {
+    @apply text-amber-600 dark:text-amber-400;
+  }
 }
 
 @layer keyframes {
@@ -150,6 +142,17 @@
 
   .oklch {
     color: unset;
+  }
+
+  /* Dropdown menu styles */
+  .dropdown-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+
+  .dropdown-active .dropdown-chevron {
+    transform: rotate(180deg);
   }
 }
 
