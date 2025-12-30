@@ -97,11 +97,11 @@ The router now auto-detects absolute URLs, protocol links, and protocol-relative
 
 ### The `$previous` Variable
 
-A new opt-in `contextual` property enables the `$previous` variable in repeaters ([#2261](https://github.com/aurelia/aurelia/pull/2261)). This unlocks patterns that previously required external state:
+The new `contextual` property enables the `$previous` variable in repeaters ([#2261](https://github.com/aurelia/aurelia/pull/2261)). This unlocks patterns that previously required external state:
 
 ```html
 <!-- Section headers when category changes -->
-<div repeat.for="item of items; contextual: true">
+<div repeat.for="item of items">
   <h2 if.bind="item.category !== $previous?.category">
     ${item.category}
   </h2>
@@ -109,14 +109,18 @@ A new opt-in `contextual` property enables the `$previous` variable in repeaters
 </div>
 
 <!-- Highlight changes in a changelog -->
-<div repeat.for="entry of changelog; contextual: true">
+<div repeat.for="entry of changelog">
   <span class="${entry.value !== $previous?.value ? 'changed' : ''}">
     ${entry.value}
   </span>
 </div>
 ```
 
-Since contextual properties add computation overhead, they're disabled by default. Enable them only where you need access to `$previous`.
+Contextual properties are enabled by default. Apps that want less work in the repeater can disable them:
+
+```html
+<div repeat.for="item of items; contextual: false">
+```
 
 ## Observation
 
