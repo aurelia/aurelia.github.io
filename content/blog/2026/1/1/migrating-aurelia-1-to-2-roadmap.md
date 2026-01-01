@@ -7,10 +7,11 @@ lastmod = 2026-01-01T10:00:00Z
 tags = ["migration", "aurelia2", "aurelia1"]
 +++
 
-Aurelia 2 ships faster builds, modern tooling, and clearer composition patterns, but many teams
-still run production workloads on Aurelia 1. This guide is an actionable roadmap you can revisit
-whenever your organization is ready to upgrade. It combines planning steps with technical
-checkpoints so you can move steadily without losing momentum.
+Aurelia 2 brings faster builds, modern tooling, and clearer composition patterns, but many teams
+still run production workloads on Aurelia 1. If your app has outlived three laptops, you are in
+good company. This guide is a practical roadmap you can revisit whenever your team is ready to
+upgrade. It mixes planning steps with technical checkpoints so you can move steadily without
+losing momentum.
 
 ---
 
@@ -38,13 +39,13 @@ Keep this loop visible in your project tracker so stakeholders always know the c
 - **State strategy upgrade**: Prefer `@aurelia/state` or DI-backed services. Define clear state
   boundaries instead of scattered event aggregation.
 - **Modern build tooling**: Vite is the default recommendation, with Webpack and Parcel supported.
-  Plan time to replace RequireJS or SystemJS.
+  Plan time to replace RequireJS or SystemJS. Bring snacks for the old bundler clean up.
 
 ## Common gotchas (and how to dodge them)
 
 ### 1. Bootstrapping and DI
 
-Aurelia 1 relied heavily on convention-based bootstrapping. Aurelia 2 wants explicit modules.
+Aurelia 1 leaned on convention-based bootstrapping. Aurelia 2 wants explicit modules.
 
 ```ts
 // Aurelia 1
@@ -209,8 +210,8 @@ Most community plugins now export DI-friendly registration objects. When migrati
 
 ## Closing thoughts
 
-Migrating from Aurelia 1 is about aligning your frontend with the framework the core team
-actively invests in. Use this roadmap as a repeatable playbook: inventory, plan, port, validate,
-and retire. Whether you are preparing for a gradual strangler rollout or a focused rewrite of a
+Migrating from Aurelia 1 is about aligning your frontend with the framework the core team actively
+invests in. Use this roadmap as a repeatable playbook: inventory, plan, port, validate, and
+retire. Whether you are preparing for a gradual strangler rollout or a focused rewrite of a
 high-value feature, the combination of explicit DI, modern routing, and updated composition in
 Aurelia 2 will pay dividends long after the migration dust settles.
