@@ -1,4 +1,15 @@
-<nav class="fixed w-full z-50 bg-white dark:bg-gray-900 backdrop-blur-lg shadow-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-200">
+{{ with .Site.Data.sponsors.tiers.platinum }}
+{{ $blocklist := $.Site.Params.sponsors.platinum.blocklist }}
+{{ $sponsors := slice }}
+{{ range . }}{{ if not (in $blocklist .slug) }}{{ $sponsors = $sponsors | append . }}{{ end }}{{ end }}
+{{ if gt (len $sponsors) 0 }}
+<div class="fixed w-full z-50 top-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white text-center text-sm py-1.5">
+  <span class="opacity-90">Proudly sponsored by</span>
+  {{ range $i, $s := $sponsors }}{{ if $i }}, {{ end }}<a href="{{ with $s.website }}{{ . }}{{ else }}https://opencollective.com/{{ $s.slug }}{{ end }}" target="_blank" rel="noopener" class="font-semibold hover:underline">{{ $s.name }}</a>{{ end }}
+</div>
+{{ end }}
+{{ end }}
+<nav class="fixed w-full z-50 {{ with .Site.Data.sponsors.tiers.platinum }}{{ $blocklist := $.Site.Params.sponsors.platinum.blocklist }}{{ $hasPlat := false }}{{ range . }}{{ if not (in $blocklist .slug) }}{{ $hasPlat = true }}{{ end }}{{ end }}{{ if $hasPlat }}top-8{{ else }}top-0{{ end }}{{ else }}top-0{{ end }} bg-white dark:bg-gray-900 backdrop-blur-lg shadow-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <a href="{{ .Site.BaseURL }}" class="text-aurelia text-2xl font-bold hover:opacity-80 transition-opacity">

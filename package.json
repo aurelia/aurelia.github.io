@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "hugo serve -D -F --ignoreCache",
     "build": "hugo --minify",
-    "start": "hugo serve -D -F --ignoreCache"
+    "start": "hugo serve -D -F --ignoreCache",
+    "fetch-sponsors": "node scripts/fetch-sponsors.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0-beta.7",

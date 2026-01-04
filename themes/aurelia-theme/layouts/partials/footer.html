@@ -40,6 +40,32 @@
                     <span class="sr-only">Discord</span>
                 </a>
             </div>
+
+            <!-- Platinum Sponsors -->
+            {{ with .Site.Data.sponsors.tiers.platinum }}
+            {{ $blocklist := $.Site.Params.sponsors.platinum.blocklist }}
+            {{ $sponsors := slice }}
+            {{ range . }}{{ if not (in $blocklist .slug) }}{{ $sponsors = $sponsors | append . }}{{ end }}{{ end }}
+            {{ if gt (len $sponsors) 0 }}
+            <div class="text-center mb-8">
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Platinum Sponsors</p>
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                    {{ range $sponsors }}
+                    <a href="{{ with .website }}{{ . }}{{ else }}https://opencollective.com/{{ .slug }}{{ end }}"
+                       target="_blank"
+                       rel="noopener"
+                       title="{{ .name }}"
+                       class="opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="{{ .imageUrl }}"
+                             alt="{{ .name }}"
+                             class="h-10 w-auto grayscale hover:grayscale-0 transition-all"
+                             loading="lazy" />
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+            {{ end }}
         </div>
 
         <!-- Copyright and License -->

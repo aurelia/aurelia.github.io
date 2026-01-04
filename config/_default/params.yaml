@@ -1,28 +1,44 @@
 sponsors:
   title: "Open Collective"
   subtitle: "Proud financial backers of Aurelia."
-  
-  # gold:
-  #   - name: "Hogia"
-  #     url: "https://www.hogia.com/"
-  #     logo: "sponsors/hogia.svg"
-  #     alt: "Hogia"
-  #     width: 517
-  #     height: 128
-      
-  # silver:
-  #   - name: "Movavi - Screen Recorder"
-  #     url: "https://www.movavi.com/screen-recorder"
-  #     logo: "sponsors/movavi-screen-recorder.svg"
-  #     alt: "Movavi - Screen Recorder"
-  #     width: 553
-  #     height: 128
+
+  # Platinum & Gold sponsors get SEO-friendly follow links (rel="noopener" only)
+  # Platinum sponsors also get: header banner, footer recognition, extra-large homepage placement
+  platinum:
+    blocklist: []
+
+  gold:
+    blocklist: []
+
+  silver:
+    blocklist: []
 
   bronze:
-    iframe_url: "https://opencollective.com/aurelia/tiers/bronze.svg?avatarHeight=64&button=false&width=1024"
-    
+    avatar_height: 64
+    blocklist:
+      - nzcasinoclub
+      - trustedcasinos360
+      - no-deposit-bonuses
+      - usd200-no-deposit-bonus-200-free-spins-real-money
+      - https-casinosinlicenciaespana-com-casinos-online-europeos
+      - novecasino-net
+      - slovenskecasino-net
+      - zahranicnicasino-net
+      - casino-magyar
+      - betpokies
+      - bestpayidpokies
+      - guidebook_betwinner_com
+      - payid-pokies-sites
+      - apuetasdeportivases
+
   wood:
-    iframe_url: "https://opencollective.com/aurelia/tiers/wood.svg?avatarHeight=32&button=false"
+    avatar_height: 32
+    blocklist:
+      - hitcasinobonus
+      - bonusetu
+      - bonuspart
+      - nzcasinoclub
+      - httpscasinostiger-arcom
 
   cta:
     text: "Become a Sponsor!"

@@ -2,11 +2,49 @@
 
 {{ partial "page-header" . }}
 
-<section class="py-4 bg-white dark:bg-gray-950 relative">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="lg:grid lg:grid-cols-8 lg:gap-8">
+<!-- Mobile Quick Links (below header) -->
+<div class="lg:hidden sticky top-16 z-40 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <details class="group py-3">
+      <summary class="flex items-center justify-between cursor-pointer list-none">
+        <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+          </svg>
+          Quick Links
+        </span>
+        <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <nav class="pt-3 pb-1" aria-label="FAQ Navigation Mobile">
+        {{ $headers := findRE "<h2.*?>(.|\n)*?</h2>" .Content }}
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+          {{ range $index, $item := $headers }}
+            {{ $header := $item | replaceRE "<h2.*?>" "" | replaceRE "</h2>" "" | string }}
+            {{ $header := $header | htmlUnescape }}
+            <li>
+              <a href="#{{ $header | anchorize }}"
+                 onclick="this.closest('details').removeAttribute('open')"
+                 class="mobile-faq-link flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-aurelia text-sm py-2 px-3 rounded-lg transition-colors hover:bg-white dark:hover:bg-gray-800">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-aurelia/10 text-aurelia text-xs font-medium flex items-center justify-center">
+                  {{ add $index 1 }}
+                </span>
+                <span class="truncate">{{ $header | safeHTML }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+    </details>
+  </div>
+</div>
+
+<section class="pt-0 pb-8 lg:py-8 bg-white dark:bg-gray-950 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-12">
       <!-- Main Content -->
-      <div class="lg:col-span-6">
+      <div class="lg:col-span-8">
         <div class="prose prose-lg max-w-none mb-12 dark:prose-invert
                     prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-12 prose-h2:text-gray-900 dark:prose-h2:text-white prose-h2:scroll-mt-32
                     prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:text-gray-700 dark:prose-p:text-gray-300
@@ -19,44 +57,77 @@
       </div>
 
       <!-- Right Sidebar Navigation -->
-      <div class="hidden lg:block lg:col-span-2">
+      <aside class="hidden lg:block lg:col-span-4">
         <div class="sticky top-24">
-          <nav class="relative" aria-label="FAQ Navigation">
-            <!-- Navigation Toggle Button -->
-            <button id="faq-nav-toggle"
-                    class="w-full flex items-center justify-between bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-4 shadow-sm hover:bg-gray-100/80 dark:hover:bg-gray-700/80 transition-colors"
-                    aria-expanded="true">
-              <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">Quick Links</h3>
-              <svg class="w-5 h-5 text-gray-500 dark:text-gray-500 transition-transform duration-200" 
-                   fill="none" 
-                   stroke="currentColor" 
-                   viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <nav aria-label="FAQ Navigation" class="bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/40 rounded-2xl p-6 border border-gray-200/60 dark:border-gray-700/40 shadow-sm">
+            <h3 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
               </svg>
-            </button>
-            
-            <!-- Navigation Content -->
-            <div id="faq-nav-content"
-                 class="absolute top-full w-full mt-2 opacity-100 transform transition-all duration-200 ease-in-out bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-4 shadow-sm max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent hover:scrollbar-thumb-aurelia">
-              {{ $headers := findRE "<h2.*?>(.|\n)*?</h2>" .Content }}
-              <ul class="space-y-2">
-                {{ range $headers }}
-                  {{ $header := . | replaceRE "<h2.*?>" "" | replaceRE "</h2>" "" | string }}
-                  {{ $header := $header | htmlUnescape }}
-                  {{ $displayText := $header }}
-                  <li>
-                    <a href="#{{ $header | anchorize }}"
-                       class="text-gray-600 dark:text-gray-400 hover:text-aurelia text-sm block transition-colors duration-200 py-1 border-l-2 border-transparent hover:border-aurelia pl-2 line-clamp-2">
-                      {{ $displayText | safeHTML }}
-                    </a>
-                  </li>
-                {{ end }}
-              </ul>
-            </div>
+              Quick Links
+            </h3>
+
+            {{ $headers := findRE "<h2.*?>(.|\n)*?</h2>" .Content }}
+            <ul class="space-y-1 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 -mr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+              {{ range $index, $item := $headers }}
+                {{ $header := $item | replaceRE "<h2.*?>" "" | replaceRE "</h2>" "" | string }}
+                {{ $header := $header | htmlUnescape }}
+                <li>
+                  <a href="#{{ $header | anchorize }}"
+                     class="group flex items-start gap-3 text-gray-600 dark:text-gray-400 hover:text-aurelia dark:hover:text-aurelia-light text-sm py-2.5 px-3 rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-800/60">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-aurelia/10 text-aurelia text-xs font-medium flex items-center justify-center group-hover:bg-aurelia group-hover:text-white transition-colors">
+                      {{ add $index 1 }}
+                    </span>
+                    <span class="leading-relaxed">{{ $header | safeHTML }}</span>
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
           </nav>
         </div>
-      </div>
+      </aside>
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  const navLinks = document.querySelectorAll('aside nav a[href^="#"]');
+  const sections = document.querySelectorAll('h2[id]');
+
+  if (!navLinks.length || !sections.length) return;
+
+  const setActiveLink = (id) => {
+    navLinks.forEach(link => {
+      const isActive = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('bg-white', isActive);
+      link.classList.toggle('dark:bg-gray-800', isActive);
+      link.classList.toggle('shadow-sm', isActive);
+      link.classList.toggle('text-aurelia', isActive);
+      link.classList.toggle('dark:text-aurelia-light', isActive);
+
+      const badge = link.querySelector('span:first-child');
+      if (badge) {
+        badge.classList.toggle('bg-aurelia', isActive);
+        badge.classList.toggle('text-white', isActive);
+        badge.classList.toggle('bg-aurelia/10', !isActive);
+        badge.classList.toggle('text-aurelia', !isActive);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActiveLink(entry.target.id);
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(section => observer.observe(section));
+})();
+</script>
 {{ end }}

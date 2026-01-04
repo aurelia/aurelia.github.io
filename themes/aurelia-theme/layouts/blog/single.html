@@ -164,45 +164,76 @@
           
           <!-- Sponsors Section -->
           <div>
+            <!-- Platinum Sponsors -->
+            {{ with .Site.Data.sponsors.tiers.platinum }}
+            {{ $blocklist := $.Site.Params.sponsors.platinum.blocklist }}
+            <div class="border-t border-gray-100 dark:border-gray-800 lg:border-t-0 mb-8">
+              <h3 class="text-lg font-bold text-center mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Platinum Sponsors</h3>
+              <div class="space-y-6">
+                {{ range . }}
+                {{ if not (in $blocklist .slug) }}
+                <a href="{{ with .website }}{{ . }}{{ else }}https://opencollective.com/{{ .slug }}{{ end }}"
+                   target="_blank"
+                   rel="noopener"
+                   title="{{ .name }}"
+                   class="block transition-transform hover:-translate-y-1">
+                  <img src="{{ .imageUrl }}"
+                       alt="{{ .name }}"
+                       class="mx-auto"
+                       style="max-height: 48px; width: auto;"
+                       loading="lazy" />
+                </a>
+                {{ end }}
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+
             <!-- Gold Sponsors -->
-            {{ if gt (len (default slice .Site.Params.sponsors.gold)) 0 }}
+            {{ with .Site.Data.sponsors.tiers.gold }}
+            {{ $blocklist := $.Site.Params.sponsors.gold.blocklist }}
             <div class="border-t border-gray-100 dark:border-gray-800 lg:border-t-0">
               <h3 class="text-lg font-bold text-center mb-6 text-orange-300">Gold Sponsors</h3>
               <div class="space-y-6">
-                {{ range .Site.Params.sponsors.gold }}
-                <a href="{{ .url }}" 
+                {{ range . }}
+                {{ if not (in $blocklist .slug) }}
+                <a href="{{ with .website }}{{ . }}{{ else }}https://opencollective.com/{{ .slug }}{{ end }}"
+                   target="_blank"
+                   rel="noopener"
                    title="{{ .name }}"
                    class="block transition-transform hover:-translate-y-1">
-                  <img src="{{ .logo | relURL }}" 
-                       alt="{{ .alt }}" 
+                  <img src="{{ .imageUrl }}"
+                       alt="{{ .name }}"
                        class="mx-auto"
                        style="max-height: 40px; width: auto;"
-                       width="{{ .width }}" 
-                       height="{{ .height }}" 
                        loading="lazy" />
                 </a>
+                {{ end }}
                 {{ end }}
               </div>
             </div>
             {{ end }}
 
             <!-- Silver Sponsors -->
-            {{ if gt (len (default slice .Site.Params.sponsors.silver)) 0 }}
+            {{ with .Site.Data.sponsors.tiers.silver }}
+            {{ $blocklist := $.Site.Params.sponsors.silver.blocklist }}
             <div class="mt-8">
               <h3 class="text-lg font-bold text-center mb-6 text-gray-400">Silver Sponsors</h3>
               <div class="space-y-6">
-                {{ range .Site.Params.sponsors.silver }}
-                <a href="{{ .url }}" 
+                {{ range . }}
+                {{ if not (in $blocklist .slug) }}
+                <a href="{{ with .website }}{{ . }}{{ else }}https://opencollective.com/{{ .slug }}{{ end }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
                    title="{{ .name }}"
                    class="block transition-transform hover:-translate-y-1">
-                  <img src="{{ .logo | relURL }}" 
-                       alt="{{ .alt }}" 
+                  <img src="{{ .imageUrl }}"
+                       alt="{{ .name }}"
                        class="mx-auto"
                        style="max-height: 40px; width: auto;"
-                       width="{{ .width }}" 
-                       height="{{ .height }}" 
                        loading="lazy" />
                 </a>
+                {{ end }}
                 {{ end }}
               </div>
             </div>
@@ -210,7 +241,7 @@
 
             <!-- Sponsor CTA -->
             <div class="mt-8 pt-4 text-center">
-              <a href="{{ .Site.Params.sponsors.cta.url }}" 
+              <a href="{{ .Site.Params.sponsors.cta.url }}"
                  class="inline-flex items-center justify-center px-6 py-2 text-sm rounded-full font-semibold bg-gradient-to-r from-aurelia to-aurelia-light text-white hover:opacity-90 transform hover:-translate-y-0.5 transition-all">
                 {{ .Site.Params.sponsors.cta.text }}
               </a>
