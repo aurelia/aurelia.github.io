@@ -1,65 +1,28 @@
 {
-  "lastUpdated": "2026-02-04T12:07:01.509Z",
+  "lastUpdated": "2026-02-04T21:06:20.335Z",
   "tiers": {
-    "bronze": [
-      {
-        "slug": "n-ix-ltd",
-        "name": "N-iX Ltd",
-        "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
-        "website": "https://www.n-ix.com/",
-        "amount": 100
-      },
-      {
-        "slug": "pokiesgamblercom",
-        "name": "Online Pokies in Australia",
-        "imageUrl": "https://images.opencollective.com/pokiesgamblercom/ab0286e/logo.png",
-        "website": "https://au.trustpilot.com/review/pokiesgambler.com",
-        "amount": 100
-      },
-      {
-        "slug": "payid-pokies-sites",
-        "name": "PayID Pokies Sites",
-        "imageUrl": "https://images.opencollective.com/payid-pokies-sites/c9cd78a/logo.png",
-        "website": "https://au.trustpilot.com/review/payid-casino.net",
-        "amount": 100
-      },
-      {
-        "slug": "bestpayidpokies",
-        "name": "PayID Pokies",
-        "imageUrl": "https://images.opencollective.com/bestpayidpokies/07fc9d6/logo.png",
-        "website": "https://au.trustpilot.com/review/bestpayidpokies.net",
-        "amount": 100
-      },
-      {
-        "slug": "betpokies",
-        "name": "Online Pokies in Australia",
-        "imageUrl": "https://images.opencollective.com/betpokies/147f64c/avatar.png",
-        "website": "https://au.trustpilot.com/review/betpokies.com",
-        "amount": 100
-      },
-      {
-        "slug": "dashtickets-new-zealand-gambling-magazine",
-        "name": "DashTickets New Zealand gambling magazine",
-        "imageUrl": "https://images.opencollective.com/dashtickets-new-zealand-gambling-magazine/275e4d0/logo.png",
-        "website": "https://dashtickets.nz/",
-        "amount": 100
-      },
-      {
-        "slug": "igutech",
-        "name": "igutech",
-        "imageUrl": "https://images.opencollective.com/igutech/f182ca2/avatar.png",
-        "website": "https://www.igutech.com/",
-        "amount": 100
-      },
-      {
-        "slug": "drive",
-        "name": "Drive",
-        "imageUrl": "https://images.opencollective.com/drive/3437d63/logo.png",
-        "website": "https://drive.software",
-        "amount": 100
-      }
-    ],
     "wood": [
+      {
+        "slug": "network-tools",
+        "name": "Network Tools",
+        "imageUrl": "https://images.opencollective.com/network-tools/527a9f7/logo.png",
+        "website": "https://gf.dev/",
+        "amount": 2
+      },
+      {
+        "slug": "feet-pictures",
+        "name": "Feet Pictures",
+        "imageUrl": "https://images.opencollective.com/feet-pictures/09f146a/logo.png",
+        "website": "https://feetpedia.com/wiki/Main_Page",
+        "amount": 2
+      },
+      {
+        "slug": "anime-wallpapers",
+        "name": "Anime Wallpapers",
+        "imageUrl": "https://images.opencollective.com/anime-wallpapers/176b783/logo.png",
+        "website": "https://wallpapers.com/anime",
+        "amount": 2
+      },
       {
         "slug": "free-tiktok-views-buylikesservices",
         "name": "Free TikTok Views - Buylikesservices",
@@ -171,6 +134,64 @@
         "imageUrl": "https://images.opencollective.com/dwaynecharrington/dcffa44/avatar.png",
         "website": "https://ilikekillnerds.com",
         "amount": 2
+      }
+    ],
+    "bronze": [
+      {
+        "slug": "n-ix-ltd",
+        "name": "N-iX Ltd",
+        "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
+        "website": "https://www.n-ix.com/",
+        "amount": 100
+      },
+      {
+        "slug": "pokiesgamblercom",
+        "name": "Online Pokies in Australia",
+        "imageUrl": "https://images.opencollective.com/pokiesgamblercom/ab0286e/logo.png",
+        "website": "https://au.trustpilot.com/review/pokiesgambler.com",
+        "amount": 100
+      },
+      {
+        "slug": "payid-pokies-sites",
+        "name": "PayID Pokies Sites",
+        "imageUrl": "https://images.opencollective.com/payid-pokies-sites/c9cd78a/logo.png",
+        "website": "https://au.trustpilot.com/review/payid-casino.net",
+        "amount": 100
+      },
+      {
+        "slug": "bestpayidpokies",
+        "name": "PayID Pokies",
+        "imageUrl": "https://images.opencollective.com/bestpayidpokies/07fc9d6/logo.png",
+        "website": "https://au.trustpilot.com/review/bestpayidpokies.net",
+        "amount": 100
+      },
+      {
+        "slug": "betpokies",
+        "name": "Online Pokies in Australia",
+        "imageUrl": "https://images.opencollective.com/betpokies/147f64c/avatar.png",
+        "website": "https://au.trustpilot.com/review/betpokies.com",
+        "amount": 100
+      },
+      {
+        "slug": "dashtickets-new-zealand-gambling-magazine",
+        "name": "DashTickets New Zealand gambling magazine",
+        "imageUrl": "https://images.opencollective.com/dashtickets-new-zealand-gambling-magazine/275e4d0/logo.png",
+        "website": "https://dashtickets.nz/",
+        "amount": 100
+      },
+      {
+        "slug": "igutech",
+        "name": "igutech",
+        "imageUrl": "https://images.opencollective.com/igutech/f182ca2/avatar.png",
+        "website": "https://www.igutech.com/",
+        "amount": 100
+      },
+      {
+        "slug": "drive",
+        "name": "Drive",
+        "imageUrl": "https://images.opencollective.com/drive/3437d63/logo.png",
+        "website": "https://drive.software",
+        "amount": 100
       }
     ],
     "stone": [
