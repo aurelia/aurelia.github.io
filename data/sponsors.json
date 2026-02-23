@@ -1,7 +1,14 @@
 {
-  "lastUpdated": "2026-02-04T21:06:20.335Z",
+  "lastUpdated": "2026-02-23T08:47:12.366Z",
   "tiers": {
     "wood": [
+      {
+        "slug": "time-calculator",
+        "name": "Time Calculator",
+        "imageUrl": "https://images.opencollective.com/time-calculator/be24111/logo.png",
+        "website": "https://time.now/time/calculator/",
+        "amount": 2
+      },
       {
         "slug": "network-tools",
         "name": "Network Tools",
@@ -42,13 +49,6 @@
         "name": "Bileta Avioni",
         "imageUrl": "https://images.opencollective.com/bileta-avioni/6ff12cb/logo.png",
         "website": "https://biletaavioni.al/",
-        "amount": 2
-      },
-      {
-        "slug": "myinstafollow-home",
-        "name": "MyInstaFollow",
-        "imageUrl": "https://images.opencollective.com/myinstafollow-home/ca47bb2/logo.png",
-        "website": "https://myinstafollow.com/",
         "amount": 2
       },
       {
@@ -138,6 +138,13 @@
     ],
     "bronze": [
       {
+        "slug": "pankaj-jangir",
+        "name": "FBPostLikes",
+        "imageUrl": "https://images.opencollective.com/pankaj-jangir/c5dee33/avatar.png",
+        "website": "https://www.fbpostlikes.com/",
+        "amount": 100
+      },
+      {
         "slug": "n-ix-ltd",
         "name": "N-iX Ltd",
         "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
@@ -192,6 +199,15 @@
         "imageUrl": "https://images.opencollective.com/drive/3437d63/logo.png",
         "website": "https://drive.software",
         "amount": 100
+      }
+    ],
+    "unknown": [
+      {
+        "slug": "fameviso-home",
+        "name": "FameViso | Instagram Growth Agency",
+        "imageUrl": "https://images.opencollective.com/fameviso-home/ca47bb2/logo.png",
+        "website": "https://fameviso.com/",
+        "amount": 1
       }
     ],
     "stone": [
