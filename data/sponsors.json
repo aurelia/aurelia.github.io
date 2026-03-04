@@ -1,7 +1,30 @@
 {
-  "lastUpdated": "2026-02-27T07:11:59.784Z",
+  "lastUpdated": "2026-03-04T22:00:39.382Z",
   "tiers": {
+    "unknown": [
+      {
+        "slug": "buy-tiktok-followers-co",
+        "name": "BuyTikTokFollowers.co",
+        "imageUrl": "https://images.opencollective.com/buy-tiktok-followers-co/82431fe/logo.png",
+        "website": "https://buytiktokfollowers.co/",
+        "amount": 1
+      },
+      {
+        "slug": "fameviso-home",
+        "name": "FameViso | Instagram Growth Agency",
+        "imageUrl": "https://images.opencollective.com/fameviso-home/ca47bb2/logo.png",
+        "website": "https://fameviso.com/",
+        "amount": 1
+      }
+    ],
     "bronze": [
+      {
+        "slug": "casinos-ohne-oasis",
+        "name": "Casino ohne oasis",
+        "imageUrl": "https://images.opencollective.com/casinos-ohne-oasis/4d51700/logo.png",
+        "website": "https://de.trustpilot.com/review/onlinecasinoohneoasis.me",
+        "amount": 100
+      },
       {
         "slug": "topkasynoonline-pl",
         "name": "TopKasynoOnline PL",
@@ -21,13 +44,6 @@
         "name": "N-iX Ltd",
         "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
         "website": "https://www.n-ix.com/",
-        "amount": 100
-      },
-      {
-        "slug": "pokiesgamblercom",
-        "name": "Online Pokies in Australia",
-        "imageUrl": "https://images.opencollective.com/pokiesgamblercom/ab0286e/logo.png",
-        "website": "https://au.trustpilot.com/review/pokiesgambler.com",
         "amount": 100
       },
       {
@@ -138,13 +154,6 @@
         "amount": 2
       },
       {
-        "slug": "roemhildtg",
-        "name": "Gregg Roemhildt",
-        "imageUrl": "https://images.opencollective.com/roemhildtg/5e656d7/avatar.png",
-        "website": null,
-        "amount": 2
-      },
-      {
         "slug": "guest-ba66dc1f",
         "name": "Artur Erotschkin",
         "imageUrl": "https://images.opencollective.com/guest-ba66dc1f/avatar.png",
@@ -206,15 +215,6 @@
         "imageUrl": "https://images.opencollective.com/dwaynecharrington/dcffa44/avatar.png",
         "website": "https://ilikekillnerds.com",
         "amount": 2
-      }
-    ],
-    "unknown": [
-      {
-        "slug": "fameviso-home",
-        "name": "FameViso | Instagram Growth Agency",
-        "imageUrl": "https://images.opencollective.com/fameviso-home/ca47bb2/logo.png",
-        "website": "https://fameviso.com/",
-        "amount": 1
       }
     ],
     "stone": [
