@@ -1,23 +1,149 @@
 {
-  "lastUpdated": "2026-03-04T22:00:39.382Z",
+  "lastUpdated": "2026-03-25T06:00:28.961Z",
   "tiers": {
-    "unknown": [
+    "wood": [
       {
-        "slug": "buy-tiktok-followers-co",
-        "name": "BuyTikTokFollowers.co",
-        "imageUrl": "https://images.opencollective.com/buy-tiktok-followers-co/82431fe/logo.png",
-        "website": "https://buytiktokfollowers.co/",
-        "amount": 1
+        "slug": "buyfans",
+        "name": "Buy.Fans",
+        "imageUrl": "https://images.opencollective.com/buyfans/8122fa8/logo.png",
+        "website": "https://buy.fans/",
+        "amount": 2
       },
       {
-        "slug": "fameviso-home",
-        "name": "FameViso | Instagram Growth Agency",
-        "imageUrl": "https://images.opencollective.com/fameviso-home/ca47bb2/logo.png",
-        "website": "https://fameviso.com/",
-        "amount": 1
+        "slug": "time-so",
+        "name": "Time.so",
+        "imageUrl": "https://images.opencollective.com/time-so/d62b586/logo.png",
+        "website": "https://time.so/",
+        "amount": 2
+      },
+      {
+        "slug": "time-calculator",
+        "name": "Time Calculator",
+        "imageUrl": "https://images.opencollective.com/time-calculator/be24111/logo.png",
+        "website": "https://time.now/time/calculator/",
+        "amount": 2
+      },
+      {
+        "slug": "network-tools",
+        "name": "Network Tools",
+        "imageUrl": "https://images.opencollective.com/network-tools/527a9f7/logo.png",
+        "website": "https://gf.dev/",
+        "amount": 2
+      },
+      {
+        "slug": "feet-pictures",
+        "name": "Feet Pictures",
+        "imageUrl": "https://images.opencollective.com/feet-pictures/09f146a/logo.png",
+        "website": "https://feetpedia.com/wiki/Main_Page",
+        "amount": 2
+      },
+      {
+        "slug": "anime-wallpapers",
+        "name": "Anime Wallpapers",
+        "imageUrl": "https://images.opencollective.com/anime-wallpapers/176b783/logo.png",
+        "website": "https://wallpapers.com/anime",
+        "amount": 2
+      },
+      {
+        "slug": "free-tiktok-views-buylikesservices",
+        "name": "Free TikTok Views - Buylikesservices",
+        "imageUrl": "https://images.opencollective.com/free-tiktok-views-buylikesservices/b2a97b4/logo.png",
+        "website": "https://buylikesservices.com/free-tiktok-views/",
+        "amount": 2
+      },
+      {
+        "slug": "mymoneycomparison",
+        "name": "Mymoneycomparison.com",
+        "imageUrl": "https://images.opencollective.com/mymoneycomparison/93c0e0e/avatar.png",
+        "website": "https://www.mymoneycomparison.com",
+        "amount": 2
+      },
+      {
+        "slug": "bileta-avioni",
+        "name": "Bileta Avioni",
+        "imageUrl": "https://images.opencollective.com/bileta-avioni/6ff12cb/logo.png",
+        "website": "https://biletaavioni.al/",
+        "amount": 2
+      },
+      {
+        "slug": "guest-95ee8b43",
+        "name": "Michele",
+        "imageUrl": "https://images.opencollective.com/guest-95ee8b43/avatar.png",
+        "website": null,
+        "amount": 5
+      },
+      {
+        "slug": "socialwick",
+        "name": "SocialWick",
+        "imageUrl": "https://images.opencollective.com/socialwick/e244614/logo.png",
+        "website": "https://www.socialwick.com/instagram/followers",
+        "amount": 2
+      },
+      {
+        "slug": "david-morris",
+        "name": "David Morris",
+        "imageUrl": "https://images.opencollective.com/david-morris/avatar.png",
+        "website": null,
+        "amount": 20
+      },
+      {
+        "slug": "ivan-dolgintsev",
+        "name": "Ivan Dolgintsev",
+        "imageUrl": "https://images.opencollective.com/ivan-dolgintsev/cc1f51d/avatar.png",
+        "website": null,
+        "amount": 5
+      },
+      {
+        "slug": "sayan751",
+        "name": "Sayan",
+        "imageUrl": "https://images.opencollective.com/sayan751/8d46263/avatar.png",
+        "website": "https://scattered-notes.netlify.com/",
+        "amount": 5
+      },
+      {
+        "slug": "brandonwittwer",
+        "name": "Brandon Wittwer",
+        "imageUrl": "https://images.opencollective.com/brandonwittwer/60f05fc/avatar.png",
+        "website": "https://www.brandonwittwer.com",
+        "amount": 2
+      },
+      {
+        "slug": "steven_pena",
+        "name": "Steven Pena",
+        "imageUrl": "https://images.opencollective.com/steven_pena/8d98a38/avatar.png",
+        "website": "https://twitter.com/steven_pena",
+        "amount": 3
+      },
+      {
+        "slug": "graycrow",
+        "name": "Dimitry Panchenko",
+        "imageUrl": "https://images.opencollective.com/graycrow/avatar.png",
+        "website": null,
+        "amount": 10
+      },
+      {
+        "slug": "rokadias",
+        "name": "Saqib Rokadia",
+        "imageUrl": "https://images.opencollective.com/rokadias/e521d81/avatar.png",
+        "website": "https://invioinc.com/",
+        "amount": 2
+      },
+      {
+        "slug": "dwaynecharrington",
+        "name": "Dwayne Charrington",
+        "imageUrl": "https://images.opencollective.com/dwaynecharrington/dcffa44/avatar.png",
+        "website": "https://ilikekillnerds.com",
+        "amount": 2
       }
     ],
     "bronze": [
+      {
+        "slug": "moverspuertorico-com",
+        "name": "Movers to Puerto Rico",
+        "imageUrl": "https://images.opencollective.com/moverspuertorico-com/cf979d8/logo.png",
+        "website": "https://www.trustpilot.com/review/moverspuertorico.com",
+        "amount": 100
+      },
       {
         "slug": "casinos-ohne-oasis",
         "name": "Casino ohne oasis",
@@ -89,132 +215,20 @@
         "amount": 100
       }
     ],
-    "wood": [
+    "unknown": [
       {
-        "slug": "time-calculator",
-        "name": "Time Calculator",
-        "imageUrl": "https://images.opencollective.com/time-calculator/be24111/logo.png",
-        "website": "https://time.now/time/calculator/",
-        "amount": 2
+        "slug": "buy-tiktok-followers-co",
+        "name": "BuyTikTokFollowers.co",
+        "imageUrl": "https://images.opencollective.com/buy-tiktok-followers-co/82431fe/logo.png",
+        "website": "https://buytiktokfollowers.co/",
+        "amount": 1
       },
       {
-        "slug": "network-tools",
-        "name": "Network Tools",
-        "imageUrl": "https://images.opencollective.com/network-tools/527a9f7/logo.png",
-        "website": "https://gf.dev/",
-        "amount": 2
-      },
-      {
-        "slug": "feet-pictures",
-        "name": "Feet Pictures",
-        "imageUrl": "https://images.opencollective.com/feet-pictures/09f146a/logo.png",
-        "website": "https://feetpedia.com/wiki/Main_Page",
-        "amount": 2
-      },
-      {
-        "slug": "anime-wallpapers",
-        "name": "Anime Wallpapers",
-        "imageUrl": "https://images.opencollective.com/anime-wallpapers/176b783/logo.png",
-        "website": "https://wallpapers.com/anime",
-        "amount": 2
-      },
-      {
-        "slug": "free-tiktok-views-buylikesservices",
-        "name": "Free TikTok Views - Buylikesservices",
-        "imageUrl": "https://images.opencollective.com/free-tiktok-views-buylikesservices/b2a97b4/logo.png",
-        "website": "https://buylikesservices.com/free-tiktok-views/",
-        "amount": 2
-      },
-      {
-        "slug": "mymoneycomparison",
-        "name": "Mymoneycomparison.com",
-        "imageUrl": "https://images.opencollective.com/mymoneycomparison/93c0e0e/avatar.png",
-        "website": "https://www.mymoneycomparison.com",
-        "amount": 2
-      },
-      {
-        "slug": "bileta-avioni",
-        "name": "Bileta Avioni",
-        "imageUrl": "https://images.opencollective.com/bileta-avioni/6ff12cb/logo.png",
-        "website": "https://biletaavioni.al/",
-        "amount": 2
-      },
-      {
-        "slug": "guest-95ee8b43",
-        "name": "Michele",
-        "imageUrl": "https://images.opencollective.com/guest-95ee8b43/avatar.png",
-        "website": null,
-        "amount": 5
-      },
-      {
-        "slug": "socialwick",
-        "name": "SocialWick",
-        "imageUrl": "https://images.opencollective.com/socialwick/e244614/logo.png",
-        "website": "https://www.socialwick.com/instagram/followers",
-        "amount": 2
-      },
-      {
-        "slug": "guest-ba66dc1f",
-        "name": "Artur Erotschkin",
-        "imageUrl": "https://images.opencollective.com/guest-ba66dc1f/avatar.png",
-        "website": null,
-        "amount": 5
-      },
-      {
-        "slug": "david-morris",
-        "name": "David Morris",
-        "imageUrl": "https://images.opencollective.com/david-morris/avatar.png",
-        "website": null,
-        "amount": 20
-      },
-      {
-        "slug": "ivan-dolgintsev",
-        "name": "Ivan Dolgintsev",
-        "imageUrl": "https://images.opencollective.com/ivan-dolgintsev/cc1f51d/avatar.png",
-        "website": null,
-        "amount": 5
-      },
-      {
-        "slug": "sayan751",
-        "name": "Sayan",
-        "imageUrl": "https://images.opencollective.com/sayan751/8d46263/avatar.png",
-        "website": "https://scattered-notes.netlify.com/",
-        "amount": 5
-      },
-      {
-        "slug": "brandonwittwer",
-        "name": "Brandon Wittwer",
-        "imageUrl": "https://images.opencollective.com/brandonwittwer/60f05fc/avatar.png",
-        "website": "https://www.brandonwittwer.com",
-        "amount": 2
-      },
-      {
-        "slug": "steven_pena",
-        "name": "Steven Pena",
-        "imageUrl": "https://images.opencollective.com/steven_pena/8d98a38/avatar.png",
-        "website": "https://twitter.com/steven_pena",
-        "amount": 3
-      },
-      {
-        "slug": "graycrow",
-        "name": "Dimitry Panchenko",
-        "imageUrl": "https://images.opencollective.com/graycrow/avatar.png",
-        "website": null,
-        "amount": 10
-      },
-      {
-        "slug": "rokadias",
-        "name": "Saqib Rokadia",
-        "imageUrl": "https://images.opencollective.com/rokadias/e521d81/avatar.png",
-        "website": "https://invioinc.com/",
-        "amount": 2
-      },
-      {
-        "slug": "dwaynecharrington",
-        "name": "Dwayne Charrington",
-        "imageUrl": "https://images.opencollective.com/dwaynecharrington/dcffa44/avatar.png",
-        "website": "https://ilikekillnerds.com",
-        "amount": 2
+        "slug": "fameviso-home",
+        "name": "FameViso | Instagram Growth Agency",
+        "imageUrl": "https://images.opencollective.com/fameviso-home/ca47bb2/logo.png",
+        "website": "https://fameviso.com/",
+        "amount": 1
       }
     ],
     "stone": [
