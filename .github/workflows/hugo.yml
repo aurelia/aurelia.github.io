@@ -6,6 +6,10 @@ on:
   push:
     branches: ["main"]
 
+  # Refresh sponsor data and redeploy twice daily
+  schedule:
+    - cron: "17 0,12 * * *"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -52,6 +56,10 @@ jobs:
           
       - name: Install Node.js dependencies
         run: npm ci
+
+      - name: Fetch sponsor data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: npm run fetch-sponsors
       
       # New steps for Aurelia 2 build
       - name: Clean Aurelia 2 directory
