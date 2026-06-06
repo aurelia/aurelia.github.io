@@ -13,8 +13,8 @@ going to take a different position, and we want to be clear about it.
 
 The Aurelia team is pro-AI.
 
-That sentence is going to upset some people, so let us explain what we mean and, just as importantly,
-what we do not mean.
+That sentence will rub some people the wrong way, so here is what we mean by it and where the limits
+are.
 
 ## Why projects are closing up
 
@@ -32,8 +32,8 @@ without prior written approval, and QEMU rejects code known or even suspected to
 by an LLM. There is now even a maintained index of projects that reject AI generated code.
 
 We get it. When you maintain something critical and the queue fills with plausible looking nonsense
-faster than humans can triage it, the only practical lever is to close the door. That is not
-anti-progress. It is self defense.
+faster than humans can triage it, closing the door is often the only lever left. Hard to blame anyone
+for pulling it.
 
 ## Our position
 
@@ -43,11 +43,11 @@ We care about one thing: the quality of what lands in the framework and its pack
 there is your business. Whether a change was hand written, drafted by an agent, or somewhere in
 between does not change the bar it has to clear. Every submission is held to the same standard.
 
-That cuts both ways. A pull request being AI assisted is not a mark against it. A pull request being
-hand coded does not earn it a pass. We review the code, the tests, the reasoning, and the impact on
-the rest of the framework. The provenance is not the point. The result is.
+This works in both directions. An AI assisted pull request does not start with a strike against it,
+and a hand coded one does not get waved through on principle. We review the code, the tests, the
+reasoning, and the impact on the rest of the framework. Where it came from does not enter into it.
 
-It is worth noting that curl itself came back to HackerOne about a month after shutting the program
+Worth remembering: curl came back to HackerOne about a month after shutting the program
 down. The models had improved and the quality of real reports went up. That is roughly how we see the
 trajectory too. The tooling keeps getting better, and treating a whole class of contributor as guilty
 by default ages badly.
@@ -83,16 +83,17 @@ None of this is new. It is the same thing we have always asked of contributors. 
 easier to produce a lot of output quickly, which means it is easier than ever to produce a lot of
 output that looks finished and is not.
 
-## The standard is the standard
+## The bar does not move
 
 If a change improves Aurelia, is well tested, fits the architecture, and does not compromise the
-framework or its packages, we want it. We genuinely do not care whether you typed every character or
-worked alongside an agent to get there.
+framework or its packages, we want it. Whether you typed every character or worked alongside an agent
+to get there makes no difference to us.
 
 If a change is sloppy, untested, or does not hold up under review, it gets the same response it would
-have a decade ago, regardless of how it was produced.
+have a decade ago, no matter how it was produced.
 
-That is the whole policy. Use the tools. Hold yourself to the bar. We will meet you there.
+That is all there is to it. Use whatever tools make you faster, and hold the work to the same bar
+everyone else has to clear.
 
 ---
 
