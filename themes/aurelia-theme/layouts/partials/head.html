@@ -74,12 +74,17 @@
 <meta name="msapplication-tap-highlight" content="no" />
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="robots" content="index,follow"/>
+{{ with site.Params.googleSiteVerification }}
+<meta name="google-site-verification" content="{{ . }}">
+{{ end }}
 
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="The official Aurelia blog" href="{{ "blog/index.xml" | relURL }}" />
 
 <!-- Search -->
 <link rel="search" href="{{ "index.json" | relURL }}" type="application/json">
+
+{{ template "_internal/google_analytics.html" . }}
 
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}

@@ -14,6 +14,7 @@ theme = "aurelia-theme"
 
 [params]
   pathPrefix = ""
+  googleSiteVerification = "wo1nOr13c8YOEXzHEolpRqcHna--I5kCo4rhxDquWo0"
 
 [markup]
   [markup.goldmark]
@@ -27,8 +28,10 @@ theme = "aurelia-theme"
     style = "monokai"
 
 [services]
+  [services.googleAnalytics]
+    ID = "G-QKNNSP5EY7"
   [services.disqus]
     shortname = 'aurelia-2'
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"] 
+  home = ["HTML", "RSS", "JSON"]
