@@ -77,7 +77,14 @@ function groupByTier(orders) {
     });
   }
 
-  return tiers;
+  // Sort deterministically so a reshuffled API response does not produce a noisy
+  // diff when the underlying sponsor set has not actually changed.
+  const sorted = {};
+  for (const tierSlug of Object.keys(tiers).sort()) {
+    sorted[tierSlug] = tiers[tierSlug].sort((a, b) => a.slug.localeCompare(b.slug));
+  }
+
+  return sorted;
 }
 
 async function main() {
@@ -92,8 +99,19 @@ async function main() {
     console.log(`  ${tier}: ${sponsors.length} sponsors`);
   }
 
+  // Only bump lastUpdated when the sponsor data actually changed, so re-running
+  // with an unchanged sponsor set leaves the file (and git diff) untouched.
+  let lastUpdated = new Date().toISOString();
+  if (fs.existsSync(OUTPUT_PATH)) {
+    const previous = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf8'));
+    if (JSON.stringify(previous.tiers) === JSON.stringify(tiers)) {
+      lastUpdated = previous.lastUpdated;
+      console.log('No sponsor changes; leaving file unchanged.');
+    }
+  }
+
   const output = {
-    lastUpdated: new Date().toISOString(),
+    lastUpdated,
     tiers,
   };
 

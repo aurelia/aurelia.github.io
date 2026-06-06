@@ -1,35 +1,7 @@
 {
-  "lastUpdated": "2026-06-06T08:21:50.270Z",
+  "lastUpdated": "2026-06-06T08:24:47.725Z",
   "tiers": {
     "bronze": [
-      {
-        "slug": "slotsjudge-plcom",
-        "name": "slotsjudge-pl.com",
-        "imageUrl": "https://images.opencollective.com/slotsjudge-plcom/3fb2036/avatar.png",
-        "website": "https://slotsjudge-pl.com/",
-        "amount": 100
-      },
-      {
-        "slug": "pankaj-jangir",
-        "name": "FBPostLikes",
-        "imageUrl": "https://images.opencollective.com/pankaj-jangir/c5dee33/avatar.png",
-        "website": "https://www.fbpostlikes.com/",
-        "amount": 100
-      },
-      {
-        "slug": "topkasynoonline-pl",
-        "name": "TopKasynoOnline PL",
-        "imageUrl": "https://images.opencollective.com/topkasynoonline-pl/714b70a/logo.png",
-        "website": "https://pl.topkasynoonline.com/",
-        "amount": 100
-      },
-      {
-        "slug": "n-ix-ltd",
-        "name": "N-iX Ltd",
-        "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
-        "website": "https://www.n-ix.com/",
-        "amount": 100
-      },
       {
         "slug": "bestpayidpokies",
         "name": "PayID Pokies",
@@ -52,6 +24,13 @@
         "amount": 100
       },
       {
+        "slug": "drive",
+        "name": "Drive",
+        "imageUrl": "https://images.opencollective.com/drive/3437d63/logo.png",
+        "website": "https://drive.software",
+        "amount": 100
+      },
+      {
         "slug": "igutech",
         "name": "igutech",
         "imageUrl": "https://images.opencollective.com/igutech/f182ca2/avatar.png",
@@ -59,33 +38,56 @@
         "amount": 100
       },
       {
-        "slug": "drive",
-        "name": "Drive",
-        "imageUrl": "https://images.opencollective.com/drive/3437d63/logo.png",
-        "website": "https://drive.software",
+        "slug": "n-ix-ltd",
+        "name": "N-iX Ltd",
+        "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
+        "website": "https://www.n-ix.com/",
         "amount": 100
+      },
+      {
+        "slug": "pankaj-jangir",
+        "name": "FBPostLikes",
+        "imageUrl": "https://images.opencollective.com/pankaj-jangir/c5dee33/avatar.png",
+        "website": "https://www.fbpostlikes.com/",
+        "amount": 100
+      },
+      {
+        "slug": "slotsjudge-plcom",
+        "name": "slotsjudge-pl.com",
+        "imageUrl": "https://images.opencollective.com/slotsjudge-plcom/3fb2036/avatar.png",
+        "website": "https://slotsjudge-pl.com/",
+        "amount": 100
+      },
+      {
+        "slug": "topkasynoonline-pl",
+        "name": "TopKasynoOnline PL",
+        "imageUrl": "https://images.opencollective.com/topkasynoonline-pl/714b70a/logo.png",
+        "website": "https://pl.topkasynoonline.com/",
+        "amount": 100
+      }
+    ],
+    "stone": [
+      {
+        "slug": "guest-b92d79c1",
+        "name": "cavalix",
+        "imageUrl": "https://images.opencollective.com/guest-b92d79c1/avatar.png",
+        "website": null,
+        "amount": 20
+      },
+      {
+        "slug": "utiliread",
+        "name": "Utiliread",
+        "imageUrl": "https://images.opencollective.com/utiliread/logo.png",
+        "website": "https://utiliread.dk",
+        "amount": 20
       }
     ],
     "wood": [
       {
-        "slug": "guest-1f2c7d60",
-        "name": "Bjoern",
-        "imageUrl": "https://images.opencollective.com/guest-1f2c7d60/avatar.png",
-        "website": null,
-        "amount": 2
-      },
-      {
-        "slug": "recipe-net",
-        "name": "Recipe.net",
-        "imageUrl": "https://images.opencollective.com/recipe-net/fcb460b/logo.png",
-        "website": "https://recipe.net/",
-        "amount": 2
-      },
-      {
-        "slug": "loveyou",
-        "name": "Love You",
-        "imageUrl": "https://images.opencollective.com/loveyou/23462ba/logo.png",
-        "website": "https://love.you/",
+        "slug": "anime-wallpapers",
+        "name": "Anime Wallpapers",
+        "imageUrl": "https://images.opencollective.com/anime-wallpapers/176b783/logo.png",
+        "website": "https://wallpapers.com/anime",
         "amount": 2
       },
       {
@@ -96,24 +98,17 @@
         "amount": 2
       },
       {
-        "slug": "time-so",
-        "name": "Time.so",
-        "imageUrl": "https://images.opencollective.com/time-so/d62b586/logo.png",
-        "website": "https://time.so/",
-        "amount": 2
+        "slug": "david-morris",
+        "name": "David Morris",
+        "imageUrl": "https://images.opencollective.com/david-morris/avatar.png",
+        "website": null,
+        "amount": 20
       },
       {
-        "slug": "time-calculator",
-        "name": "Time Calculator",
-        "imageUrl": "https://images.opencollective.com/time-calculator/be24111/logo.png",
-        "website": "https://time.now/time/calculator/",
-        "amount": 2
-      },
-      {
-        "slug": "network-tools",
-        "name": "Network Tools",
-        "imageUrl": "https://images.opencollective.com/network-tools/527a9f7/logo.png",
-        "website": "https://gf.dev/",
+        "slug": "dwaynecharrington",
+        "name": "Dwayne Charrington",
+        "imageUrl": "https://images.opencollective.com/dwaynecharrington/dcffa44/avatar.png",
+        "website": "https://ilikekillnerds.com",
         "amount": 2
       },
       {
@@ -124,17 +119,17 @@
         "amount": 2
       },
       {
-        "slug": "anime-wallpapers",
-        "name": "Anime Wallpapers",
-        "imageUrl": "https://images.opencollective.com/anime-wallpapers/176b783/logo.png",
-        "website": "https://wallpapers.com/anime",
-        "amount": 2
+        "slug": "graycrow",
+        "name": "Dimitry Panchenko",
+        "imageUrl": "https://images.opencollective.com/graycrow/avatar.png",
+        "website": null,
+        "amount": 10
       },
       {
-        "slug": "mymoneycomparison",
-        "name": "Mymoneycomparison.com",
-        "imageUrl": "https://images.opencollective.com/mymoneycomparison/93c0e0e/avatar.png",
-        "website": "https://www.mymoneycomparison.com",
+        "slug": "guest-1f2c7d60",
+        "name": "Bjoern",
+        "imageUrl": "https://images.opencollective.com/guest-1f2c7d60/avatar.png",
+        "website": null,
         "amount": 2
       },
       {
@@ -145,20 +140,6 @@
         "amount": 5
       },
       {
-        "slug": "socialwick",
-        "name": "SocialWick",
-        "imageUrl": "https://images.opencollective.com/socialwick/e244614/logo.png",
-        "website": "https://www.socialwick.com/instagram/followers",
-        "amount": 2
-      },
-      {
-        "slug": "david-morris",
-        "name": "David Morris",
-        "imageUrl": "https://images.opencollective.com/david-morris/avatar.png",
-        "website": null,
-        "amount": 20
-      },
-      {
         "slug": "ivan-dolgintsev",
         "name": "Ivan Dolgintsev",
         "imageUrl": "https://images.opencollective.com/ivan-dolgintsev/cc1f51d/avatar.png",
@@ -166,25 +147,32 @@
         "amount": 5
       },
       {
-        "slug": "sayan751",
-        "name": "Sayan",
-        "imageUrl": "https://images.opencollective.com/sayan751/8d46263/avatar.png",
-        "website": "https://scattered-notes.netlify.com/",
-        "amount": 5
+        "slug": "loveyou",
+        "name": "Love You",
+        "imageUrl": "https://images.opencollective.com/loveyou/23462ba/logo.png",
+        "website": "https://love.you/",
+        "amount": 2
       },
       {
-        "slug": "steven_pena",
-        "name": "Steven Pena",
-        "imageUrl": "https://images.opencollective.com/steven_pena/8d98a38/avatar.png",
-        "website": "https://twitter.com/steven_pena",
-        "amount": 3
+        "slug": "mymoneycomparison",
+        "name": "Mymoneycomparison.com",
+        "imageUrl": "https://images.opencollective.com/mymoneycomparison/93c0e0e/avatar.png",
+        "website": "https://www.mymoneycomparison.com",
+        "amount": 2
       },
       {
-        "slug": "graycrow",
-        "name": "Dimitry Panchenko",
-        "imageUrl": "https://images.opencollective.com/graycrow/avatar.png",
-        "website": null,
-        "amount": 10
+        "slug": "network-tools",
+        "name": "Network Tools",
+        "imageUrl": "https://images.opencollective.com/network-tools/527a9f7/logo.png",
+        "website": "https://gf.dev/",
+        "amount": 2
+      },
+      {
+        "slug": "recipe-net",
+        "name": "Recipe.net",
+        "imageUrl": "https://images.opencollective.com/recipe-net/fcb460b/logo.png",
+        "website": "https://recipe.net/",
+        "amount": 2
       },
       {
         "slug": "rokadias",
@@ -194,27 +182,39 @@
         "amount": 2
       },
       {
-        "slug": "dwaynecharrington",
-        "name": "Dwayne Charrington",
-        "imageUrl": "https://images.opencollective.com/dwaynecharrington/dcffa44/avatar.png",
-        "website": "https://ilikekillnerds.com",
-        "amount": 2
-      }
-    ],
-    "stone": [
-      {
-        "slug": "utiliread",
-        "name": "Utiliread",
-        "imageUrl": "https://images.opencollective.com/utiliread/logo.png",
-        "website": "https://utiliread.dk",
-        "amount": 20
+        "slug": "sayan751",
+        "name": "Sayan",
+        "imageUrl": "https://images.opencollective.com/sayan751/8d46263/avatar.png",
+        "website": "https://scattered-notes.netlify.com/",
+        "amount": 5
       },
       {
-        "slug": "guest-b92d79c1",
-        "name": "cavalix",
-        "imageUrl": "https://images.opencollective.com/guest-b92d79c1/avatar.png",
-        "website": null,
-        "amount": 20
+        "slug": "socialwick",
+        "name": "SocialWick",
+        "imageUrl": "https://images.opencollective.com/socialwick/e244614/logo.png",
+        "website": "https://www.socialwick.com/instagram/followers",
+        "amount": 2
+      },
+      {
+        "slug": "steven_pena",
+        "name": "Steven Pena",
+        "imageUrl": "https://images.opencollective.com/steven_pena/8d98a38/avatar.png",
+        "website": "https://twitter.com/steven_pena",
+        "amount": 3
+      },
+      {
+        "slug": "time-calculator",
+        "name": "Time Calculator",
+        "imageUrl": "https://images.opencollective.com/time-calculator/be24111/logo.png",
+        "website": "https://time.now/time/calculator/",
+        "amount": 2
+      },
+      {
+        "slug": "time-so",
+        "name": "Time.so",
+        "imageUrl": "https://images.opencollective.com/time-so/d62b586/logo.png",
+        "website": "https://time.so/",
+        "amount": 2
       }
     ]
   }
