@@ -1,7 +1,93 @@
 {
-  "lastUpdated": "2026-03-25T06:00:28.961Z",
+  "lastUpdated": "2026-06-06T08:21:50.270Z",
   "tiers": {
+    "bronze": [
+      {
+        "slug": "slotsjudge-plcom",
+        "name": "slotsjudge-pl.com",
+        "imageUrl": "https://images.opencollective.com/slotsjudge-plcom/3fb2036/avatar.png",
+        "website": "https://slotsjudge-pl.com/",
+        "amount": 100
+      },
+      {
+        "slug": "pankaj-jangir",
+        "name": "FBPostLikes",
+        "imageUrl": "https://images.opencollective.com/pankaj-jangir/c5dee33/avatar.png",
+        "website": "https://www.fbpostlikes.com/",
+        "amount": 100
+      },
+      {
+        "slug": "topkasynoonline-pl",
+        "name": "TopKasynoOnline PL",
+        "imageUrl": "https://images.opencollective.com/topkasynoonline-pl/714b70a/logo.png",
+        "website": "https://pl.topkasynoonline.com/",
+        "amount": 100
+      },
+      {
+        "slug": "n-ix-ltd",
+        "name": "N-iX Ltd",
+        "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
+        "website": "https://www.n-ix.com/",
+        "amount": 100
+      },
+      {
+        "slug": "bestpayidpokies",
+        "name": "PayID Pokies",
+        "imageUrl": "https://images.opencollective.com/bestpayidpokies/07fc9d6/logo.png",
+        "website": "https://au.trustpilot.com/review/bestpayidpokies.net",
+        "amount": 100
+      },
+      {
+        "slug": "betpokies",
+        "name": "Online Pokies in Australia",
+        "imageUrl": "https://images.opencollective.com/betpokies/147f64c/avatar.png",
+        "website": "https://au.trustpilot.com/review/betpokies.com",
+        "amount": 100
+      },
+      {
+        "slug": "dashtickets-new-zealand-gambling-magazine",
+        "name": "DashTickets New Zealand gambling magazine",
+        "imageUrl": "https://images.opencollective.com/dashtickets-new-zealand-gambling-magazine/275e4d0/logo.png",
+        "website": "https://dashtickets.nz/",
+        "amount": 100
+      },
+      {
+        "slug": "igutech",
+        "name": "igutech",
+        "imageUrl": "https://images.opencollective.com/igutech/f182ca2/avatar.png",
+        "website": "https://www.igutech.com/",
+        "amount": 100
+      },
+      {
+        "slug": "drive",
+        "name": "Drive",
+        "imageUrl": "https://images.opencollective.com/drive/3437d63/logo.png",
+        "website": "https://drive.software",
+        "amount": 100
+      }
+    ],
     "wood": [
+      {
+        "slug": "guest-1f2c7d60",
+        "name": "Bjoern",
+        "imageUrl": "https://images.opencollective.com/guest-1f2c7d60/avatar.png",
+        "website": null,
+        "amount": 2
+      },
+      {
+        "slug": "recipe-net",
+        "name": "Recipe.net",
+        "imageUrl": "https://images.opencollective.com/recipe-net/fcb460b/logo.png",
+        "website": "https://recipe.net/",
+        "amount": 2
+      },
+      {
+        "slug": "loveyou",
+        "name": "Love You",
+        "imageUrl": "https://images.opencollective.com/loveyou/23462ba/logo.png",
+        "website": "https://love.you/",
+        "amount": 2
+      },
       {
         "slug": "buyfans",
         "name": "Buy.Fans",
@@ -45,24 +131,10 @@
         "amount": 2
       },
       {
-        "slug": "free-tiktok-views-buylikesservices",
-        "name": "Free TikTok Views - Buylikesservices",
-        "imageUrl": "https://images.opencollective.com/free-tiktok-views-buylikesservices/b2a97b4/logo.png",
-        "website": "https://buylikesservices.com/free-tiktok-views/",
-        "amount": 2
-      },
-      {
         "slug": "mymoneycomparison",
         "name": "Mymoneycomparison.com",
         "imageUrl": "https://images.opencollective.com/mymoneycomparison/93c0e0e/avatar.png",
         "website": "https://www.mymoneycomparison.com",
-        "amount": 2
-      },
-      {
-        "slug": "bileta-avioni",
-        "name": "Bileta Avioni",
-        "imageUrl": "https://images.opencollective.com/bileta-avioni/6ff12cb/logo.png",
-        "website": "https://biletaavioni.al/",
         "amount": 2
       },
       {
@@ -101,13 +173,6 @@
         "amount": 5
       },
       {
-        "slug": "brandonwittwer",
-        "name": "Brandon Wittwer",
-        "imageUrl": "https://images.opencollective.com/brandonwittwer/60f05fc/avatar.png",
-        "website": "https://www.brandonwittwer.com",
-        "amount": 2
-      },
-      {
         "slug": "steven_pena",
         "name": "Steven Pena",
         "imageUrl": "https://images.opencollective.com/steven_pena/8d98a38/avatar.png",
@@ -136,102 +201,14 @@
         "amount": 2
       }
     ],
-    "bronze": [
-      {
-        "slug": "moverspuertorico-com",
-        "name": "Movers to Puerto Rico",
-        "imageUrl": "https://images.opencollective.com/moverspuertorico-com/cf979d8/logo.png",
-        "website": "https://www.trustpilot.com/review/moverspuertorico.com",
-        "amount": 100
-      },
-      {
-        "slug": "casinos-ohne-oasis",
-        "name": "Casino ohne oasis",
-        "imageUrl": "https://images.opencollective.com/casinos-ohne-oasis/4d51700/logo.png",
-        "website": "https://de.trustpilot.com/review/onlinecasinoohneoasis.me",
-        "amount": 100
-      },
-      {
-        "slug": "topkasynoonline-pl",
-        "name": "TopKasynoOnline PL",
-        "imageUrl": "https://images.opencollective.com/topkasynoonline-pl/714b70a/logo.png",
-        "website": "https://pl.topkasynoonline.com/",
-        "amount": 100
-      },
-      {
-        "slug": "pankaj-jangir",
-        "name": "FBPostLikes",
-        "imageUrl": "https://images.opencollective.com/pankaj-jangir/c5dee33/avatar.png",
-        "website": "https://www.fbpostlikes.com/",
-        "amount": 100
-      },
-      {
-        "slug": "n-ix-ltd",
-        "name": "N-iX Ltd",
-        "imageUrl": "https://images.opencollective.com/n-ix-ltd/575a7a5/logo.png",
-        "website": "https://www.n-ix.com/",
-        "amount": 100
-      },
-      {
-        "slug": "payid-pokies-sites",
-        "name": "PayID Pokies Sites",
-        "imageUrl": "https://images.opencollective.com/payid-pokies-sites/c9cd78a/logo.png",
-        "website": "https://au.trustpilot.com/review/payid-casino.net",
-        "amount": 100
-      },
-      {
-        "slug": "bestpayidpokies",
-        "name": "PayID Pokies",
-        "imageUrl": "https://images.opencollective.com/bestpayidpokies/07fc9d6/logo.png",
-        "website": "https://au.trustpilot.com/review/bestpayidpokies.net",
-        "amount": 100
-      },
-      {
-        "slug": "betpokies",
-        "name": "Online Pokies in Australia",
-        "imageUrl": "https://images.opencollective.com/betpokies/147f64c/avatar.png",
-        "website": "https://au.trustpilot.com/review/betpokies.com",
-        "amount": 100
-      },
-      {
-        "slug": "dashtickets-new-zealand-gambling-magazine",
-        "name": "DashTickets New Zealand gambling magazine",
-        "imageUrl": "https://images.opencollective.com/dashtickets-new-zealand-gambling-magazine/275e4d0/logo.png",
-        "website": "https://dashtickets.nz/",
-        "amount": 100
-      },
-      {
-        "slug": "igutech",
-        "name": "igutech",
-        "imageUrl": "https://images.opencollective.com/igutech/f182ca2/avatar.png",
-        "website": "https://www.igutech.com/",
-        "amount": 100
-      },
-      {
-        "slug": "drive",
-        "name": "Drive",
-        "imageUrl": "https://images.opencollective.com/drive/3437d63/logo.png",
-        "website": "https://drive.software",
-        "amount": 100
-      }
-    ],
-    "unknown": [
-      {
-        "slug": "buy-tiktok-followers-co",
-        "name": "BuyTikTokFollowers.co",
-        "imageUrl": "https://images.opencollective.com/buy-tiktok-followers-co/82431fe/logo.png",
-        "website": "https://buytiktokfollowers.co/",
-        "amount": 1
-      },
-      {
-        "slug": "fameviso-home",
-        "name": "FameViso | Instagram Growth Agency",
-        "imageUrl": "https://images.opencollective.com/fameviso-home/ca47bb2/logo.png",
-        "website": "https://fameviso.com/",
-        "amount": 1
-      }
-    ],
     "stone": [
+      {
+        "slug": "utiliread",
+        "name": "Utiliread",
+        "imageUrl": "https://images.opencollective.com/utiliread/logo.png",
+        "website": "https://utiliread.dk",
+        "amount": 20
+      },
       {
         "slug": "guest-b92d79c1",
         "name": "cavalix",
