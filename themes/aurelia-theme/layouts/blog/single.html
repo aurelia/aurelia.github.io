@@ -85,7 +85,7 @@
         <div class="max-w-4xl">
           {{ with .Params.featured_image }}
           <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
-            <img src="{{ . }}" alt="" class="w-full h-auto">
+            <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" class="w-full h-auto">
           </div>
           {{ end }}
 

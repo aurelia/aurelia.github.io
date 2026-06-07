@@ -2,7 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, shrink-to-fit=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:200,400,700&display=swap&font-display=swap" rel="stylesheet">
+{{ $fontHref := "https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:200,400,700&display=swap" }}
+<link rel="preload" as="style" href="{{ $fontHref }}">
+<link rel="stylesheet" href="{{ $fontHref }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ $fontHref }}"></noscript>
 <title>
   {{- if .IsHome -}}
     {{ site.Title }}
@@ -43,6 +46,9 @@
 <meta property="og:title" content="{{- if .IsHome -}}{{ site.Title }}{{- else if eq .Type "authors" -}}{{- if .IsSection -}}Authors | {{ site.Title }}{{- else -}}{{ .Params.name }} | {{ site.Title }}{{- end -}}{{- else -}}{{ printf "%s | %s" .Title site.Title }}{{- end -}}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+{{ $locParts := split (default `en-us` site.Language.LanguageCode) `-` }}
+<meta property="og:locale" content="{{ index $locParts 0 }}{{ if gt (len $locParts) 1 }}_{{ upper (index $locParts 1) }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 {{ $shareImage := "" }}
 {{ with .Params.image }}
@@ -63,9 +69,25 @@
   {{ end }}
 {{ end }}
 <meta property="og:image" content="{{ $shareImage | absURL }}">
+{{ if eq $shareImage site.Params.social_image }}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{{ end }}
+
+{{ if and .IsPage (eq .Section "blog") }}
+<!-- Article metadata -->
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">
+{{ $articleAuthor := "" }}{{ with .Params.author }}{{ $articleAuthor = . }}{{ else }}{{ with .Params.authors }}{{ $articleAuthor = index . 0 }}{{ end }}{{ end }}
+{{ with $articleAuthor }}<meta property="article:author" content="{{ . }}">{{ end }}
+{{ range .Params.tags }}<meta property="article:tag" content="{{ . }}">
+{{ end }}
+{{ end }}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@aureliaeffect">
+<meta name="twitter:creator" content="@aureliaeffect">
 <meta name="twitter:title" content="{{- if .IsHome -}}{{ site.Title }}{{- else if eq .Type "authors" -}}{{- if .IsSection -}}Authors | {{ site.Title }}{{- else -}}{{ .Params.name }} | {{ site.Title }}{{- end -}}{{- else -}}{{ printf "%s | %s" .Title site.Title }}{{- end -}}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.{{ end }}{{ end }}">
 <meta name="twitter:image" content="{{ $shareImage | absURL }}">
@@ -84,9 +106,12 @@
 <!-- Search -->
 <link rel="search" href="{{ "index.json" | relURL }}" type="application/json">
 
+<!-- Structured data -->
+{{ partial "schema.html" . }}
+
 {{ template "_internal/google_analytics.html" . }}
 
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 
-<script src="https://kit.fontawesome.com/ba181c6190.js" crossorigin="anonymous"></script>
+<script defer src="https://kit.fontawesome.com/ba181c6190.js" crossorigin="anonymous"></script>
