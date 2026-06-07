@@ -123,10 +123,10 @@
   </div>
 </section>
 
-<!-- Features Section -->
-<section class="py-24 bg-white dark:bg-gray-950">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
+<!-- Why Aurelia Section -->
+<section class="py-16 sm:py-20 bg-white dark:bg-gray-950">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 sm:mb-12">
       <span class="inline-block px-4 py-1 rounded-full bg-aurelia/10 text-aurelia text-sm font-medium mb-4">
         Why Choose Aurelia
       </span>
@@ -136,62 +136,27 @@
       <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{{ .Params.why_aurelia_subtitle }}</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Compact feature strip: icon + title + one-line description, hairline dividers -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10 border-t border-gray-100 dark:border-gray-800">
       {{ range $index, $feature := .Params.features }}
-      <div class="group relative p-8 rounded-3xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800
-                  hover:border-aurelia/30 transition-all duration-300 hover:-translate-y-1
-                  overflow-hidden">
-        <!-- Spotlight effect -->
-        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute inset-[-100%] bg-[radial-gradient(circle_at_50%_50%,rgba(237,43,136,0.1),transparent_70%)]"></div>
-        </div>
-
-        <!-- Feature content -->
-        <div class="relative">
-          <!-- Icon with pulsing background -->
-          <div class="relative mb-8 inline-block">
-            <!-- Animated ring -->
-            <div class="absolute inset-0 rounded-full bg-aurelia/20 blur-xl scale-150 animate-pulse-slow"></div>
-            <!-- Icon container -->
-            <div class="relative w-16 h-16 flex items-center justify-center rounded-2xl 
-                        bg-gradient-to-br from-aurelia/10 to-purple-500/10 
-                        group-hover:from-aurelia/20 group-hover:to-purple-500/20 
-                        transition-colors duration-300">
-              {{ if eq .icon "components" }}
-                <i class="fa-solid fa-puzzle-piece text-3xl text-aurelia transform group-hover:scale-110 transition-transform duration-300"></i>
-              {{ else if eq .icon "performance" }}
-                <i class="fa-solid fa-bolt text-3xl text-aurelia transform group-hover:scale-110 transition-transform duration-300"></i>
-              {{ else if eq .icon "typescript" }}
-                <i class="fa-solid fa-code text-3xl text-aurelia transform group-hover:scale-110 transition-transform duration-300"></i>
-              {{ else if eq .icon "routing" }}
-                <i class="fa-solid fa-route text-3xl text-aurelia transform group-hover:scale-110 transition-transform duration-300"></i>
-              {{ else if eq .icon "di" }}
-                <i class="fa-solid fa-plug text-3xl text-aurelia transform group-hover:scale-110 transition-transform duration-300"></i>
-              {{ else if eq .icon "testing" }}
-                <i class="fa-solid fa-vial text-3xl text-aurelia transform group-hover:scale-110 transition-transform duration-300"></i>
-              {{ else }}
-                <i class="fa-solid fa-star text-3xl text-aurelia transform group-hover:scale-110 transition-transform duration-300"></i>
-              {{ end }}
-            </div>
-          </div>
-
-          <!-- Title -->
-          <h3 class="text-xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-900
-                     dark:from-white dark:to-white
-                     group-hover:from-aurelia group-hover:to-purple-500
-                     bg-clip-text text-transparent transition-all duration-300">
+      <div class="group flex items-baseline gap-3.5 py-4 border-b border-gray-100 dark:border-gray-800">
+        <span class="shrink-0 w-5 text-center text-aurelia">
+          {{ if eq .icon "components" }}<i class="fa-solid fa-puzzle-piece"></i>
+          {{ else if eq .icon "performance" }}<i class="fa-solid fa-bolt"></i>
+          {{ else if eq .icon "typescript" }}<i class="fa-solid fa-code"></i>
+          {{ else if eq .icon "routing" }}<i class="fa-solid fa-route"></i>
+          {{ else if eq .icon "di" }}<i class="fa-solid fa-plug"></i>
+          {{ else if eq .icon "testing" }}<i class="fa-solid fa-vial"></i>
+          {{ else }}<i class="fa-solid fa-star"></i>{{ end }}
+        </span>
+        <div class="min-w-0">
+          <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-aurelia transition-colors duration-200">
             {{ .name }}
           </h3>
-          
-          <!-- Description -->
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">
             {{ .description }}
           </p>
         </div>
-
-        <!-- Decorative corner accent -->
-        <div class="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-br from-aurelia/10 to-purple-500/10 
-                    rotate-45 transform group-hover:scale-150 transition-transform duration-300"></div>
       </div>
       {{ end }}
     </div>
