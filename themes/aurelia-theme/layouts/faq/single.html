@@ -2,6 +2,21 @@
 
 {{ partial "page-header" . }}
 
+{{/* FAQPage structured data, generated from the question headings and their answers */}}
+{{ $faq := slice }}
+{{ range after 1 (split .Content "<h2") }}
+  {{ $question := . | replaceRE `(?s)^.*?>` "" | replaceRE `(?s)</h2>.*$` "" | plainify | htmlUnescape | strings.TrimSpace }}
+  {{ $answer := . | replaceRE `(?s)^.*?</h2>` "" | strings.TrimSpace }}
+  {{ if and $question $answer }}
+    {{ $faq = $faq | append (dict "@type" "Question" "name" $question "acceptedAnswer" (dict "@type" "Answer" "text" $answer)) }}
+  {{ end }}
+{{ end }}
+{{ with $faq }}
+<script type="application/ld+json">
+{{ (dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" .) | jsonify | safeJS }}
+</script>
+{{ end }}
+
 <!-- Mobile Quick Links (below header) -->
 <div class="lg:hidden sticky top-16 z-40 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -46,7 +61,8 @@
       <!-- Main Content -->
       <div class="lg:col-span-8">
         <div class="prose prose-lg max-w-none mb-12 dark:prose-invert
-                    prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-12 prose-h2:text-gray-900 dark:prose-h2:text-white prose-h2:scroll-mt-32
+                    prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-14 prose-h2:pt-14 prose-h2:border-t prose-h2:border-gray-100 dark:prose-h2:border-gray-800 prose-h2:text-gray-900 dark:prose-h2:text-white prose-h2:scroll-mt-32
+                    [&_h2:first-child]:mt-0 [&_h2:first-child]:pt-0 [&_h2:first-child]:border-0
                     prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:text-gray-700 dark:prose-p:text-gray-300
                     prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-6
                     prose-ol:list-decimal prose-ol:ml-6 prose-ol:mb-6
@@ -59,7 +75,7 @@
       <!-- Right Sidebar Navigation -->
       <aside class="hidden lg:block lg:col-span-4">
         <div class="sticky top-24">
-          <nav aria-label="FAQ Navigation" class="bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/40 rounded-2xl p-6 border border-gray-200/60 dark:border-gray-700/40 shadow-sm">
+          <nav aria-label="FAQ Navigation" class="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
             <h3 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
