@@ -51,6 +51,40 @@ aurelia.github.io/
 
 ## 📝 Content Management
 
+### Sponsor Management
+
+Sponsor data is fetched from OpenCollective during deployment. Repository policy is applied before sponsors are
+grouped by tier:
+
+- Add blocked account slugs, domains, or terms to `data/sponsor-exclusions.json`.
+- Add approved tier exceptions to `data/sponsor-tier-overrides.json`, keyed by the OpenCollective account slug.
+- Map duplicate or regional accounts to one canonical account, with an optional display title, in
+  `data/sponsor-aliases.json`:
+
+```json
+{
+  "canonical-account-slug": {
+    "aliases": ["regional-account-slug"],
+    "title": "Display Name"
+  }
+}
+```
+
+For example, an approved Bronze exception is represented as:
+
+```json
+{
+  "account-slug": {
+    "tier": "bronze",
+    "reason": "Approved $30/month exception"
+  }
+}
+```
+
+Valid override tiers are `wood`, `bronze`, `silver`, `gold`, and `platinum`. Exclusions are applied before overrides,
+so an override cannot restore a blocked sponsor. Aliases are also checked against the canonical account's exclusions.
+Run `npm run test:sponsors` after changing any sponsor policy file.
+
 ### Blog Posts
 
 Create new blog posts in `content/blog/YYYY/M/D/` with this frontmatter:
