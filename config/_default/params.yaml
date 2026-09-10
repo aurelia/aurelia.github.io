@@ -4,6 +4,8 @@ sponsors:
   title: "Open Collective"
   subtitle: "Proud financial backers of Aurelia."
 
+  # Sponsor exclusions are maintained centrally in data/sponsor-exclusions.json.
+
   # Platinum & Gold sponsors get SEO-friendly follow links (rel="noopener" only)
   # Platinum sponsors also get: header banner, footer recognition, extra-large homepage placement
   platinum:
@@ -17,30 +19,11 @@ sponsors:
 
   bronze:
     avatar_height: 64
-    blocklist:
-      - nzcasinoclub
-      - trustedcasinos360
-      - no-deposit-bonuses
-      - usd200-no-deposit-bonus-200-free-spins-real-money
-      - https-casinosinlicenciaespana-com-casinos-online-europeos
-      - novecasino-net
-      - slovenskecasino-net
-      - zahranicnicasino-net
-      - casino-magyar
-      - betpokies
-      - guidebook_betwinner_com
-      - payid-pokies-sites
-      - apuetasdeportivases
-      - pokiesgamblercom
+    blocklist: []
 
   wood:
     avatar_height: 32
-    blocklist:
-      - hitcasinobonus
-      - bonusetu
-      - bonuspart
-      - nzcasinoclub
-      - httpscasinostiger-arcom
+    blocklist: []
 
   cta:
     text: "Become a Sponsor!"
