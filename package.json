@@ -9,14 +9,14 @@
     "fetch-sponsors": "node scripts/fetch-sponsors.js"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.0.0-beta.7",
-    "@tailwindcss/postcss": "^4.0.0-beta.7",
-    "@tailwindcss/typography": "^0.5.15",
-    "autoprefixer": "^10.4.20",
-    "concurrently": "^9.1.0",
-    "postcss": "^8.4.49",
-    "postcss-cli": "^11.0.0",
-    "postcss-nesting": "^13.0.2",
-    "tailwindcss": "^4.0.0-beta.7"
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "autoprefixer": "^10.5.5",
+    "concurrently": "^10.0.5",
+    "postcss": "^8.5.28",
+    "postcss-cli": "^12.0.0",
+    "postcss-nesting": "^14.0.1",
+    "tailwindcss": "^4.3.3"
   }
 }
