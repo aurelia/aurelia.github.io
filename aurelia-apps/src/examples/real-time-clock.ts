@@ -4,7 +4,7 @@ import { customElement } from 'aurelia';
 export class RealTimeClock {
   time: string = '00:00:00.000';
   
-  private intervalId = null;
+  private intervalId: ReturnType<typeof setInterval> | null = null;
 
   attached() {
       this.updateTime();

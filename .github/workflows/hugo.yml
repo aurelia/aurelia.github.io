@@ -58,7 +58,6 @@ jobs:
         run: npm ci
 
       - name: Fetch sponsor data
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: npm run fetch-sponsors
       
       # New steps for Aurelia 2 build
@@ -69,7 +68,7 @@ jobs:
       - name: Build Aurelia 2 website
         run: |
           cd aurelia-apps
-          npm install
+          npm ci
           npm run build
           
       # Continue with Hugo build
