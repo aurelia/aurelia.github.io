@@ -2,9 +2,8 @@
 title = "Aurelia 2 RC.1 and RC.2: What You Missed"
 authors = ["Dwayne Charrington"]
 description = "Two release candidates shipped this year without a blog post. Eager route loading, IContextRouter, Vite 8 support, reactive destructuring in repeat.for, and nearly 40 changes in total."
-date = 2026-10-05T08:00:00+11:00
-lastmod = 2026-10-05T08:00:00+11:00
-draft = true
+date = 2026-10-05T08:00:00+10:00
+lastmod = 2026-10-05T08:00:00+10:00
 tags = ["aurelia2", "release", "rc"]
 +++
 
