@@ -1,0 +1,4 @@
+{{- /* Renders playground files as data the Aurelia app reads. Context: slice of (dict "name" "content"). */ -}}
+{{- range . -}}
+<div data-file="{{ .name }}" data-content="{{ .content }}"></div>
+{{- end -}}

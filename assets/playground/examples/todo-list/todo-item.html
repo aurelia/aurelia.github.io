@@ -1,0 +1,5 @@
+<label class="${todo.done ? 'done' : ''}">
+  <input type="checkbox" checked.bind="todo.done">
+  ${todo.title}
+</label>
+<button type="button" click.trigger="onRemove()" aria-label="Remove ${todo.title}">Remove</button>

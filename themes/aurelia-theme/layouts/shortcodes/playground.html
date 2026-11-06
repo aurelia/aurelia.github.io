@@ -1,0 +1,20 @@
+{{- /*
+  An editable Aurelia example. Files go inside as playground-file shortcodes:
+
+  {{< playground height="460" open="my-app.html" >}}
+  {{< playground-file "my-app.ts" >}}
+  export class MyApp { name = 'Aurelia'; }
+  {{< /playground-file >}}
+  {{< playground-file "my-app.html" >}}
+  <h1>Hello, ${name}!</h1>
+  {{< /playground-file >}}
+  {{< /playground >}}
+
+  Without a main.ts, my-app.ts (or the first component) starts the app.
+*/ -}}
+{{- $height := .Get "height" | default 460 -}}
+<div class="not-prose my-8 h-(--pg-height) max-md:h-[calc(var(--pg-height)*1.7)]" style="{{ printf "--pg-height: %vpx" $height | safeCSS }}">
+  <div data-aurelia-app="playground" data-mode="embed" class="block h-full">
+    <div hidden data-example="embed" data-open="{{ .Get "open" }}">{{ .Inner }}</div>
+  </div>
+</div>

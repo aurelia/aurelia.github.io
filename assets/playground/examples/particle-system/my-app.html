@@ -1,0 +1,9 @@
+<div class="stage">
+  <div repeat.for="p of particles" class="particle"
+    style="transform: translate(${p.x}px, ${p.y}px); width: ${p.size}px; height: ${p.size}px;"></div>
+</div>
+
+<label>
+  Particles: ${count}
+  <input type="range" min="10" max="500" value.bind="count" change.trigger="reset()">
+</label>

@@ -1,0 +1,5 @@
+.clock {
+  margin: 0 0 8px;
+  font: 700 48px/1 ui-monospace, Menlo, Consolas, monospace;
+  color: #003f8c;
+}

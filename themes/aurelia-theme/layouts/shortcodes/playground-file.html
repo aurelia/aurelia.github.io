@@ -1,0 +1,2 @@
+{{- /* One file inside a playground shortcode. Usage: {{< playground-file "my-app.ts" >}}...{{< /playground-file >}} */ -}}
+{{- partial "playground/files.html" (slice (dict "name" (.Get 0) "content" (printf "%s" .Inner))) -}}

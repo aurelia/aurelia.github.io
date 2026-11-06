@@ -1,75 +1,31 @@
 {{ define "main" }}
-
-{{ partial "page-header" . }}
-
-<!-- Notification Banner (if exists) -->
-{{ with .Params.notification }}
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-  <div class="rounded-lg bg-amber-50 dark:bg-amber-900/30 p-4 border border-amber-200 dark:border-amber-700">
-    <div class="flex">
-      <p class="text-sm text-amber-700 dark:text-amber-300">{{ . }}</p>
+<section class="pt-safe pb-10 bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
+  <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-4">
+      <h1 class="text-3xl font-bold">{{ .Title }}</h1>
+      {{ with .Description }}<p class="mt-1 text-gray-600 dark:text-gray-400">{{ . }}</p>{{ end }}
     </div>
-  </div>
-</div>
-{{ end }}
 
-<!-- Examples Grid -->
-<section class="pb-16 bg-white dark:bg-gray-950 text-gray-900 dark:text-white pt-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 gap-8">
-      {{ range .Params.examples }}
-      <article class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-800">
-        <div class="mb-4">
-          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">{{ .title }}</h2>
-          <p>{{ .description | markdownify }}</p>
-        </div>
-        <div class="aspect-video relative" data-iframe-container>
-          <div class="absolute inset-0 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center animate-pulse" data-iframe-placeholder>
-            <i class="fas fa-spinner fa-spin text-3xl text-gray-400 dark:text-gray-500"></i>
+    <div class="h-[max(560px,calc(100dvh-var(--nav-height)-10rem))] max-md:h-[900px]">
+      <div data-aurelia-app="playground" data-mode="page" class="block h-full">
+        {{ range .Params.examples }}
+          {{ $dir := printf "assets/playground/examples/%s" .id }}
+          {{ $files := slice }}
+          {{ range readDir $dir }}
+            {{ if not .IsDir }}
+              {{ $files = $files | append (dict "name" .Name "content" (readFile (printf "%s/%s" $dir .Name))) }}
+            {{ end }}
+          {{ end }}
+          <div hidden data-example="{{ .id }}" data-title="{{ .title }}" data-description="{{ .description }}" data-open="{{ .open }}">
+            {{ partial "playground/files.html" $files }}
           </div>
-          <iframe data-src="{{ .url }}"
-                  class="w-full h-full rounded-xl opacity-0 transition-opacity duration-300"
-                  title="{{ .title }} Example">
-          </iframe>
-        </div>
-      </article>
-      {{ end }}
+        {{ end }}
+      </div>
     </div>
+
+    {{ with .Content }}
+    <div class="prose dark:prose-invert max-w-3xl mt-10">{{ . }}</div>
+    {{ end }}
   </div>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const observerOptions = {
-      root: null,
-      rootMargin: '50px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const container = entry.target;
-          const iframe = container.querySelector('iframe');
-          const placeholder = container.querySelector('[data-iframe-placeholder]');
-          
-          if (iframe && iframe.dataset.src) {
-            iframe.src = iframe.dataset.src;
-            iframe.addEventListener('load', () => {
-              iframe.classList.remove('opacity-0');
-              if (placeholder) {
-                placeholder.style.display = 'none';
-              }
-            });
-            observer.unobserve(container);
-          }
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('[data-iframe-container]').forEach(container => {
-      observer.observe(container);
-    });
-  });
-</script>
 {{ end }}

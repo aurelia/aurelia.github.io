@@ -1,0 +1,12 @@
+<label for="message">Message</label>
+<textarea id="message" rows="5" maxlength.bind="limit" value.bind="text"
+  placeholder="Start typing..."></textarea>
+
+<p class="count ${remaining <= 20 ? 'low' : ''}">
+  ${remaining} characters left, ${words} ${words === 1 ? 'word' : 'words'}
+</p>
+
+<label>
+  Limit
+  <input type="number" min="10" max="500" value.bind="limit | number">
+</label>

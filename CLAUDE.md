@@ -34,6 +34,8 @@ npm run build       # Production build to dist/
 npm run lint        # ESLint + Stylelint
 ```
 
+The playground (`/playground/` and the `playground` shortcode) lives in `src/examples/playground.*` and `src/playground/`. Examples for `/playground/` are files in `assets/playground/examples/<id>/`, listed in the front matter of `content/playground.md`. `npm run build` also bundles the Aurelia packages the preview can import (`playground-runtime/entry.ts`) into `static/aurelia2/playground/`. After rebuilding, restart `hugo serve`: it doesn't pick up new chunk names in `static/aurelia2` on its own.
+
 ## Architecture
 
 ### Directory Structure
@@ -54,6 +56,18 @@ npm run lint        # ESLint + Stylelint
 - **Drafts**: Set `draft = true` while iterating
 - **Table of contents**: Add `toc = true` to front matter for auto-generated navigation
 - **Embeds**: URLs from YouTube, StackBlitz, CodePen, npm, GitHub are auto-embedded
+- **Playground embeds**: Use the `playground` shortcode for editable, runnable Aurelia examples. Without a `main.ts`, `my-app.ts` (or the first component) starts the app.
+
+  ```
+  {{< playground height="460" open="my-app.html" >}}
+  {{< playground-file "my-app.ts" >}}
+  export class MyApp { name = 'Aurelia'; }
+  {{< /playground-file >}}
+  {{< playground-file "my-app.html" >}}
+  <h1>Hello, ${name}!</h1>
+  {{< /playground-file >}}
+  {{< /playground >}}
+  ```
 
 ### Writing Style
 

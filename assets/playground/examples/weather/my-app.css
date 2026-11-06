@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input {
+  padding: 6px 8px;
+  font: inherit;
+}
+
+.card h2 {
+  margin: 0;
+}
+
+.temp {
+  margin: 4px 0;
+  font-size: 48px;
+  font-weight: 700;
+  color: #003f8c;
+}
+
+.error {
+  color: #c41a6e;
+}

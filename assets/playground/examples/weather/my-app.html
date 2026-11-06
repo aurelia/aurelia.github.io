@@ -1,0 +1,16 @@
+<form submit.trigger="search()">
+  <input value.bind="city" placeholder="City" aria-label="City">
+  <button type="submit">Check weather</button>
+</form>
+
+<div promise.bind="forecast">
+  <p pending>Checking the sky...</p>
+
+  <section then="w" class="card">
+    <h2>${w.place}, ${w.country}</h2>
+    <p class="temp">${w.temperature}&deg;C</p>
+    <p>${w.summary}, wind ${w.wind} km/h</p>
+  </section>
+
+  <p catch="error" class="error">${error.message}</p>
+</div>

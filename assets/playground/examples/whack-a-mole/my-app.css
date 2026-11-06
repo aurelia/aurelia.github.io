@@ -1,0 +1,39 @@
+.hud {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 12px;
+}
+
+.hole {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 50%;
+  background: #5b3a1e;
+  cursor: pointer;
+}
+
+.mole {
+  position: absolute;
+  bottom: -70px;
+  left: 15px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50% 50% 40% 40%;
+  background: #a0714a;
+  transition: bottom 80ms ease-out;
+}
+
+.hole.up .mole {
+  bottom: 8px;
+}

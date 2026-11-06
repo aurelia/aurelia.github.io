@@ -1,0 +1,15 @@
+<div class="hud">
+  <span>Score: ${score}</span>
+  <span>Best: ${best}</span>
+  <span>Time: ${timeLeft}s</span>
+  <button type="button" click.trigger="start()" disabled.bind="playing">
+    ${best || score ? 'Play again' : 'Start'}
+  </button>
+</div>
+
+<div class="field">
+  <button repeat.for="hole of holes" type="button" class="hole ${hole.up ? 'up' : ''}"
+    click.trigger="whack(hole)" aria-label="Hole ${hole.index + 1}">
+    <span class="mole"></span>
+  </button>
+</div>

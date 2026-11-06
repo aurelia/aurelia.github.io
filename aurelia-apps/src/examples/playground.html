@@ -1,0 +1,73 @@
+<div class="pg pg-mode-${mode} ${dark ? 'is-dark' : ''}">
+  <div class="pg-bar">
+    <label class="pg-picker" if.bind="mode === 'page' && examples.length > 1">
+      <span class="pg-visually-hidden">Example</span>
+      <select change.trigger="loadExample($event.target.value)">
+        <option if.bind="!example" value="" selected>Shared code</option>
+        <option repeat.for="ex of examples" value.bind="ex.id" selected.bind="ex.id === exampleId">${ex.title}</option>
+      </select>
+    </label>
+
+    <div class="pg-tabs" role="tablist" aria-label="Files">
+      <div repeat.for="file of files" class="pg-tab ${file.name === activeFile ? 'is-active' : ''}">
+        <button type="button" role="tab" class="pg-tab-name" aria-selected.bind="file.name === activeFile"
+          click.trigger="openFile(file.name)">${file.name}</button>
+        <button type="button" class="pg-tab-close" if.bind="mode === 'page' && files.length > 1"
+          aria-label="Delete ${file.name}" title="Delete file" click.trigger="removeFile(file.name, $event)">&times;</button>
+      </div>
+      <input if.bind="addingFile" ref="newFileInput" class="pg-new-file" value.bind="newFileName"
+        placeholder="my-element.ts" aria-label="New file name" spellcheck="false" autocomplete="off"
+        keydown.trigger="onNewFileKey($event)" blur.trigger="confirmAddFile()">
+      <button type="button" class="pg-add" if.bind="mode === 'page' && !addingFile" title="Add file"
+        aria-label="Add file" click.trigger="startAddFile()">+</button>
+    </div>
+
+    <div class="pg-actions">
+      <button type="button" class="pg-btn" click.trigger="reset()" title="Discard your changes">Reset</button>
+      <button type="button" class="pg-btn pg-btn-primary" if.bind="mode === 'page'" click.trigger="share()">${shareLabel}</button>
+      <a class="pg-btn" if.bind="mode === 'embed'" href.bind="playgroundHref" target="_blank" rel="noopener">Open in playground</a>
+    </div>
+  </div>
+
+  <p class="pg-file-error" if.bind="newFileError" role="status">${newFileError}</p>
+  <p class="pg-about" if.bind="mode === 'page' && example && example.description">${example.description}</p>
+
+  <div class="pg-body">
+    <div class="pg-editor" ref="editorHost"></div>
+
+    <div class="pg-output">
+      <div class="pg-preview-bar">
+        <span class="pg-label">Preview</span>
+        <span class="pg-status" if.bind="running && hasRun">Updating</span>
+        <span class="pg-version" if.bind="mode === 'page'">Aurelia ${version}</span>
+        <button type="button" class="pg-link-btn" click.trigger="rerun()" title="Run the code again">Run again</button>
+      </div>
+
+      <div class="pg-preview" ref="previewHost">
+        <p class="pg-loading" if.bind="!hasRun && !problem">Loading Aurelia ${version}</p>
+        <div class="pg-problem" if.bind="problem" role="alert">
+          <div class="pg-problem-head">
+            <strong>${problem.title}</strong>
+            <button type="button" class="pg-link-btn" click.trigger="dismissProblem()">Dismiss</button>
+          </div>
+          <pre>${problem.detail}</pre>
+        </div>
+      </div>
+
+      <section class="pg-console ${consoleOpen ? 'is-open' : ''}" aria-label="Console">
+        <div class="pg-console-bar">
+          <button type="button" class="pg-console-toggle" aria-expanded.bind="consoleOpen" click.trigger="toggleConsole()">
+            <span class="pg-caret" aria-hidden="true"></span>
+            Console
+            <span class="pg-count ${errorCount ? 'has-errors' : ''}" if.bind="logs.length">${logs.length}</span>
+          </button>
+          <button type="button" class="pg-link-btn" if.bind="consoleOpen && logs.length" click.trigger="clearLogs()">Clear</button>
+        </div>
+        <ol class="pg-logs" if.bind="consoleOpen" ref="logList">
+          <li repeat.for="log of logs" class="pg-log pg-log-${log.level}">${log.text}</li>
+          <li class="pg-log-empty" if.bind="!logs.length">Output from console.log appears here.</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</div>

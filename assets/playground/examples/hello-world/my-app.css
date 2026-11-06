@@ -1,0 +1,10 @@
+h1 {
+  color: #ed2b88;
+}
+
+input {
+  display: block;
+  margin-top: 4px;
+  padding: 6px 8px;
+  font: inherit;
+}

@@ -1,0 +1,14 @@
+<import from="./todo-item"></import>
+
+<h2>Todos (${remaining} left)</h2>
+
+<form submit.trigger="add()">
+  <input value.bind="newTitle" placeholder="What needs doing?">
+  <button type="submit">Add</button>
+</form>
+
+<ul>
+  <li repeat.for="todo of todos">
+    <todo-item todo.bind="todo" on-remove.bind="() => remove(todo)"></todo-item>
+  </li>
+</ul>
