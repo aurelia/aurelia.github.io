@@ -6,8 +6,10 @@
     <script>
       // Prevent flash of wrong theme
       (function() {
-        const theme = localStorage.getItem('theme') || 'light';
-        if (theme === 'dark') {
+        // A saved choice wins; otherwise follow the operating system.
+        let theme = null;
+        try { theme = localStorage.getItem('theme'); } catch (e) {}
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
           document.documentElement.classList.add('dark');
         }
       })();
@@ -21,7 +23,7 @@
       {{ end }}
     {{ end }}
   </head>
-  <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-200">
+  <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200">
     {{ partial "header.html" . }}
 
     {{ block "main" . }}{{ end }}

@@ -9,7 +9,7 @@
 </div>
 {{ end }}
 {{ end }}
-<nav class="fixed w-full z-50 {{ with .Site.Data.sponsors.tiers.platinum }}{{ $blocklist := $.Site.Params.sponsors.platinum.blocklist }}{{ $hasPlat := false }}{{ range . }}{{ if not (in $blocklist .slug) }}{{ $hasPlat = true }}{{ end }}{{ end }}{{ if $hasPlat }}top-8{{ else }}top-0{{ end }}{{ else }}top-0{{ end }} bg-white dark:bg-gray-900 backdrop-blur-lg shadow-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-200">
+<nav class="fixed w-full z-50 {{ with .Site.Data.sponsors.tiers.platinum }}{{ $blocklist := $.Site.Params.sponsors.platinum.blocklist }}{{ $hasPlat := false }}{{ range . }}{{ if not (in $blocklist .slug) }}{{ $hasPlat = true }}{{ end }}{{ end }}{{ if $hasPlat }}top-8{{ else }}top-0{{ end }}{{ else }}top-0{{ end }} bg-white dark:bg-gray-950 shadow-sm dark:shadow-none border-b border-gray-100 dark:border-gray-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <a href="{{ .Site.BaseURL }}" class="text-aurelia text-2xl font-bold hover:opacity-80 transition-opacity">
@@ -28,7 +28,7 @@
                                 {{ .name }}
                                 <i class="fa-solid fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180 dropdown-chevron"></i>
                             </button>
-                            <div class="dropdown-menu absolute left-0 mt-1 w-64 rounded-lg shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black dark:ring-gray-700 ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out transform origin-top-left group-hover:translate-y-0 -translate-y-2"
+                            <div class="dropdown-menu absolute left-0 mt-1 w-64 rounded-lg shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black/5 dark:ring-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out transform origin-top-left group-hover:translate-y-0 -translate-y-2"
                                  id="dropdown-{{ $index }}"
                                  role="menu"
                                  aria-labelledby="dropdown-button-{{ $index }}">
@@ -53,7 +53,7 @@
                                                     
                                                     <a href="{{ $link }}"
                                                        {{ if .target }}target="{{ .target }}"{{ end }}
-                                                       class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-700{{ end }} transition-colors">
+                                                       class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia dark:text-aurelia-light bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800{{ end }} transition-colors">
                                                         {{ if .icon }}
                                                             <i class="{{ .icon }} w-5 text-center mr-2"></i>
                                                         {{ end }}
@@ -83,7 +83,7 @@
 
                                                 <a href="{{ $link }}"
                                                    {{ if .target }}target="{{ .target }}"{{ end }}
-                                                   class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-700{{ end }} transition-colors">
+                                                   class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia dark:text-aurelia-light bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800{{ end }} transition-colors">
                                                     {{ if .icon }}
                                                         <i class="{{ .icon }} w-5 text-center mr-2"></i>
                                                     {{ end }}
@@ -114,7 +114,7 @@
                         
                         <a href="{{ $link }}"
                            {{ if .target }}target="{{ .target }}"{{ end }}
-                           class="py-2 px-3 rounded-md {{ if $isActive }}text-aurelia bg-pink-50 dark:bg-pink-950 font-semibold{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800{{ end }} transition-colors font-medium">
+                           class="py-2 px-3 rounded-md {{ if $isActive }}text-aurelia dark:text-aurelia-light bg-pink-50 dark:bg-pink-950 font-semibold{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800{{ end }} transition-colors font-medium">
                             {{ .name }}
                         </a>
                     {{ end }}
@@ -194,7 +194,7 @@
                                                         
                                                         <a href="{{ $link }}"
                                                            {{ if .target }}target="{{ .target }}"{{ end }}
-                                                           class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800{{ end }} transition-colors">
+                                                           class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia dark:text-aurelia-light bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800{{ end }} transition-colors">
                                                             {{ if .icon }}
                                                                 <i class="{{ .icon }} w-5 text-center mr-2"></i>
                                                             {{ end }}
@@ -225,7 +225,7 @@
 
                                                 <a href="{{ $link }}"
                                                    {{ if .target }}target="{{ .target }}"{{ end }}
-                                                   class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-700{{ end }} transition-colors">
+                                                   class="flex items-center px-3 py-2 rounded-md text-sm {{ if $isActive }}text-aurelia dark:text-aurelia-light bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800{{ end }} transition-colors">
                                                     {{ if .icon }}
                                                         <i class="{{ .icon }} w-5 text-center mr-2"></i>
                                                     {{ end }}
@@ -254,7 +254,7 @@
                                 
                                 <a href="{{ $link }}"
                                    {{ if .target }}target="{{ .target }}"{{ end }}
-                                   class="block px-4 py-3 rounded-lg text-base font-medium {{ if $isActive }}text-aurelia bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800 active:bg-gray-100 dark:active:bg-gray-700{{ end }} transition-colors">
+                                   class="block px-4 py-3 rounded-lg text-base font-medium {{ if $isActive }}text-aurelia dark:text-aurelia-light bg-pink-50 dark:bg-pink-950{{ else }}text-gray-600 dark:text-gray-300 hover:text-aurelia hover:bg-gray-50 dark:hover:bg-gray-800 active:bg-gray-100 dark:active:bg-gray-700{{ end }} transition-colors">
                                     {{ .name }}
                                 </a>
                             {{ end }}

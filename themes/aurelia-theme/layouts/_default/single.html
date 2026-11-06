@@ -29,7 +29,9 @@
       </div>
       <!-- Right Sidebar Navigation -->
       <div class="lg:col-span-2">
-        {{ partial "in-page-nav.html" . }}
+        <div class="sticky top-24">
+          {{ partial "in-page-nav.html" . }}
+        </div>
       </div>
     </div>
     {{ end }}

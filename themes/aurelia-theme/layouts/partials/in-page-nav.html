@@ -1,37 +1,27 @@
-<div class="hidden lg:block">
-  <div class="sticky top-24 z-50">
-    <nav class="relative" aria-label="Page Navigation">
-      <!-- Navigation Toggle Button -->
-      <button id="page-nav-toggle"
-              class="w-full flex items-center justify-between bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-4 shadow-sm hover:bg-gray-100/80 dark:hover:bg-gray-700/80 transition-colors"
-              aria-expanded="true">
-        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">On This Page</h3>
-        <svg class="w-5 h-5 text-gray-500 dark:text-gray-500 transition-transform duration-200" 
-             fill="none" 
-             stroke="currentColor" 
-             viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      
-      <!-- Navigation Content -->
-      <div id="page-nav-content"
-           class="absolute top-full w-full mt-2 opacity-100 transform transition-all duration-200 ease-in-out bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-4 shadow-sm max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent hover:scrollbar-thumb-aurelia">
-        {{ $headers := findRE "<h2.*?>(.|\n)*?</h2>" .Content }}
-        <ul class="space-y-2">
-          {{ range $headers }}
-            {{ $header := . | replaceRE "<h2.*?>" "" | replaceRE "</h2>" "" | string }}
-            {{ $header := $header | htmlUnescape }}
-            {{ $displayText := $header }}
-            <li>
-              <a href="#{{ $header | anchorize }}"
-                 class="text-gray-600 dark:text-gray-400 hover:text-aurelia text-sm block transition-colors duration-200 py-1 border-l-2 border-transparent hover:border-aurelia pl-2 line-clamp-2">
-                {{ $displayText | safeHTML }}
-              </a>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
+<div class="hidden lg:block mb-8">
+  <details open class="group rounded-lg bg-gray-50 dark:bg-gray-900 dark:ring-1 dark:ring-gray-800">
+    <summary class="flex items-center justify-between cursor-pointer list-none p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/60 transition-colors [&::-webkit-details-marker]:hidden">
+      <h2 class="text-sm font-semibold text-gray-900 dark:text-gray-100">On this page</h2>
+      <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+           fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </summary>
+
+    <nav aria-label="Page Navigation" class="px-4 pb-4 max-h-[60vh] overflow-y-auto">
+      {{ $headers := findRE "<h2.*?>(.|\n)*?</h2>" .Content }}
+      <ul class="border-l-2 border-gray-200 dark:border-gray-800">
+        {{ range $headers }}
+          {{ $header := . | replaceRE "<h2.*?>" "" | replaceRE "</h2>" "" | string }}
+          {{ $header := $header | htmlUnescape }}
+          <li>
+            <a href="#{{ $header | anchorize }}"
+               class="block py-1 pl-3 -ml-0.5 border-l-2 border-transparent text-sm text-gray-600 dark:text-gray-400 hover:text-aurelia dark:hover:text-aurelia-light hover:border-aurelia transition-colors line-clamp-2">
+              {{ $header | safeHTML }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
     </nav>
-  </div>
-</div> 
+  </details>
+</div>

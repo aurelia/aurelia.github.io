@@ -7,6 +7,8 @@
   --color-aurelia-blue: #003f8c;
   --color-aurelia-blue-light: #0066cc;
 
+  --font-mono: "Source Code Pro", ui-monospace, sfmono-regular, menlo, consolas, monospace;
+
   --animation-float-slow: float 8s ease-in-out infinite;
   --animation-float-delayed: float 6s ease-in-out infinite 2s;
   --animation-grid: grid 20s linear infinite;
@@ -18,59 +20,57 @@
 
 @variant dark (.dark &);
 
+/*
+ * Dark mode. Tailwind's greys lean blue, which made the dark pages look like
+ * a generic slate template next to the magenta brand. These keep the same
+ * lightness steps but tint them toward the Aurelia pink, so every existing
+ * dark: utility picks up the new ground without touching the templates.
+ */
+.dark {
+  color-scheme: dark;
+
+  --color-gray-50: oklch(97.5% 0.003 345);
+  --color-gray-100: oklch(94% 0.005 345);
+  --color-gray-200: oklch(89% 0.007 345);
+  --color-gray-300: oklch(82% 0.009 345);
+  --color-gray-400: oklch(72% 0.012 345);
+  --color-gray-500: oklch(58% 0.013 345);
+  --color-gray-600: oklch(46% 0.014 345);
+  --color-gray-700: oklch(36% 0.014 345);
+  --color-gray-800: oklch(27% 0.013 345);
+  --color-gray-900: oklch(21% 0.012 345);
+  --color-gray-950: oklch(17% 0.01 345);
+
+  /* Active nav items and tags: a quiet brand tint instead of maroon. */
+  --color-pink-950: oklch(28% 0.06 355);
+}
+
+/* Code: one palette for highlighted blocks, built from the brand blue and pink. */
+:root {
+  --code-bg: oklch(21% 0.012 345);
+  --code-border: transparent;
+  --code-fg: #ece6ee;
+  --code-muted: #a093a3;
+  --code-punct: #cbbfcd;
+  --code-keyword: #8fb8ff;
+  --code-string: #ff8cc4;
+  --code-number: #f2b766;
+  --code-attr: #9fd8b8;
+  --code-function: #c9d8ff;
+  --code-inline-bg: oklch(95% 0.006 345);
+  --code-inline-fg: #8a1450;
+}
+
+.dark {
+  --code-bg: oklch(20.5% 0.012 345);
+  --code-border: oklch(28% 0.013 345);
+  --code-inline-bg: oklch(25% 0.013 345);
+  --code-inline-fg: #ffb3d6;
+}
+
 @layer base {
   :root {
     --nav-height: 5rem;
-  }
-
-  /* Code block styling */
-  .code-block {
-    @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-1;
-  }
-
-  .code-block .highlight {
-    @apply rounded-lg overflow-hidden;
-  }
-
-  .code-block .highlight pre {
-    @apply p-4 overflow-x-auto text-sm font-mono;
-  }
-
-  /* Syntax highlighting colors */
-  .highlight {
-    @apply bg-gray-50 dark:bg-gray-800;
-  }
-
-  .highlight .nx {
-    @apply text-violet-700 dark:text-violet-400;
-  }
-
-  .highlight .s1, .highlight .s2 {
-    @apply text-green-600 dark:text-green-400;
-  }
-
-  .highlight .k, .highlight .kd {
-    @apply text-purple-600 dark:text-purple-400;
-  }
-
-  .highlight .c1, .highlight .cm {
-    @apply text-gray-500 dark:text-gray-400;
-  }
-
-  .highlight .p {
-    @apply text-gray-700 dark:text-gray-300;
-  }
-
-  .highlight .o {
-    @apply text-gray-900 dark:text-gray-100;
-  }
-
-  .highlight .nt {
-    @apply text-violet-600 dark:text-violet-400;
-  }
-
-  .highlight .na {
-    @apply text-amber-600 dark:text-amber-400;
   }
 }
 
@@ -164,4 +164,79 @@ html {
   html {
     scroll-behavior: auto;
   }
+}
+
+/*
+ * Unlayered so they win over the typography plugin, which lives in the
+ * utilities layer.
+ */
+.highlight pre,
+pre.chroma {
+  margin: 1.5em 0;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  border: 1px solid var(--code-border);
+  border-radius: 0.5rem;
+  background: var(--code-bg);
+  color: var(--code-fg);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.code-block .highlight pre {
+  margin: 0;
+}
+
+.highlight pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-weight: 400;
+}
+
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf { color: var(--code-muted); font-style: italic; }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt, .chroma .ow, .chroma .nt { color: var(--code-keyword); }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: var(--code-string); }
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo, .chroma .bp { color: var(--code-number); }
+.chroma .na, .chroma .nc, .chroma .nb, .chroma .nd, .chroma .ne, .chroma .nn { color: var(--code-attr); }
+.chroma .nf, .chroma .fm { color: var(--code-function); }
+.chroma .o, .chroma .p { color: var(--code-punct); }
+.chroma .err { color: inherit; background: none; }
+.chroma .hl { display: block; margin: 0 -1.25rem; padding: 0 1.25rem; background: oklch(100% 0 0 / 0.06); }
+.chroma .gd { color: #ff9a9a; }
+.chroma .gi { color: var(--code-attr); }
+.chroma .ln, .chroma .lnt { margin-right: 1em; color: var(--code-muted); user-select: none; }
+
+/* Inline code: drop the typography plugin's literal backticks. */
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+.prose :not(pre) > code {
+  padding: 0.15em 0.35em;
+  border-radius: 0.3rem;
+  background: var(--code-inline-bg);
+  color: var(--code-inline-fg);
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+.prose :is(h1, h2, h3, h4) > code {
+  color: inherit;
+}
+
+.dark .prose {
+  --tw-prose-invert-links: var(--color-aurelia-light);
+  --tw-prose-invert-body: var(--color-gray-300);
+  --tw-prose-invert-bold: var(--color-gray-100);
+  --tw-prose-invert-quote-borders: var(--color-gray-700);
+  --tw-prose-invert-hr: var(--color-gray-800);
+  --tw-prose-invert-th-borders: var(--color-gray-700);
+  --tw-prose-invert-td-borders: var(--color-gray-800);
+}
+
+.dark ::selection {
+  background: oklch(40% 0.12 355);
+  color: #fff;
 }

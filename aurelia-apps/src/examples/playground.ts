@@ -21,6 +21,19 @@ interface Problem {
 
 const fileName = /^[a-z0-9][a-z0-9._/-]*\.(ts|js|html|css)$/i;
 const MAX_LOGS = 300;
+const SPLIT_KEY = 'au-playground-split';
+const SPLIT_MIN = 25;
+const SPLIT_MAX = 75;
+const isMac = typeof navigator !== 'undefined' && /mac|iphone|ipad/i.test(navigator.platform || navigator.userAgent);
+
+const readSplit = (): number => {
+  try {
+    const value = Number(localStorage.getItem(SPLIT_KEY));
+    return value >= SPLIT_MIN && value <= SPLIT_MAX ? value : 50;
+  } catch {
+    return 50;
+  }
+};
 
 /** Reads the examples Hugo rendered into the host element. */
 function readExamples(host: HTMLElement): PlaygroundExample[] {
@@ -73,11 +86,19 @@ export class Playground {
   shareLabel = 'Copy link';
   playgroundHref = '/playground/';
   dark = false;
+  previewDark = false;
+  split = readSplit();
+  resizing = false;
+  renaming: string | null = null;
+  renameValue = '';
+  readonly runShortcut = isMac ? '⌘S' : 'Ctrl+S';
 
   editorHost!: HTMLElement;
   previewHost!: HTMLElement;
   logList?: HTMLElement;
   newFileInput?: HTMLInputElement;
+  renameInput?: HTMLInputElement;
+  bodyEl!: HTMLElement;
 
   private editor: PlaygroundEditor | null = null;
   private preview: PreviewFrame | null = null;
@@ -93,6 +114,16 @@ export class Playground {
     return this.examples.find(e => e.id === this.exampleId);
   }
 
+  get status(): 'loading' | 'running' | 'error' | 'ready' {
+    if (this.problem) return 'error';
+    if (this.running) return 'running';
+    return this.hasRun ? 'ready' : 'loading';
+  }
+
+  get statusText(): string {
+    return { loading: 'Starting', running: 'Updating', error: this.problem?.title ?? 'Error', ready: 'Up to date' }[this.status];
+  }
+
   get errorCount(): number {
     return this.logs.filter(l => l.level === 'error').length;
   }
@@ -102,15 +133,26 @@ export class Playground {
     this.examples = readExamples(this.host);
     this.consoleOpen = this.mode === 'page';
     this.dark = document.documentElement.classList.contains('dark');
+    this.previewDark = this.dark;
   }
 
   async attached(): Promise<void> {
-    this.editor = new PlaygroundEditor(this.editorHost, (name, content) => this.onEdit(name, content), this.dark);
+    this.editor = new PlaygroundEditor(
+      this.editorHost,
+      (name, content) => this.onEdit(name, content),
+      this.dark,
+      () => this.runNow(),
+    );
     this.preview = new PreviewFrame(this.previewHost, message => this.onPreviewMessage(message));
+    this.preview.setTheme(this.previewDark ? 'dark' : 'light');
 
     this.themeObserver = new MutationObserver(() => {
-      this.dark = document.documentElement.classList.contains('dark');
-      this.editor?.setDark(this.dark);
+      const dark = document.documentElement.classList.contains('dark');
+      if (dark === this.dark) return;
+      this.dark = dark;
+      this.editor?.setDark(dark);
+      // The preview follows the site theme until someone flips it by hand.
+      this.setPreviewDark(dark);
     });
     this.themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
@@ -249,6 +291,88 @@ export class Playground {
     void this.compileNow();
   }
 
+  /** Cmd/Ctrl+S and Cmd/Ctrl+Enter: run now instead of waiting for the typing pause. */
+  runNow(): void {
+    window.clearTimeout(this.compileTimer);
+    void this.compileNow();
+    if (this.mode === 'page') {
+      window.clearTimeout(this.hashTimer);
+      void this.updateShareLinks(true);
+    }
+  }
+
+  /** Same shortcuts when focus is outside the editor (the editor handles its own and prevents default). */
+  onKeydown(event: KeyboardEvent): boolean {
+    const mod = isMac ? event.metaKey : event.ctrlKey;
+    if (!event.defaultPrevented && mod && (event.key === 's' || event.key === 'Enter')) {
+      event.preventDefault();
+      this.runNow();
+    }
+    return true;
+  }
+
+  togglePreviewTheme(): void {
+    this.setPreviewDark(!this.previewDark);
+  }
+
+  private setPreviewDark(dark: boolean): void {
+    this.previewDark = dark;
+    this.preview?.setTheme(dark ? 'dark' : 'light');
+  }
+
+  // Split between the editor and the output.
+
+  startResize(event: PointerEvent): void {
+    if (event.button !== 0) return;
+    const handle = event.currentTarget as HTMLElement;
+    handle.setPointerCapture(event.pointerId);
+    this.resizing = true;
+    event.preventDefault();
+  }
+
+  onResize(event: PointerEvent): void {
+    if (!this.resizing) return;
+    const rect = this.bodyEl.getBoundingClientRect();
+    this.setSplit(((event.clientX - rect.left) / rect.width) * 100);
+  }
+
+  endResize(event: PointerEvent): void {
+    if (!this.resizing) return;
+    (event.currentTarget as HTMLElement).releasePointerCapture(event.pointerId);
+    this.resizing = false;
+    this.saveSplit();
+  }
+
+  onResizeKey(event: KeyboardEvent): boolean {
+    const step = event.shiftKey ? 10 : 2;
+    if (event.key === 'ArrowLeft') this.setSplit(this.split - step);
+    else if (event.key === 'ArrowRight') this.setSplit(this.split + step);
+    else if (event.key === 'Home') this.setSplit(SPLIT_MIN);
+    else if (event.key === 'End') this.setSplit(SPLIT_MAX);
+    else if (event.key === 'Enter') this.setSplit(50);
+    else return true;
+    event.preventDefault();
+    this.saveSplit();
+    return true;
+  }
+
+  resetSplit(): void {
+    this.setSplit(50);
+    this.saveSplit();
+  }
+
+  private setSplit(value: number): void {
+    this.split = Math.round(Math.min(SPLIT_MAX, Math.max(SPLIT_MIN, value)) * 10) / 10;
+  }
+
+  private saveSplit(): void {
+    try {
+      localStorage.setItem(SPLIT_KEY, String(this.split));
+    } catch {
+      // Storage can be blocked; the split just won't be remembered.
+    }
+  }
+
   private onPreviewMessage(message: PreviewMessage): void {
     if (message.type === 'console') {
       this.pushLog(message.level, message.args.join(' '));
@@ -318,22 +442,74 @@ export class Playground {
     return true;
   }
 
+  private nameError(name: string, except?: string): string {
+    if (!fileName.test(name)) return 'Use a .ts, .js, .html or .css name, like my-element.ts';
+    if (name !== except && this.files.some(f => f.name === name)) return `${name} already exists`;
+    return '';
+  }
+
   confirmAddFile(): void {
     const name = this.newFileName.trim();
     if (!name) return this.cancelAddFile();
-    if (!fileName.test(name)) {
-      this.newFileError = 'Use a .ts, .js, .html or .css name, like my-element.ts';
-      return;
-    }
-    if (this.files.some(f => f.name === name)) {
-      this.newFileError = `${name} already exists`;
-      return;
-    }
+    this.newFileError = this.nameError(name);
+    if (this.newFileError) return;
+    this.addingFile = false;
     const file = { name, content: starterContent(name) };
     this.files = sortFiles([...this.files, file]);
     this.editor?.add(name, file.content);
-    this.addingFile = false;
     this.openFile(name);
+    this.scheduleCompile();
+    this.scheduleHashUpdate();
+  }
+
+  startRename(name: string): void {
+    if (this.mode !== 'page') return;
+    this.renaming = name;
+    this.renameValue = name;
+    this.newFileError = '';
+    queueMicrotask(() => {
+      const input = this.renameInput;
+      if (!input) return;
+      input.focus();
+      // Select the base name so typing replaces it and keeps the extension.
+      input.setSelectionRange(0, name.lastIndexOf('.') > 0 ? name.lastIndexOf('.') : name.length);
+    });
+  }
+
+  onRenameKey(event: KeyboardEvent): boolean {
+    if (event.key === 'Enter') {
+      this.confirmRename();
+      return false;
+    }
+    if (event.key === 'Escape') {
+      this.cancelRename();
+      return false;
+    }
+    return true;
+  }
+
+  cancelRename(): void {
+    this.renaming = null;
+    this.newFileError = '';
+  }
+
+  confirmRename(): void {
+    const from = this.renaming;
+    if (!from) return;
+    const to = this.renameValue.trim();
+    if (!to || to === from) return this.cancelRename();
+    this.newFileError = this.nameError(to, from);
+    if (this.newFileError) return;
+
+    // Clear first: re-sorting the tabs removes the focused input, and its blur
+    // would otherwise run this again.
+    this.renaming = null;
+    const file = this.files.find(f => f.name === from);
+    if (!file) return;
+    file.name = to;
+    this.files = sortFiles(this.files);
+    this.editor?.rename(from, to);
+    if (this.activeFile === from) this.activeFile = to;
     this.scheduleCompile();
     this.scheduleHashUpdate();
   }

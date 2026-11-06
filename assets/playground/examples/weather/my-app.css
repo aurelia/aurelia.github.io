@@ -17,9 +17,9 @@ input {
   margin: 4px 0;
   font-size: 48px;
   font-weight: 700;
-  color: #003f8c;
+  color: light-dark(#003f8c, #8fb8ff);
 }
 
 .error {
-  color: #c41a6e;
+  color: light-dark(#c41a6e, #ff8cc4);
 }

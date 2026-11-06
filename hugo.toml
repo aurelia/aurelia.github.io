@@ -25,7 +25,7 @@ theme = "aurelia-theme"
     [markup.goldmark.extensions]
       linkify = true
   [markup.highlight]
-    style = "monokai"
+    noClasses = false
 
 [services]
   [services.googleAnalytics]

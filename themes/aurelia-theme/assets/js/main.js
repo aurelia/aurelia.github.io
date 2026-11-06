@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function toggleTheme() {
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
+        // Read the page, not storage: with no saved choice the theme follows the OS.
+        const isDark = document.documentElement.classList.contains('dark');
+        setTheme(isDark ? 'light' : 'dark');
     }
 
     if (themeToggle) {

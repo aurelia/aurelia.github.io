@@ -57,6 +57,12 @@ function bridge(run: number) {
     stack: error && error.stack ? String(error.stack) : undefined,
   });
   window.__reportPlaygroundError = report;
+  // The playground can flip the preview between light and dark without a rerun.
+  addEventListener('message', event => {
+    const data = event.data;
+    if (event.source !== parent || !data || data.source !== 'au-playground-host') return;
+    if (data.type === 'theme') document.documentElement.dataset.theme = data.theme;
+  });
   addEventListener('error', event => report(event.error || event.message));
   addEventListener('unhandledrejection', event => report(event.reason));
 })();`;
@@ -123,16 +129,26 @@ function loader(result: CompileResult) {
 })();`;
 }
 
+// Example CSS can use light-dark() to follow the preview theme.
 const baseStyles = `
   :root { color-scheme: light; }
-  body { margin: 0; padding: 16px; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  :root[data-theme="dark"] { color-scheme: dark; }
+  body {
+    margin: 0;
+    padding: 16px;
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: light-dark(#1f2328, #ece6ee);
+    background: light-dark(#fff, #17131a);
+  }
 `;
 
-export function buildDocument(result: CompileResult, runtime: string, run: number): string {
+export type PreviewTheme = 'light' | 'dark';
+
+export function buildDocument(result: CompileResult, runtime: string, run: number, theme: PreviewTheme = 'light'): string {
   const styles = result.css.map(file => `<style data-file="${file.name.replace(/"/g, '')}">${file.code.replace(/<\/style/gi, '<\\/style')}</style>`);
 
   return `<!doctype html>
-<html lang="en">
+<html lang="en" data-theme="${theme}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -152,6 +168,7 @@ ${result.bodyHtml ?? ''}
 export class PreviewFrame {
   private frame: HTMLIFrameElement | null = null;
   private run = 0;
+  private theme: PreviewTheme = 'light';
   private readonly onMessageBound = (event: MessageEvent) => this.onWindowMessage(event);
 
   constructor(
@@ -168,11 +185,16 @@ export class PreviewFrame {
     frame.title = 'Preview';
     // No allow-same-origin: shared code can't touch aurelia.io.
     frame.setAttribute('sandbox', 'allow-scripts allow-modals allow-forms allow-popups');
-    frame.srcdoc = buildDocument(result, runtime, run);
+    frame.srcdoc = buildDocument(result, runtime, run, this.theme);
     this.frame?.remove();
     this.host.prepend(frame);
     this.frame = frame;
     return run;
+  }
+
+  setTheme(theme: PreviewTheme): void {
+    this.theme = theme;
+    this.frame?.contentWindow?.postMessage({ source: 'au-playground-host', type: 'theme', theme }, '*');
   }
 
   private onWindowMessage(event: MessageEvent): void {

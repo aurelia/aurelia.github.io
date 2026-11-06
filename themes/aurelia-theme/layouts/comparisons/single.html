@@ -14,7 +14,7 @@
           <!-- Framework Tabs -->
           <div class="flex space-x-1 mb-6 border-b border-gray-200 dark:border-gray-700">
             <button
-              class="px-4 py-2 text-sm font-medium rounded-t-lg bg-violet-100 dark:bg-violet-900 text-violet-900 dark:text-violet-100 border-b-2 border-violet-600"
+              class="px-4 py-2 text-sm font-medium rounded-t-lg bg-pink-50 dark:bg-pink-950 text-aurelia dark:text-aurelia-light border-b-2 border-aurelia"
               onclick="switchTab(this, 'aurelia-{{ $index }}')"
             >
               <i class="fas fa-bolt mr-2"></i>Aurelia
@@ -102,13 +102,13 @@ function switchTab(button, panelId) {
   // Remove active states from all tabs
   const tabContainer = button.parentElement;
   tabContainer.querySelectorAll('button').forEach(tab => {
-    tab.classList.remove('bg-violet-100', 'dark:bg-violet-900', 'text-violet-900', 'dark:text-violet-100', 'border-b-2', 'border-violet-600');
+    tab.classList.remove('bg-pink-50', 'dark:bg-pink-950', 'text-aurelia', 'dark:text-aurelia-light', 'border-b-2', 'border-aurelia');
     tab.classList.add('text-gray-600', 'dark:text-gray-400');
   });
 
   // Add active state to clicked tab
   button.classList.remove('text-gray-600', 'dark:text-gray-400');
-  button.classList.add('bg-violet-100', 'dark:bg-violet-900', 'text-violet-900', 'dark:text-violet-100', 'border-b-2', 'border-violet-600');
+  button.classList.add('bg-pink-50', 'dark:bg-pink-950', 'text-aurelia', 'dark:text-aurelia-light', 'border-b-2', 'border-aurelia');
   
   // Hide all panels
   const comparisonBlock = button.closest('.comparison-block');

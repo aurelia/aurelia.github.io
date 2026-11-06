@@ -1,5 +1,5 @@
 import { EditorView, basicSetup } from 'codemirror';
-import { Compartment, EditorState, type Extension } from '@codemirror/state';
+import { Compartment, EditorState, Prec, type Extension } from '@codemirror/state';
 import { keymap } from '@codemirror/view';
 import { indentWithTab } from '@codemirror/commands';
 import { HighlightStyle, syntaxHighlighting, indentUnit } from '@codemirror/language';
@@ -24,19 +24,22 @@ const lightHighlight = HighlightStyle.define([
   { tag: t.invalid, color: '#c62828' },
 ]);
 
+// Matches the site's dark code blocks (main.css): brand blue and pink on a
+// pink-tinted charcoal.
 const darkHighlight = HighlightStyle.define([
   { tag: [t.keyword, t.modifier, t.operatorKeyword, t.controlKeyword], color: '#8fb8ff' },
   { tag: [t.string, t.special(t.string), t.regexp], color: '#ff8cc4' },
   { tag: [t.number, t.bool, t.null, t.atom], color: '#f2b766' },
-  { tag: [t.comment, t.lineComment, t.blockComment], color: '#8b93a1', fontStyle: 'italic' },
-  { tag: [t.typeName, t.className, t.namespace], color: '#74c7ec' },
+  { tag: [t.comment, t.lineComment, t.blockComment], color: '#a093a3', fontStyle: 'italic' },
+  { tag: [t.typeName, t.className, t.namespace], color: '#9fd8b8' },
   { tag: [t.tagName, t.angleBracket], color: '#8fb8ff' },
-  { tag: [t.attributeName], color: '#6fd6c2' },
+  { tag: [t.attributeName], color: '#9fd8b8' },
   { tag: [t.attributeValue], color: '#ff8cc4' },
-  { tag: [t.function(t.variableName), t.function(t.propertyName)], color: '#b9c3ff' },
-  { tag: [t.definition(t.variableName), t.definition(t.propertyName)], color: '#e6e8eb' },
-  { tag: [t.propertyName], color: '#cdd3dc' },
-  { tag: t.invalid, color: '#ff6b6b' },
+  { tag: [t.function(t.variableName), t.function(t.propertyName)], color: '#c9d8ff' },
+  { tag: [t.definition(t.variableName), t.definition(t.propertyName)], color: '#ece6ee' },
+  { tag: [t.propertyName], color: '#d9cfdb' },
+  { tag: [t.punctuation, t.separator, t.bracket], color: '#cbbfcd' },
+  { tag: t.invalid, color: '#ff8a8a' },
 ]);
 
 const baseTheme = EditorView.theme({
@@ -64,13 +67,18 @@ const lightTheme = [
 
 const darkTheme = [
   EditorView.theme({
-    '&': { backgroundColor: '#111827', color: '#e6e8eb' },
-    '.cm-gutters': { backgroundColor: '#111827', color: '#5d6675' },
-    '.cm-activeLine, .cm-activeLineGutter': { backgroundColor: '#172033' },
+    '&': { backgroundColor: 'oklch(20.5% 0.012 345)', color: '#ece6ee' },
+    '.cm-gutters': { backgroundColor: 'oklch(20.5% 0.012 345)', color: '#6f6472' },
+    '.cm-activeLine, .cm-activeLineGutter': { backgroundColor: 'oklch(23.5% 0.013 345)' },
+    '.cm-activeLineGutter': { color: '#b3a8b6' },
     '.cm-cursor': { borderLeftColor: '#ff4da1' },
-    '&.cm-focused .cm-selectionBackground, .cm-selectionBackground, ::selection': { backgroundColor: '#5a2343' },
-    '.cm-matchingBracket': { backgroundColor: '#22304a', outline: '1px solid #3c5480' },
-    '.cm-tooltip': { backgroundColor: '#1f2937', color: '#e6e8eb', border: '1px solid #374151' },
+    '&.cm-focused .cm-selectionBackground, .cm-selectionBackground, ::selection': { backgroundColor: 'oklch(36% 0.09 355)' },
+    '.cm-matchingBracket': { backgroundColor: 'oklch(30% 0.04 255)', outline: '1px solid oklch(45% 0.07 255)' },
+    '.cm-tooltip': { backgroundColor: 'oklch(23.5% 0.013 345)', color: '#ece6ee', border: '1px solid oklch(32% 0.014 345)' },
+    '.cm-tooltip-autocomplete > ul > li[aria-selected]': { backgroundColor: 'oklch(36% 0.09 355)', color: '#fff' },
+    '.cm-foldPlaceholder': { backgroundColor: 'oklch(27% 0.013 345)', border: 'none', color: '#b3a8b6' },
+    '.cm-searchMatch': { backgroundColor: 'oklch(40% 0.08 80 / 0.5)' },
+    '.cm-panels': { backgroundColor: 'oklch(17.5% 0.01 345)', color: '#ece6ee' },
   }, { dark: true }),
   syntaxHighlighting(darkHighlight),
 ];
@@ -92,6 +100,7 @@ export class PlaygroundEditor {
     parent: HTMLElement,
     private readonly onChange: (name: string, content: string) => void,
     dark: boolean,
+    private readonly onRun: () => void = () => {},
   ) {
     this.dark = dark;
     this.view = new EditorView({
@@ -110,6 +119,11 @@ export class PlaygroundEditor {
       doc: content,
       extensions: [
         basicSetup,
+        // Mod-Enter would otherwise insert a blank line, and Mod-S would open the browser's save dialog.
+        Prec.highest(keymap.of([
+          { key: 'Mod-Enter', run: () => (this.onRun(), true) },
+          { key: 'Mod-s', run: () => (this.onRun(), true), preventDefault: true },
+        ])),
         keymap.of([indentWithTab]),
         indentUnit.of('  '),
         EditorState.tabSize.of(2),
@@ -130,6 +144,18 @@ export class PlaygroundEditor {
 
   add(name: string, content: string): void {
     this.states.set(name, this.createState(name, content));
+  }
+
+  /** Moves a file to a new name. The language follows the new extension, so undo history resets. */
+  rename(from: string, to: string): void {
+    const state = this.states.get(from);
+    if (!state) return;
+    this.states.delete(from);
+    this.states.set(to, this.createState(to, state.doc.toString()));
+    if (this.current === from) {
+      this.current = null;
+      this.open(to);
+    }
   }
 
   remove(name: string): void {
